@@ -1,6 +1,6 @@
 <include file='include/header'/>
   
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/fundlist.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/fundlist.css?1">
 <!-- 基金超市 开始-->
 	<div id="super_content"> 
 		<!-- 大标题 -->
@@ -22,9 +22,14 @@
 		 	<div class="super-list"> 
 		 	<!-- 遍历开始 --> 
 		 	<volist name="fundlist" id="fundItem">
-		 		<!-- 列表单个选项 -->
-		 		 
-		 		<div class="super-item right-margin">
+		 		<!-- 列表单个选项 --> 
+		 		 <php>
+		 		 	$right_margin="right-margin";
+		 		 	if($i==4||$i==8){
+						$right_margin="";
+		 		 	}
+		 		 </php>
+		 		<div class="super-item {$right_margin}">
 		 			<div class="super-item-tip">
 		 				<span>{$fundItem.fund_type}</span>
 		 			</div>
