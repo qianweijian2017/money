@@ -17,10 +17,9 @@
 		 </div>
 		 <!-- 大标题end -->
 		 <!-- 主盒子开始 -->
-		 <div class="super-main">
+		 <div class="super-main clearfix">
 		  <!-- 主列表开始 -->
-		 	<div class="super-list">
- 
+		 	<div class="super-list"> 
 		 	<!-- 遍历开始 --> 
 		 	<volist name="fundlist" id="fundItem">
 		 		<!-- 列表单个选项 -->
@@ -63,5 +62,10 @@
 		 </div>
 		   <!-- 主盒子end-->
 	</div>
-	 <!-- 基金超市end--> 
+	 <!-- 基金超市end-->  
+	 <!-- 分页 -->
+	 <div class="b-page"> 
+		{$sPages} 
+	 </div>
+ 	 <!-- 分页 end-->
 <include file='include/footer'/>
