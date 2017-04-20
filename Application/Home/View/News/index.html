@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品列表</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/bootsrapv3.3.7/css/bootstrap.min.css">
+</head>
+<body> 
+	<table>	
+		<volist name='newslist' id='item'>
+			<tr>
+				<td>
+				<a href="{:U('Goods/detail',array('newsid'=>$item['id']))}" >{$item.news_title}</a>
+				</td>
+			</tr>
+		</volist>
+	</table>
+	 
+	<ul class="pagination">
+		{$page}
+	</ul>
+
+	<script src="__PUBLIC__/Lib/jquery-1.9.1.min.js"></script>
+	<script src="__PUBLIC__/Lib/bootsrapv3.3.7/js/bootstrap.min.js"></script>
+	 
+</body>
+</html>

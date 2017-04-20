@@ -1,0 +1,11 @@
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);
+INSERT INTO `mn_fund` VALUES (123123, 'xcv', 'sfsdf', 'sfdsf', 'sfdf', 22, 44, 44, 44, 1, 234234);

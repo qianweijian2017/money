@@ -1,0 +1,67 @@
+<include file='include/header'/>
+  
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/fundlist.css">
+<!-- 基金超市 开始-->
+	<div id="super_content"> 
+		<!-- 大标题 -->
+		 <div class="super-title clearfix">
+		 	<div class="super-title-left">
+		 		<h3>明星基金推荐</h3>
+		 		<span>近年来表现优异的基金</span>
+		 		<a href="">更多>></a>
+		 	</div> 
+		 	<div class="super-title-right">
+		 		<span>基金销售服务由盈米财富提供</span>
+		 		<a href="">详情>></a>
+		 	</div>
+		 </div>
+		 <!-- 大标题end -->
+		 <!-- 主盒子开始 -->
+		 <div class="super-main">
+		  <!-- 主列表开始 -->
+		 	<div class="super-list">
+ 
+		 	<!-- 遍历开始 --> 
+		 	<volist name="fundlist" id="fundItem">
+		 		<!-- 列表单个选项 -->
+		 		<div class="super-item right-margin">
+		 			<div class="super-item-tip">
+		 				<span>{$fundItem.fund_type}</span>
+		 			</div>
+		 			<div class="super-item-title">
+		 				<p>{$fundItem.fund_fullname}</p>
+		 				<span>{$fundItem.fund_name} {$fundItem.fund_code}</span>
+		 			</div> 
+		 			<p class="line"></p>
+					<div class="super-item-per">
+						<span>
+							{$fundItem.year_profit}
+						</span>
+						<small>
+							%
+						</small>
+						<p>近一年收益</p>
+					</div>
+					<div class="super-item-recent">
+						最新净值
+						<span>
+							(元)
+						</span>
+						{$fundItem.navunit}
+					</div>
+					<div class="super-item-btn">
+						<a href="">立即购买</a>
+					</div>
+		 		</div> 
+		 		<!-- 列表单个选项end -->
+		 	 </volist>
+		 	 <!-- 遍历end -->
+ 
+
+		 	</div>
+		 	  <!-- 主列表end -->
+		 </div>
+		   <!-- 主盒子end-->
+	</div>
+	 <!-- 基金超市end--> 
+<include file='include/footer'/>
