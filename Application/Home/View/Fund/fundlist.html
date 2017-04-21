@@ -24,14 +24,25 @@
 		 	<volist name="fundlist" id="fundItem">
 		 		<!-- 列表单个选项 --> 
 		 		 <php>
-		 		 	$right_margin="right-margin";
+		 		 	$right_margin="right-margin"; 
 		 		 	if($i==4||$i==8){
 						$right_margin="";
 		 		 	}
+		 		 	$icon_color=""; 
+		 		 	$fund_type=trim($fundItem['fund_type']); 
+					switch($fund_type){
+						case "指数型":$icon_color="yellow";break;
+						case "货币型":$icon_color="green";break;
+						case "债券型":$icon_color="bohe";break;
+						case "海外型":$icon_color="red";break;
+						case "理财型":$icon_color="licai";break;
+						default:$icon_color="default";
+		 		 	 }
 		 		 </php>
+					
 		 		<div class="super-item {$right_margin}">
 		 			<div class="super-item-tip">
-		 				<span>{$fundItem.fund_type}</span>
+		 				<span class="{$icon_color}">{$fundItem.fund_type}</span>
 		 			</div>
 		 			<div class="super-item-title">
 		 				<p>{$fundItem.fund_fullname}</p>
@@ -55,7 +66,7 @@
 						{$fundItem.navunit}
 					</div>
 					<div class="super-item-btn">
-						<a href="">立即购买</a>
+						<a href="{:U('Fund/detail')}">立即购买</a>
 					</div>
 		 		</div> 
 		 		<!-- 列表单个选项end -->

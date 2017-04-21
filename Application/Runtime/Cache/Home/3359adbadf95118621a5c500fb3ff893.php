@@ -45,10 +45,10 @@
             <div class="logo col-md-5">
                 <a href=""><img src="/ThinkPHP/Public/Home/imgs/logo.png"></a>
             </div>
-
+           <?php echo is_active(CONTROLLER_NAME,'Index') ?> 
             <ul class="nav navbar-nav nav_title col-md-7">
-                <li class="<?php is_active(CONTROLLER_NAME,'Index') ?>" hover="1"><a href="<?php echo U('Index/index');?>">首页</a></li>
-                <li hover="1" class="dropdown ">
+                <li class="active" hover="1"><a href="<?php echo U('Index/index');?>">首页</a></li>
+                <li hover="1" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">投资理财<i class="fa fa-chevron-down icon_180"></i><span>New</span></a>
                     <ul class="dropdown-menu nav_second">
                         <li hover="1" class="dropdown">
@@ -62,7 +62,7 @@
                         <li><a><i class="fa fa-refresh" ></i>变现专区<span>(99+)</span></a></li>
                     </ul>
                 </li>
-                <li class="<?php is_active(CONTROLLER_NAME,'Fund') ?>" hover="1"><a href="<?php echo U('Fund/fundlist');?>"> 基金超市<span>Beta</span></a></li>
+                <li hover="1"><a href="<?php echo U('Fund/fundlist');?>"> 基金超市<span>Beta</span></a></li>
                 <li hover="1" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">信息披露<i class="fa fa-chevron-down icon_180"></i></a>
                     <ul class="dropdown-menu nav_second">
@@ -81,75 +81,160 @@
     </div>
 </div>
 
-  
-<link rel="stylesheet" type="text/css" href="/ThinkPHP/Public/Home/css/fundlist.css?1">
-<!-- 基金超市 开始-->
-	<div id="super_content"> 
-		<!-- 大标题 -->
-		 <div class="super-title clearfix">
-		 	<div class="super-title-left">
-		 		<h3>明星基金推荐</h3>
-		 		<span>近年来表现优异的基金</span>
-		 		<a href="">更多>></a>
-		 	</div> 
-		 	<div class="super-title-right">
-		 		<span>基金销售服务由盈米财富提供</span>
-		 		<a href="">详情>></a>
-		 	</div>
-		 </div>
-		 <!-- 大标题end -->
-		 <!-- 主盒子开始 -->
-		 <div class="super-main clearfix">
-		  <!-- 主列表开始 -->
-		 	<div class="super-list"> 
-		 	<!-- 遍历开始 --> 
-		 	<?php if(is_array($fundlist)): $i = 0; $__LIST__ = $fundlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$fundItem): $mod = ($i % 2 );++$i;?><!-- 列表单个选项 --> 
-		 		 <?php $right_margin="right-margin"; if($i==4||$i==8){ $right_margin=""; } $icon_color=""; $fund_type=trim($fundItem['fund_type']); switch($fund_type){ case "指数型":$icon_color="yellow";break; case "货币型":$icon_color="green";break; case "债券型":$icon_color="bohe";break; case "海外型":$icon_color="red";break; case "理财型":$icon_color="licai";break; default:$icon_color="default"; } ?>
-					
-		 		<div class="super-item <?php echo ($right_margin); ?>">
-		 			<div class="super-item-tip">
-		 				<span class="<?php echo ($icon_color); ?>"><?php echo ($fundItem["fund_type"]); ?></span>
-		 			</div>
-		 			<div class="super-item-title">
-		 				<p><?php echo ($fundItem["fund_fullname"]); ?></p>
-		 				<span><?php echo ($fundItem["fund_name"]); ?> <?php echo ($fundItem["fund_code"]); ?></span>
-		 			</div> 
-		 			<p class="line"></p>
-					<div class="super-item-per">
-						<span>
-							<?php echo ($fundItem["year_profit"]); ?>
-						</span>
-						<small>
-							%
-						</small>
-						<p>近一年收益</p>
-					</div>
-					<div class="super-item-recent">
-						最新净值
-						<span>
-							(元)
-						</span>
-						<?php echo ($fundItem["navunit"]); ?>
-					</div>
-					<div class="super-item-btn">
-						<a href="<?php echo U('Fund/detail');?>">立即购买</a>
-					</div>
-		 		</div> 
-		 		<!-- 列表单个选项end --><?php endforeach; endif; else: echo "" ;endif; ?>
-		 	 <!-- 遍历end -->
- 
+<link rel="stylesheet" type="text/css" href="/ThinkPHP/Public/Lib/jqpwd/jqpwd.css"> 
+<link rel="stylesheet" type="text/css" href="/ThinkPHP/Public/Home/css/register.css" />
+	<div id="reg-content" class="container-fluid reg-content">
+		<div class="row reg-box">
+			<section class="reg-form">
+				<form>  
+					<!-- 头部 -->
+					<div class="reg-header"> 
+				 		<div class="reg-header-title">
+				 			免费注册招财宝账户
+				 		</div>
+						<div class="reg-header-login">
+				 			已有账号?<a href="<?php echo U('User/login');?>">登录</a>
+				 		</div>
+			 		</div>
+					<!-- 头部 end-->
+					<!-- 用户输入部分 -->
+					<div class="reg-body">
+						<!-- 手机号码 -->
+						<div class="reg-phone">
+							<div class="reg-input jq_input_rmclass clearfix ">
+								<label for="reg-phone">
+									<i class="fa fa-mobile-phone"></i>
+								</label>
+								<input type="text" name="phone" data-vali="phone" placeholder="手机号码" id="reg-phone"  />
+								 <div class="check-tip none">
+								 	<i class="fa fa-check-circle"></i>
+								 </div>
+							</div>
+							<div class="reg-error none">
+								 <i class="fa fa-times-circle"></i> 
+								 手机号码不正确
+							</div>
+						</div>
+						<!-- 手机号码 end-->
+						<div class="reg-pwd" id="reg-pwd">
+							<div class="reg-input jq_input_rmclass clearfix">
+								<label for="reg-pwd-input">
+									<i class="fa fa-lock"></i>
+								</label>
+								<input type="password" name="key" id="reg-pwd-input"
+								onkeyup="pwStrength(this.value)"  data-vali="pwd" placeholder="密码"   />
+							</div> 
+							<div class="reg-tips clearfix"> 
+								建议密码由8位以上数字、字母和特殊字符组成
+							</div>
+							<div class="pwd-tip none" id="pwd-tip">
+								<p>安全程度:</p>
+								<ul class="pass_set">
+								    <li id="strength_L">弱</li>
+								    <li id="strength_M">中</li>
+								    <li id="strength_H">强</li>
+								</ul>
+							</div>   
+							<!-- 错误提示信息 -->
+							<div class="reg-error none" id="pwd-error">
+								<i class="fa fa-times-circle"></i> 
+								密码长度须在8~20位之间
+							</div>
+							<!-- 错误提示信息end -->
+						</div> 
+						<!-- 滑动插件 -->
+						<div class="reg-pulg-in">
+							<div id="slider">
+							    <div class="vali-img none">
+							    	<h6 class="none">验证成功</h6>
+							        <div id="vali-big-img">
+							             <img src="12" alt="">
+							        </div> 
+							        <!-- 固定的 -->
+							        <div id="squre" class="squre">  
+							        </div> 
+							         <!-- 移动的 -->
+							         <div id="squretwo" class="squre"> 
+							               <img src="12" alt="">
+							        </div>
+							    </div> 
+							    <span id="label">
+							    	 
+							    </span> 
+								<span id="labelTip">按住左边滑块，拖动完成上方拼图</span> 
+							</div> 
+							<span class="plug-check-box">
+								<i class="fa fa-lock" ></i>
+							</span>
+						</div>
+						<!-- 滑动插件end -->
+						<!-- 点击显示推荐的手机号 -->
+						<div class="reg-slide-phone"> 
+							<a href="javascript:;">
+								<i class="fa fa-caret-right"></i> 
+								推荐人手机号码（选填）
+							</a>
+						</div>
+						 <div id="recommend" class="none">
+							<div class="reg-input  jq_input_rmclass clearfix reg-phone-two">
+								<label for="reg-phonetwo">
+									<i class="fa fa-thumbs-o-up "></i>
+								</label>
+								<input type="text" data-vali="phone" placeholder="推荐人手机号码(选填)" id="reg-phonetwo">
 
-		 	</div>
-		 	  <!-- 主列表end -->
+							</div>
+							<!-- 错误提示信息 -->
+							<div class="reg-error none"> 
+								<i class="fa fa-times-circle"></i> 
+								手机号码不正确
+							</div>
+							<!-- 错误提示信息end -->
+						</div>
+						<!-- 点击显示推荐的手机号end -->
+						
+					</div> 
+					<!-- 用户输入部分end -->
+					<div class="reg-footer">
+						<!-- 验证码 -->
+						<div class="vali-code"> 
+							 <p> 
+							 	<img src="<?php echo U('User/verify');?>" onclick="Refresh(this)" />
+							 </p> 
+							 <input type="text" id="verify" name="verify" placeholder="请输入验证码" />
+							 
+						</div>
+						<!-- 验证码end -->
+						<div class="reg-term">
+							<input type="checkbox" name="deal" checked="checked">
+							<span>我已经阅读并同意</span>
+							<a href="javascript:;" id="clause">《服务条款协议》</a>
+						</div>
+						<div class="reg-submit">
+							<button type="submit" id="reg_submit" >确认</button>
+						</div>
+					</div>
+				</form>
+			 </section> 
+			 <!-- 底部提示 默认隐藏-->
+			 <div id="reg-bottom">
+		 			<div class="guarantee">
+		 		 
+		 			</div>
+			  </div>
+			 <!-- 底部提示end -->
 		 </div>
-		   <!-- 主盒子end-->
-	</div>
-	 <!-- 基金超市end-->  
-	 <!-- 分页 -->
-	 <div class="b-page"> 
-		<?php echo ($sPages); ?> 
-	 </div>
- 	 <!-- 分页 end-->
+		 <div id="clause-box" class="none">
+			<h5 class="pull-left">注册条款</h5>
+			<p class="pull-right" id="click_close">
+				<i class="fa fa-times"></i>
+			</p>
+		 	<div class="clause-txt">
+		 		
+		 	</div>
+		 </div>
+	</div> 
+
+
 ﻿
 
 <div class="footer container none_padding">
@@ -242,3 +327,6 @@
     <script src="/ThinkPHP/Public/Home/js/base.js"></script>
 </body>
 </html>
+<script type="text/javascript" src="/ThinkPHP/Public/Lib/jqpwd/jqpwd.js"></script>
+<script type="text/javascript" src="/ThinkPHP/Public/Lib/jq-vali/jquery.slideunlock.js"></script>
+<script type="text/javascript" src="/ThinkPHP/Public/Home/js/register.js"></script>

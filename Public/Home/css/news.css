@@ -1,0 +1,130 @@
+/*公共类*/
+body{
+    font-size: 16px;
+    background: #f8f8f8;
+    font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+ 
+.left-border{
+    border-left: 1px solid #E6E6E6;
+}
+.padding{
+    padding: 20px;
+}
+.margin_b{
+    margin-bottom: 30px;
+}
+a{
+    color: #333;
+}
+a:hover{
+    color: #45b8ef;
+    text-decoration: none;
+}
+.news_position{
+    position: relative;
+
+}
+.more_a_position{
+    position: absolute;
+    bottom: 30px;
+    left: 55%;
+}
+.more_a{
+    color: #00a0e9 !important;
+    font-size: 12px;
+
+}
+.date-color a{
+    width: 75%;
+}
+.date-color a:hover,
+.detail-text a:hover{
+    color: #1194D3;
+}
+.date-color span{
+    color: #ccc;
+    width: 25%;
+    text-align: right;
+}
+.page-col-1{
+    width: 0%;
+}
+.page-col-2{
+    width: 20%;
+}
+.page-col-3{
+    width: 30%;
+}
+.page-col-5{
+    width: 50%;
+}
+.page-col-4{
+    width: 40%;
+}
+.page-col-6{
+    width: 60%;
+}
+.page-col-7{
+    width: 70%;
+}
+.page-col-8{
+    width: 80%;
+}
+.page-col-9{
+    width: 90%;
+}
+.page-col-10{
+    width: 100%;
+}
+/*index*/
+
+a:link{ 
+    color: #333;
+}
+#title li{
+    margin-right: 10px;
+}
+.title>a{
+    font-weight:bold;
+}
+.title_out>a{
+    color: #333;
+}
+.news_page{
+    background: #fff;
+}
+.detail-text ul li>p{
+    overflow:hidden;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    color: #ccc;
+    font-size: 18px;
+}
+.detail-text ul li:first-child{
+    margin-bottom: 20px;
+}
+.detail-text ul li>a{
+    /*text-ellipsis是一个特殊的样式，有关解释是这样的：text-overflow属性仅是注解，当文本溢出时是否显示省略标记。并不具备其它的样式属性定义。要实现溢出时产生省略号的效果还须定义：强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果。*/
+    /*text-overflow与 white-space:nowrap并用，只能一行*/
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display:block;
+    margin-bottom: 15px;
+    /*line-height: 40px;*/
+}
+#powder_activity ul li{
+    position: relative;
+}
+#powder_activity ul li span{
+    position: absolute;
+    bottom: 0px;
+    color: #fff;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    background: rgba(0,0,0,.3);
+}

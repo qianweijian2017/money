@@ -6,7 +6,7 @@
  	margin: 0 auto;
  } 	 
 .right-margin{
-	margin:0 16px 20px 0!important;
+	margin-right:16px!important;
 }
 .super-title{
  	height: 60px; 
@@ -56,10 +56,12 @@
 	text-align: center;
 	padding: 10px 10px 25px;
 	width: 276px;
+	height: 404px;
+	margin-bottom: 20px;
 	border: 1px solid #E5E5E5;
 	border-bottom: 5px solid #fff;
 	background-color: #fff; 
-	transition: box-shadow .3s,border-bottom .3s,transform .3s; 
+	transition: box-shadow .5s,border-bottom .5s,transform .5s; 
 	float: left; 
 }
 .super-main .super-list .super-item:hover{
@@ -82,16 +84,20 @@
     position: absolute;
     right: 0;
     top: 0;
-    font-size: 12px;
-    background-color: #51AFFF;
+    font-size: 12px; 
     color: #fff;
 }
 .super-main .super-list .super-item .super-item-title p{
 	font-size: 18px;
+	height: 50px;
+	line-height: 25px;
+	overflow: hidden;
 	color: #333333;
 }
 .super-main .super-list .super-item .super-item-title span{
 	line-height: 35px;
+	height: 35px;
+	overflow: hidden;
 	color: #666666;
 }
 .super-main .super-list .super-item p.line{
@@ -101,7 +107,7 @@
 	background-color: #666666;
 }
 .super-main .super-list .super-item .super-item-per{
-	margin: 40px auto 20px;
+	margin: 30px auto 20px;
 	
 }
 .super-main .super-list .super-item .super-item-per span{
@@ -136,8 +142,29 @@
 	border-radius: 3px; 
 	height: 100%;
 	color: #fff;
-	background-color: #51AFFF;
+	background-color: #3EA5FF;
 }
 .super-main .super-list .super-item .super-item-btn a:hover{
 	background-color: #1E98FF;
+}
+
+
+/*每一项右上角的icon颜色*/
+.yellow{
+	background-color: #F0AD4E;
+}
+.green{
+	background-color: #617BE8;
+}
+.bohe{
+	background-color: #33CD31;
+}
+.red{
+	background-color: #F75646;
+}
+.default{
+	background-color: #51AFFF!important;
+}
+.licai{
+	background-color: #C900FF;
 }

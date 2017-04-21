@@ -1,0 +1,315 @@
+ 
+a{
+	text-decoration: none;
+}
+ul{
+	padding: 0;
+}
+ul li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+.navli{
+	width: 100%;
+	background: #0f91dd;
+    color: #fff;
+}
+.navli ul{
+	font-size: 14px;
+	width: 1100px;
+	height: 44px;
+    line-height: 44px;
+    margin:0 auto;
+    position: relative;
+}
+.navli ul li a{
+	color: #9fdaff;
+	padding: 0 10px;
+}
+.navli ul li:nth-child(5){
+	padding-left: 10px;
+}
+.content{
+	width: 100%;
+	/*padding: 20px 0;*/
+	padding-top: 20px;
+}
+.content .content-in{
+	width: 1100px;
+	height: 502px;
+	margin: 0 auto;
+	background:#fff;
+	font-family: "微软雅黑"; 
+}
+.content .content-in div{
+	float: left;
+}
+.content .content-in .content_left{
+	width: 780px;
+	height: 100%;
+	border-right:1px dashed #e0e0e0;
+}
+.content .content-in .content_left .content_left_title{
+	width: 100%;
+	padding: 5px 18px 5px 25px;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    box-sizing: border-box;
+}
+.content .content-in .content_left .content_left_title h3{
+	font-size: 20px;
+	font-weight: 500;
+	font-family: "微软雅黑";
+}
+.content .content-in .content_left .content_left_title .newcus ul{
+	margin-top:20px;
+	margin-left: 20px;
+}
+.content .content-in .content_left .content_left_title .newcus ul li{
+	border: 1px solid #45b8ef;
+    color: #45b8ef;
+    border-color: #45b8ef;
+    width: 58px;
+    height: 23px;
+    line-height: 23px;
+    margin-right: 10px;
+    text-align: center;
+}
+.content .content-in .content_left .content_info{
+	padding: 20px 60px;
+	font-family: "微软雅黑";
+}
+.content .content-in .content_left .content_info .main-rate span:nth-child(1){
+	font-size: 54px;
+	color: #fe4850;
+}
+.content .content-in .content_left .content_info .main-rate span:nth-child(2){
+	font-size: 24px;
+	color: #fe4850;
+}
+.content .content-in .content_left .content_info .main-rate span:nth-child(3){
+	display: block;
+    color: #999;
+    font-weight: 500;
+}
+.content .content-in .content_left .content_info .mod{
+    margin: 25px 28px 0 112px;
+    font-size: 13px;
+}
+.content .content-in .content_left .content_info .mod .total{
+    font-size: 30px
+}
+.content .content-in .content_left .content_info .mod .hb{
+    display: block;
+	color: #999;
+    font-weight: 500;
+    line-height: 30px;
+}
+.content .content-in .content_left .content_info .exp{
+	padding: 15px 0;
+
+}
+.content .content-in .content_right div{
+	float: none;
+}
+.content .content-in .content_right .content_right_head{
+	padding: 40px 0 10px 40px;
+	font-size: 14px;
+	color: #999;
+}
+.content .content-in .content_right .content_right_head>div{
+	margin-bottom: 10px;
+}
+.content .content-in .content_right .content_right_head .progress{
+	width: 140px;
+    height: 5px;   
+    margin-bottom: 2px;
+    display: inline-block;
+}
+.content .content-in .content_right .content_right_head .money{
+	font-size: 20px;
+    color: #444;
+    vertical-align: middle;
+}
+.content .content-in .content_right .content_right_head .login{
+	color: #45b8ef;
+}
+.content .content-in .content_right .content_right_head .login:hover{
+	color: #1194d3;
+}
+.content .content-in .content_right .invest-box{
+	padding: 15px 30px 26px 40px;
+	position: relative;
+}
+.content .content-in .content_right .invest-box .invest-num{
+	float: left;
+    width: 168px;
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+    border-radius: 2px;
+    font-weight: 700;
+    margin-right: 5px;
+    font-size: 14px;
+}
+.content .content-in .content_right .invest-box .rmb{
+	position: absolute;
+    top: 55px;
+    left: 185px;
+}
+.content .content-in .content_right .invest-box .invest-total{
+    float: left;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    padding: 9px;
+    color: #999;
+    cursor: pointer;
+    font-size: 14px;
+}
+.content .content-in .content_right .invest-box .invest-total:hover{
+	border: 1px solid #45b8ef;
+    color: #45b8ef;
+}
+.content .content-in .content_right .invest-box .lijibuy{
+	line-height: 44px;
+    width: 190px;
+    background: #ff4f3f;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 65px;
+    clear: both;
+    cursor: pointer;
+}
+.content .content-in .content_right .invest-box .lijibuy:hover{
+	background: #ff382c;
+}
+.content .content-in .content_right .tip{
+	width: 235px;
+	margin: auto;
+	color: #999;
+	text-align: center;
+	font-weight: 600;
+	font-size: 10px;
+	border-top: 1px solid #e0e0e0;
+	margin-top: 135px;
+}
+.content .bs-example{
+	width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: #fff;
+}
+.content .bs-example .nav{
+	background: #fff;
+}
+.content .bs-example .nav li{
+	padding-bottom: 18px;
+}
+.content .bs-example .nav li>a{
+	display: block;
+    width: 139px;
+    padding-top: 18px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    color: #333;
+}
+.content .bs-example .nav li>a:hover{
+	color: #1194d3;
+	background-color: #fff;
+}
+.content .bs-example .nav li.active>a{
+	border-bottom: 
+}
+.content .bs-example .tab-content{
+	padding: 20px 50px 0 50px
+}
+.mceNonEditable{
+	font-weight: 600;
+	padding: 20px  0;
+}
+.word{
+	font-size: 15px;
+	line-height: 25px;
+}
+.liuctu{
+	width: 793px;
+	height: 82px;
+	margin: auto;
+	background: url("../imgs/prj-planTime_05e105a.jpg");
+	background-size: 100% 100%;
+}
+.liuc{
+	width: 793px;
+	height: 82px;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom:30px;
+}
+.liuc li{
+    text-align: center;
+    font-size: 14px;
+    color: #444;   
+}
+.liuc li:nth-child(1),.liuc li:nth-child(2){
+	margin-right: 132px;
+}
+.liuc li:nth-child(3){
+    margin-right: 96px;
+}
+table.table-stepup,tr,td{
+	border: 1px solid #e0e0e0;
+}
+table.table-stepup th{
+ 	background-color: #f5f5f5;
+    font-weight: 400;
+    padding: 10px 20px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 15px;
+}
+table.table-stepup td{
+	padding: 12px 20px;
+}
+.table{
+	padding-top: 20px;
+	padding-bottom: 50px;
+	border-top: 1px dashed #e0e0e0;
+	border-bottom: 1px dashed #e0e0e0;
+}
+.person_info h4{
+	text-align:center;
+    padding: 20px;
+    font-weight: 600;
+}
+.person_info table thead tr{
+	background-color: #f5f5f5;
+}
+th{
+	border: 1px solid #e0e0e0;
+}
+.person_info table th,.person_info table td{
+	text-align: center;
+	line-height: 40px;
+}
+.person_fy{
+	width: 36%;
+    display: block;
+    margin:40px auto;
+    padding:10px 0;
+}
+
+.tab-pane h3{
+	font-size: 14px;
+	font-weight: 600;
+}
+.tab-pane h3.first{
+	margin: 50px 0 15px 0;
+}
+p{
+	line-height: 23px;
+}

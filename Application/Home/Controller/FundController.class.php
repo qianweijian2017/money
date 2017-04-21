@@ -17,12 +17,40 @@ class FundController extends Controller
 		$where="1=1";
     	$count=$fund->where($where)->count(); //where 为条件,可作分类分页 
     	$page=new Page($count,8);	//count总页数,limit是显示的行数
-    	$fundlist=$fund->where($where)->order('fund_code desc')->limit($page->firstRow.',8' )->select();
+    	$fundlist=$fund->where($where)->order('year_profit desc')->limit($page->firstRow.',8' )->select();
     	$sPages=$page->show();
    	 	$this->assign('fundlist',$fundlist);// 赋值数据集
-    	$this->assign('sPages',$sPages);// 赋值分页输出
+    	$this->assign('sPages',$sPages);// 赋值分页输出 
     	$this->display(); // 输出模板 
 	}
+
+	public function detail(){
+		
+		
+		$this->display();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	/**
 	 * 获取数据
 	 * @param  int $num  获取的条数

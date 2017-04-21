@@ -1,0 +1,321 @@
+/*公共样式*/
+body{
+    font-size: 16px;
+}
+.banner{
+    position: relative;
+    height: 381px;
+    max-width: 100%;
+}
+.banner-img{
+    width: 100%;
+    height: 382px;
+    overflow: hidden;
+}
+.banner .banner-list{
+    position: relative;
+    width: 100%;
+    height: 382px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+.banner .banner-list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    float: left;
+    left: 0;
+    top: 0;
+}
+
+.banner .banner-box{
+    position: absolute;
+    top: 38px;
+    right: 100px;
+    z-index: 99;
+    width: 320px;
+    height: 310px;
+    padding: 40px 25px;
+    background-color: rgba(0,0,0,.5);
+}
+.banner-box .banner-box-hd
+{
+    color: #fff;
+    text-align: center;
+}
+.banner-box .banner-box-hd p{
+    margin: 20px auto;
+}
+.banner-box .banner-box-hd .sum
+{
+    font-size: 18px;
+    color: #fc8026;
+}
+.banner-box .banner-box-bd{
+    text-align: center; 
+    color: #9fabb9;
+    margin-top: 20px;
+}
+.banner-box .banner-box-bd .btn-reg{
+    width: 90%;
+    height: 42px;
+    padding: 12px 0;
+    color: #fff;
+    background: #fc8026;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: 10px auto;
+    border-radius: 4px;
+}
+.banner-box .banner-box-bd .tips{
+    font-size: 12px;
+    margin-top: 25px;
+}
+.banner-box .banner-box-bd .tips .link{
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: underline;
+}
+.session{
+    background: #fff;
+}
+.data-warp{
+    border-bottom: 1px solid #e7e7e7;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.data-warp .data{
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.data-warp .data .data-list{
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    width: 95%;
+}
+.data-warp .data .data-list>li{
+    float: left;
+    padding-left: 20px; 
+    width: 25%;
+    padding: 0 13px;
+    text-align: center;
+}
+.data-warp .data .data-list li>span{
+    vertical-align: middle;
+    font-size: 14px;
+    color: #9fabb9;
+}
+
+.data-warp .data .data-list li label{
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 400;
+    color: #ff7301;
+    line-height: 25px;
+    display: block;
+}
+.data-warp .data cite{ 
+    float: right;
+    text-align: right;
+    width: 45px;
+    height: 45px;
+    line-height: 45px; 
+}
+.data-warp .data .data-btn { 
+    color: #a0a0a0;
+    font-size: 12px;
+    font-style: normal;
+    text-align: center;
+}
+.notice-warp .notice{
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow: hidden;
+}
+.notice-warp .notice .notice-list{
+    margin-left: 68px;
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.notice-warp .notice .notice-list .item{
+    float: left;
+    position: relative;
+    width: 25%;
+    padding-left: 40px;
+}
+
+.notice-warp .notice .notice-list .item .imgs{
+    width: 87px;
+    height: 87px;
+}
+.notice-warp .notice .notice-list .item .text{
+    margin-top: -105px;
+    margin-left:95px;
+}
+.notice-warp .notice .notice-list .item .notice-img01{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -1px -15px!important;
+}
+.notice-warp .notice .notice-list .item .notice-img02{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -114px -15px!important;
+}
+.notice-warp .notice .notice-list .item .notice-img03{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -224px -15px!important;
+}
+.notice-warp .notice .notice-list .item .notice-img04{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -336px -15px!important;
+}
+.notice-warp .notice .notice-list .item .text h3{
+    font-weight: 100;
+    color: #444;
+    margin-bottom: 10px;
+}
+.notice-warp .notice .notice-list .item .text span{
+    color: #999;
+    font-size: 14px;
+}
+
+
+/*首页底部新闻*/
+ 
+
+.left-border{
+    border-left: 1px solid #E6E6E6;
+}
+.padding{
+    padding: 20px;
+}
+.margin_b{
+    margin-bottom: 30px;
+}
+.margin_b h5{ 
+    font-size: 18px;
+}
+.margin_b a{
+    color: #333;
+}
+.margin_b a:hover{
+    color: #45b8ef;
+    text-decoration: none;
+}
+.news_position{
+    position: relative;
+
+}
+.more_a_position{
+    position: absolute;
+    bottom: 30px;
+    left: 55%;
+}
+.more_a{
+    color: #00a0e9 !important;
+    font-size: 12px;
+
+}
+.date-color a{
+    width: 75%;
+}
+.date-color a:hover,
+.detail-text a:hover{
+    color: #1194D3;
+}
+ 
+.date-color span{
+    color: #ccc;
+    width: 25%;
+    text-align: right;
+}
+.page-col-1{
+    width: 0%;
+}
+.page-col-2{
+    width: 20%;
+}
+.page-col-3{
+    width: 30%;
+}
+.page-col-5{
+    width: 50%;
+}
+.page-col-4{
+    width: 40%;
+}
+.page-col-6{
+    width: 60%;
+}
+.page-col-7{
+    width: 70%;
+}
+.page-col-8{
+    width: 80%;
+}
+.page-col-9{
+    width: 90%;
+}
+.page-col-10{
+    width: 100%;
+}
+/*index*/
+
+a:link{ 
+    color: #333;
+}
+#title li{
+    margin-right: 10px;
+}
+.title>a{
+    font-weight:bold;
+}
+.title_out>a{
+    color: #333;
+}
+.news_page{
+    background: #fff;
+}
+.detail-text ul li>p{
+    overflow:hidden;
+    height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    color: #999;
+    font-size: 18px;
+}
+.detail-text ul li:first-child{
+    margin-bottom: 20px;
+}
+.detail-text ul li>a{
+    /*text-ellipsis是一个特殊的样式，有关解释是这样的：text-overflow属性仅是注解，当文本溢出时是否显示省略标记。并不具备其它的样式属性定义。要实现溢出时产生省略号的效果还须定义：强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果。*/
+    /*text-overflow与 white-space:nowrap并用，只能一行*/
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display:block;
+    margin-bottom: 15px;
+    /*line-height: 40px;*/
+}
+#powder_activity ul li{
+    position: relative;
+}
+#powder_activity ul li span{
+    position: absolute;
+    bottom: 0px;
+    color: #fff;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    background: rgba(0,0,0,.3);
+}

@@ -7,4 +7,5 @@ return array(
     'DB_PWD'                =>  '',          // 密码
     'DB_PORT'               =>  '',        // 端口
     'DB_PREFIX'             =>  'mn_',    // 数据库表前缀
+    
 );

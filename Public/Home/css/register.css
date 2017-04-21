@@ -1,0 +1,344 @@
+a,span,i{
+	font-family: "微软雅黑";
+}
+.jq_input_rmclass{
+	border: 1px solid #DEDEDE;  
+}
+.jq_input_addclass{
+	border: 1px solid #51AFFF;
+	box-shadow: 0 0 15px #51AFFF;
+	background-color: #5AAFFA;
+}
+.reg-content{
+	background-color: #B3DCFA;
+	height: 800px;
+	padding: 50px 0	50px;
+}
+.reg-box{
+	width: 740px;
+	height: 600px;  
+	margin: 0 auto;
+}
+.reg-box .reg-form{ 
+	width: 720px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+	background-color: #fff;
+}
+.reg-box .reg-form .reg-header{
+	height: 130px;
+	padding: 110px 0 46px; 
+	background: url(../imgs/reg-title.png) no-repeat center 55px; 
+}
+.reg-box .reg-form .reg-header .reg-header-title{
+	text-align: center;
+	font-size: 24px;
+	color: #363636;
+}
+.reg-box .reg-form .reg-header .reg-header-login{
+	font-size: 14px;
+	text-align: center;
+	color: #808080; 
+}
+.reg-box .reg-form .reg-header .reg-header-login a{
+	color: #45B8EF; 
+}
+.reg-box .reg-form .reg-header .reg-header-login a:hover{
+	color: #1194D3;
+}
+/*用户填写内容*/
+.reg-box .reg-form .reg-body{
+	 padding: 50px 160px 0; 
+}
+.reg-box .reg-form .reg-body div{
+	clear: both;
+}
+.reg-box .reg-form .reg-body div.reg-input{
+	width: 384px; 
+	margin-bottom: 10px;
+	line-height: 40px; 
+	position: relative;
+}
+.reg-box .reg-form .reg-body .pwd-tip p{
+	float: left;
+	margin-right: 20px;
+}
+ 
+.reg-box .reg-form .reg-body .pwd-tip ul.pass_set li{
+	float: left;
+}
+
+.reg-box .reg-form .reg-body div.reg-input label{
+	float: left; 
+	width: 48px;   
+	text-align: center; 
+	font-size: 25px;
+	background-color: #fff;
+	margin: 0; 
+}
+
+
+.reg-box .reg-form .reg-body div.reg-input label i{
+	margin-top: 5px;
+	color: #808080;
+}
+.reg-box .reg-form .reg-body div.reg-input input{
+	float: left;
+	width: 333px; 
+	padding-left: 15px; 
+	margin-left: 1px;
+	height: 40px; 
+}
+.reg-box .reg-form .reg-body div.reg-input  .check-tip{
+	position: absolute;
+	top: 0px;
+	right: 120px;
+	font-size: 20px;
+	color: #54BD5E;
+}
+.reg-box .reg-form .reg-body .reg-tips{
+	color: #999999;
+	margin-top: 10px;
+}
+.reg-box .reg-form .reg-body .reg-error{ 
+	margin-bottom: 10px;
+	color: #F65744;
+}
+.reg-box .reg-form .reg-body .reg-error i.fa{
+	font-size: 15px;
+} 
+/*推荐人*/
+.reg-box .reg-form .reg-body .reg-slide-phone{
+	line-height: 40px; 
+} 
+.reg-box .reg-form .reg-body .reg-slide-phone a{
+	color: #45BFF3;
+}
+.reg-box .reg-form .reg-body .reg-slide-phone i{
+	margin: 0 10px;
+
+}
+.reg-box .reg-form .reg-footer{
+	padding: 10px 160px;
+
+}
+.reg-box .reg-form .reg-footer div.vali-code{
+	
+}
+.reg-box .reg-form .reg-footer div.vali-code p{
+	margin-bottom: 20px;
+}
+ 
+.reg-box .reg-form .reg-footer div.vali-code input{
+	padding-left: 10px;
+	border: 1px solid #51AFFF;
+}
+.reg-box .reg-form .reg-footer .reg-term{
+	line-height: 40px;
+	font-size: 14px;
+}
+.reg-box .reg-form .reg-footer .reg-term span{
+	color: #808080;
+}
+.reg-box .reg-form .reg-footer .reg-term a{
+	color:#40BCF7 ;
+}
+.reg-box .reg-form .reg-footer .reg-term a:hover{
+	color: #1298D8;
+}
+.reg-box .reg-form .reg-footer .reg-term input[type='checkbox']{
+	width: 20px;
+	height: 20px;
+	margin: 11px 10px 0 0;
+	float: left;
+}
+.reg-box .reg-form .reg-footer .reg-submit{
+
+}
+.reg-box .reg-form .reg-footer .reg-submit button{
+	width: 100%;
+	line-height: 45px;
+	border-radius: 5px;
+	background-color: #51AFFF;
+	color: #fff;
+	font-size: 16px;
+	box-shadow: inset 0 -1px 1px #2C95EF;
+}
+
+#reg_submit:disabled{
+	background-color: #ccc;
+	box-shadow: none;
+}
+
+
+/*底部*/
+#reg-bottom{
+	width: 740px;
+	margin: 0 auto;
+}
+#reg-bottom .guarantee{
+	width: 764px;
+	height: 71px;
+	background: url("../imgs/reg-bottom.png") no-repeat;
+	background-position: -8px -7px;
+}
+
+/*插件*/
+.vali-img{
+    position: absolute;
+    padding: 20px;
+    background-color: #ECE4DD;
+    border-radius: 10px;
+    bottom: 36px;
+    z-index: 9; 
+} 
+.vali-img h6{
+	color: #f00;
+	font-weight: bold;
+	position: absolute;
+	bottom: -10px;
+}
+.squre{
+    position: absolute;
+    width: 50px;
+    height: 50px;  
+    border-radius: 5px;
+}
+ 
+#squre{
+     box-shadow: inset 0 0 20px rgba(0,0,0,.8); 
+     background-color: rgba(0,0,0,.5); 
+}
+#squretwo{
+    overflow: hidden;
+    width: 46px;
+    height: 46px;
+    border:1px solid #fff;
+    box-shadow: 2px 2px 5px #000;
+}
+#squretwo img{
+    position: absolute;
+}
+/*插件box*/
+.reg-pulg-in .plug-check-box {
+	float: left;
+	margin:20px 0 0 5px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 50%;
+	color: #fff; 
+	background-color: #4DBCFF;
+}
+
+#slider { 
+  margin: 20px 0;
+  width: 260px;
+  height: 30px;
+  position: relative;
+  float: left; 
+  text-align: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+ 
+#label {
+  width: 40px;
+  position: absolute;
+  left: 0;
+  top: 0; 
+  margin-top: -5px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #cccccc;
+  background: #fff;
+  z-index: 3;
+  cursor: pointer;
+  color: #6DA353;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius: 50%; 
+  font:normal normal normal 14px/1 FontAwesome;
+}
+#label:before{
+  content: "\f0b2";
+  line-height: 40px;
+  z-index: 2;
+}
+#labelTip {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  font-family: 'Microsoft Yahei', serif;
+  color: #486C80;
+  line-height: 30px;
+  text-align: center;
+  text-indent: 10px;
+  z-index: 2;
+  background-color: #ECE4DD;
+  border-radius: 20px; 
+  font-size: 12px;
+  box-shadow: inset 0 2px 2px #ccc;
+}
+
+/*条款盒子*/
+#clause-box{
+	width: 800px;
+	height: 440px; 
+	padding: 20px;
+	background-color: #fff;
+	border: 8px solid rgba(0,0,0,.4);
+	border-radius: 5px;
+	position: fixed;
+	left:50%;
+	top: 50%;
+	margin-left: -400px;
+	margin-top: -220px; 
+	z-index:20;
+}
+#clause-box h5{
+	height: 40px;
+}
+#clause-box >p{
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 15px;
+	color: #C4C4C4;
+	cursor: pointer; 
+	transition: transform .5s;
+}
+#clause-box >p:hover{
+	transform: rotate(180deg);
+	color: #7A7A7A;
+	font-size: 22px;
+}
+ 
+ 
+#clause-box .clause-txt{
+	width: 100%;
+	height:315px; 
+	margin:30px 0;
+	overflow-y: scroll;
+	overflow-x:hidden;
+	font-size: 16px;
+	clear: both;
+}
+#cover{
+	position: fixed;
+	width: 9999px;
+	height: 9999px;
+	background-color: rgba(0,0,0,.4);
+	right: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 12;
+}
+
+
