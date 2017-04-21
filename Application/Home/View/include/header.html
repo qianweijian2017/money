@@ -42,41 +42,32 @@
 <div class="header_bottom">
     <div class="fixe_nav">
         <div class="container none_padding">
-            <div class="logo col-md-5">
-                <a href=""><img src="__PUBLIC__/Home/imgs/logo.png"></a>
-            </div>
-
-            <ul class="nav navbar-nav nav_title col-md-7">
-                <li class="<php>is_active(CONTROLLER_NAME,'Index')</php>" hover="1"><a href="{:U('Index/index')}">首页</a></li>
-                <li hover="1" class="dropdown ">
-                    <a class="dropdown-toggle" data-toggle="dropdown">投资理财<i class="fa fa-chevron-down icon_180"></i><span>New</span></a>
-                    <ul class="dropdown-menu nav_second">
-                        <li hover="1" class="dropdown">
-                            <a class="dropdown-toggle nav_three_title" data-toggle="dropdown" ><i class="fa fa-delicious" ></i>智惠系列<span>(12)</span></a>
-                            <ul class="dropdown-menu nav_second nav_three">
-                                <li><a>省心宝<span>(12)</span></a></li>
-                                <li><a>月月增<span>(99+)</span></a></li>
-                                <li><a>灵活宝<span>(99+)</span></a></li>
-                            </ul>
-                        </li>
-                        <li><a><i class="fa fa-refresh" ></i>变现专区<span>(99+)</span></a></li>
-                    </ul>
+            <div class="logo clearfix">
+                <div class="logo_box">
+                    <a href="{:U('Index/index')}">
+                        <img src="__PUBLIC__/Home/imgs/logo.png">
+                    </a>
+                </div> 
+                <div class="link_user">
+                    <a href="">我的账户</a>
+                </div>
+            </div> 
+        </div>
+        <nav class="clearfix">
+             <ul class="nav_title clearfix">
+                <li class="<php>is_active(CONTROLLER_NAME,'Index')</php>" hover="1">
+                    <a href="{:U('Index/index')}">首页</a>
                 </li>
-                <li class="<php>is_active(CONTROLLER_NAME,'Fund')</php>" hover="1"><a href="{:U('Fund/fundlist')}"> 基金超市<span>Beta</span></a></li>
-                <li hover="1" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">信息披露<i class="fa fa-chevron-down icon_180"></i></a>
-                    <ul class="dropdown-menu nav_second">
-                        <li><a><i class="fa fa-cny" ></i>关于我们</a></li>
-                        <li><a><i class="fa fa-cny" ></i>对外公告</a></li>
-                        <li><a><i class="fa fa-cny" ></i>运营数据</a></li>
-                        <li><a><i class="fa fa-cny" ></i>业务介绍</a></li>
-                        <li><a><i class="fa fa-cny" ></i>安全保障</a></li>
-                        <li><a><i class="fa fa-cny" ></i>企业文化</a></li>
-                    </ul>
+                <li hover="1">
+                    <a >投资理财</a> 
+                </li>
+                <li class="<php>is_active(CONTROLLER_NAME,'Fund')</php>" hover="1"><a href="{:U('Fund/fundlist')}"> 基金超市</a></li>
+                <li hover="1">
+                    <a>信息披露</a> 
                 </li>
                 <li hover="1"><a>论坛</a></li>
                 <li hover="1"><a>会员中心</a></li>
             </ul>
-        </div>
+        </nav>
     </div>
 </div>

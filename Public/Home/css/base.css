@@ -106,99 +106,56 @@ ul,li{
     margin-left: 0px;
 }
 .header_bottom{
-    height: 88px;
+    
 }
 .header_bottom .fixe_nav{
-    width: 100%;
-    padding-top: 24px;
+    width: 100%; 
     background: rgba(255,255,255,0.8);
     z-index: 999;
 }
-.header_bottom .logo{
-    float: left;
+.header_bottom .logo{ 
+   height: 98px;
+   line-height: 98px;
 }
-.header_bottom .nav_title{
-    float: left;
+.header_bottom .logo .logo_box{
+     float: left;
 }
-.nav_title>li{
-    margin: 3px 2px;
-    padding: 6px 23px;
-    border-radius: 4px;
+ 
+ 
+.header_bottom .logo .link_user{
+    float: right; 
 }
-.nav_title>li>a{
-    color: #333;
-    font-size: 16px;
-    padding: 0px;
-    background: transparent !important;
+.header_bottom .logo .link_user a{
+     border: 1px solid #ccc;
+     padding: 10px 30px;
+     font-size: 14px;
 }
-.nav_title>li:hover{
-    background: #0f91dd;
-    border-radius:4px 4px 0px 0px;
+/*头部导航*/
+nav{
+     background-color: rgba(1,142,237,.9);
+     width: 100%;
 }
-.nav_title>li:hover>a{
+nav .nav_title{
+    clear: both; 
+    width: 1170px;
+    margin: 0 auto;
+   
+}
+nav .nav_title li{
+    float: left; 
+    height: 48px; 
+    line-height: 48px;
+}
+nav .nav_title li a{ 
     color: #fff;
-    background: transparent !important;
+    display: block;
+    padding: 0 40px;
 }
-.nav_title>li>a i{
-    padding-left: 5px;
-    font-size: 12px;
-    color: #0f91dd;
-    transition: all 0.2s;
+nav .nav_title li:hover{
+    background-color: #0078DD;
 }
-.nav_title>li:hover>a i{
-    color: #fff;
-}
-.nav_title>li>a span{
-    position: absolute;
-    top: -16px;
-    right: -35px;
-    color: #fe4850;
-    border: 1px solid #fe4850;
-    padding:0px 3px;
-    border-radius: 4px;
-    background-color: #fff;
-    z-index: 9;
-}
-.nav_title .active{
-    background: #0f91dd;
-}
-.nav_title .active a{
-    color:#fff;
-}
-.nav_second{
-    background: #0f91dd;
-    min-width: 127px!important;
-}
-.nav_second>li{
-    padding: 0px;
-}
-.nav_second>li>a i,.nav_second>li>a,.nav_second>li>a span{
-    color:#a5dcfc;
-    font-size: 14px;
-    padding: 5px 0px;
-}
-.nav_second>li>a{
-    margin: 0px 8px;
-}
-.nav_second>li>a i{
-    margin-right: 5px;
-}
-.nav_second>li:hover{
-    background: #0081cd;
-}
-.nav_second>li>a:hover i,.nav_second>li>a:hover,.nav_second>li>a:hover span{
-    color:#fff;
-    background: transparent;
-}
-.nav_three_title{
-    background: transparent !important;
-}
-.nav_three_title:hover{
-    background: transparent !important;
-}
-.nav_three{
-    left: 100%;
-    top: 0px;
+nav .nav_title li.active{
+    background-color: #0078DD;
 }
 /******头部完*********/
 
