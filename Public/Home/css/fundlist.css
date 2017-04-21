@@ -1,5 +1,39 @@
+.top-line{
+	border-top: 3px solid #51AFFF;
+}
 
 
+/*基金列表界面*/
+.super-title .super-title-left{
+	padding-left: 50px;	
+	color: #797979;
+}
+.super-title .super-title-left h2{
+	float: left;
+}
+.super-title .super-title-left ul.super-select-box{
+	float: left;
+	margin-left: 30px;
+	line-height: 75px;
+}
+.super-title .super-title-left .super-select-box li{
+	float: left;
+	margin-right: 12px;
+}
+.super-title .super-title-left .super-select-box li a{
+	 padding: 6px 14px;
+	 border: 1px solid #DBDBDB;
+	 border-radius: 3px;	
+	 transition: .5s background-color,.5s color,.5s border-color;
+	 transition-delay: .1s;
+}
+
+.super-title .super-title-left .super-select-box li a.active,
+.super-title .super-title-left .super-select-box li a:hover{
+	background-color: #51AFFF;
+	color: #fff;
+	border-color: #51AFFF;
+}
 /*大图片*/
 .super-pic-box{
 	height: 438px;
@@ -71,7 +105,7 @@
 }
 .super-title span{ 
 	height: 14px;
-	line-height: 65px;
+	line-height: 80px;
 }
 .super-title-left{
  	float: left;
@@ -166,12 +200,16 @@
 	background-color: #666666;
 }
 .super-main .super-list .super-item .super-item-per{
-	margin: 30px auto 20px;
-	
+	margin: 30px auto 20px; 
 }
+
 .super-main .super-list .super-item .super-item-per span{
 	font-size: 50px;
 	color: #F74D3E;
+}
+ 
+.super-main .super-list .super-item .super-item-per .ColorGreen{
+	color: #55BF5A;
 }
 .super-main .super-list .super-item .super-item-per small{
 	color: #F74D3E;

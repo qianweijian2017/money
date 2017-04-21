@@ -1,50 +1,36 @@
 <include file='include/header'/>
-
+  
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/fundlist.css">
-<!-- 基金超市 开始--> 
+<!-- 基金超市 开始-->
+		<!-- 大图片开始 -->
+		<section class="super-pic-box">
+			 <a href="">
+			 	
+			 </a>
+			 <div class="super-reg">
+			 	<h4>昭昭基金超市</h4>
+			 	<p>海量理财精选等着你!</p>
+			 	<div class="super-bg">
+			 		
+			 	</div>
+			 	<div class="link-reg">
+			 		<a href="{:U('User/register')}" class="btn btn-danger">
+			 			注册PP基金账户
+			 		</a>
+			 	</div>
+			 	<div class="super-footer">
+			 		已有账户?<a href="{:U('User/login')}">立即登陆</a>
+			 	</div>
+			 </div>
+		</section>
+		<!-- 大图片end -->
 	<div id="super_content"> 
 		<!-- 大标题 -->
-		 <div class="super-title top-line clearfix">
+		 <div class="super-title clearfix">
 		 	<div class="super-title-left">
-		 		<h2>基本类型</h2>
-		 		 <ul class="super-select-box">
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'2'))}" class="<php>select_active(I('get.ftype'),2)</php>">
-		 		 			全部
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'混合型'))}" class="<php>select_active(I('get.ftype'),'混合型')</php>">
-		 		 			混合型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'债券型'))}" class="<php>select_active(I('get.ftype'),'债券型')</php>">
-		 		 			债券型
-		 		 		</a>
-		 		 	</li>
-		 		 	
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'货币型'))}" class="<php>select_active(I('get.ftype'),'货币型')</php>">
-		 		 			货币型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'指数型'))}" class="<php>select_active(I('get.ftype'),'指数型')</php>">
-		 		 			指数型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'理财型'))}" class="<php>select_active(I('get.ftype'),'理财型')</php>" >
-		 		 			理财型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'海外型'))}" class="<php>select_active(I('get.ftype'),'海外型')</php>">
-		 		 			海外型
-		 		 		</a>
-		 		 	</li>
-		 		 </ul>
+		 		<h3>明星基金推荐</h3>
+		 		<span>近年来表现优异的基金</span>
+		 		<a href="{:U('Fund/fundlist',array('ftype'=>'2'))}">更多>></a>
 		 	</div> 
 		 	<div class="super-title-right">
 		 		<span>基金销售服务由盈米财富提供</span>
@@ -57,7 +43,7 @@
 		  <!-- 主列表开始 -->
 		 	<div class="super-list"> 
 		 	<!-- 遍历开始 --> 
-		 	<volist name="fundlist" id="fundItem">
+		 	<volist name="fundmain" id="fundItem">
 		 		<!-- 列表单个选项 --> 
 		 		 <php>
 		 		 	$right_margin="right-margin"; 
@@ -74,12 +60,8 @@
 						case "理财型":$icon_color="licai";break;
 						default:$icon_color="default";
 		 		 	 }
-		 		 </php> 
-				<if condition="$fundItem['year_profit'] lt 0" > 
-					<assign name="Green" value="ColorGreen" />  
-						 
-				</if>
-				
+		 		 </php>
+					
 		 		<div class="super-item {$right_margin}">
 		 			<div class="super-item-tip">
 		 				<span class="{$icon_color}">{$fundItem.fund_type}</span>
@@ -89,11 +71,11 @@
 		 				<span>{$fundItem.fund_name} {$fundItem.fund_code}</span>
 		 			</div> 
 		 			<p class="line"></p>
-					<div class="super-item-per "  >
-						<span class="{$Green}">
+					<div class="super-item-per">
+						<span>
 							{$fundItem.year_profit}
 						</span>
-						<small class="{$Green}">
+						<small>
 							%
 						</small>
 						<p>近一年收益</p>
@@ -118,10 +100,5 @@
 		   <!-- 主盒子end-->
 	</div>
 	 <!-- 基金超市end-->  
-
-<!-- 分页 -->
- <div class="b-page"> 
-	{$sPages} 
- </div>
-<!-- 分页 end-->
+	
 <include file='include/footer'/>
