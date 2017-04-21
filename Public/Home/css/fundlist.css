@@ -1,5 +1,63 @@
 
- #super_content{
+
+/*大图片*/
+.super-pic-box{
+	height: 438px;
+	position: relative;
+}
+.super-pic-box >a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background:url("../imgs/banner01.jpg") no-repeat -300px 0;
+	-webkit-background-size: cover;
+	background-size: cover; 
+}
+.super-pic-box .super-reg{
+	position: absolute;
+	right: 95px;
+	top: 30px;
+	width: 280px; 
+	padding: 20px 0;
+	background-color: rgba(255,255,255,.7);
+	text-align: center;
+}
+.super-pic-box .super-reg h4{
+	font-weight: 600;
+	height: 25px;
+}
+.super-pic-box .super-reg >p{
+	color: #9C9C9C;
+	font-size: 14px;
+}
+.super-pic-box .super-bg{
+	width: 243px;
+	height: 170px; 
+	background: url("../imgs/super_reg.png") no-repeat center 20px;
+}
+.super-pic-box .link-reg{
+	width: 180px;
+	margin: 10px auto;
+}
+.super-pic-box .link-reg a{ 
+	height: 45px; 
+	display: block;
+	line-height: 30px;
+	border-radius: 20px;
+}
+.super-pic-box .super-footer{
+	line-height: 30px;
+	height: 30px;
+	font-size: 14px;
+}
+.super-pic-box .super-footer a{
+	color: #51AFFF;
+}
+.super-pic-box .super-footer a:hover{
+	color: #1194D3;
+}
+/*内容*/
+#super_content{
  	clear: both;
  	margin-top: 50px!important;
  	width: 1170px;
@@ -97,6 +155,7 @@
 .super-main .super-list .super-item .super-item-title span{
 	line-height: 35px;
 	height: 35px;
+	font-size: 14px;
 	overflow: hidden;
 	color: #666666;
 }
