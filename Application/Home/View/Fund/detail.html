@@ -1,6 +1,6 @@
 <include file='include/header'/>
  
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail.css?1">
 	 
  
 <div class="navli">
@@ -67,12 +67,12 @@
 				<div>剩余金额：	<span class="money">543,700</span>
 				&nbsp;元</div>
 
-				<div>账户余额： <a href="" class="login">登入可见</a></div>
+				<div>账户余额： <a href="{:U(User/login)}" class="login">登入可见</a></div>
 			</div>
 
 			<div class="invest-box">
 				<p style="font-size: 10px;">购买金额：</p>
-				<div>
+				<div class="insert-box">
 					<input id="investNum" class="invest-num" type="text" value="100">
 					<span class="rmb">元</span>
 					<div id="btnTotal" class="invest-total">全额</div>

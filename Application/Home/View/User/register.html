@@ -1,5 +1,5 @@
 <include file='include/header' />
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Lib/jqpwd/jqpwd.css"> 
+ 
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/register.css" />
 	<div id="reg-content" class="container-fluid reg-content">
 		<div class="row reg-box">
@@ -60,32 +60,7 @@
 							</div>
 							<!-- 错误提示信息end -->
 						</div> 
-						<!-- 滑动插件 -->
-						<div class="reg-pulg-in">
-							<div id="slider">
-							    <div class="vali-img none">
-							    	<h6 class="none">验证成功</h6>
-							        <div id="vali-big-img">
-							             <img src="12" alt="">
-							        </div> 
-							        <!-- 固定的 -->
-							        <div id="squre" class="squre">  
-							        </div> 
-							         <!-- 移动的 -->
-							         <div id="squretwo" class="squre"> 
-							               <img src="12" alt="">
-							        </div>
-							    </div> 
-							    <span id="label">
-							    	 
-							    </span> 
-								<span id="labelTip">按住左边滑块，拖动完成上方拼图</span> 
-							</div> 
-							<span class="plug-check-box">
-								<i class="fa fa-lock" ></i>
-							</span>
-						</div>
-						<!-- 滑动插件end -->
+						 
 						<!-- 点击显示推荐的手机号 -->
 						<div class="reg-slide-phone"> 
 							<a href="javascript:;">
@@ -119,7 +94,7 @@
 							 	<img src="{:U('User/verify')}" onclick="Refresh(this)" />
 							 </p> 
 							 <input type="text" id="verify" name="verify" placeholder="请输入验证码" />
-							 
+							  
 						</div>
 						<!-- 验证码end -->
 						<div class="reg-term">
@@ -146,14 +121,18 @@
 			<p class="pull-right" id="click_close">
 				<i class="fa fa-times"></i>
 			</p>
-		 	<div class="clause-txt">
-		 		
+		 	<div class="clause-txt"> 
 		 	</div>
 		 </div>
 	</div> 
 
 
-<include file='include/footer' />
-<script type="text/javascript" src="__PUBLIC__/Lib/jqpwd/jqpwd.js"></script>
-<script type="text/javascript" src="__PUBLIC__/Lib/jq-vali/jquery.slideunlock.js"></script>
+<include file='include/footer' /> 
+ 
 <script type="text/javascript" src="__PUBLIC__/Home/js/register.js"></script>
+<script  type="text/javascript">
+	/*刷新验证码*/
+	function Refresh($oVali){
+		$oVali.src=$oVali.src+"?"+Math.random();
+	}
+</script>
