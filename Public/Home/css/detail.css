@@ -73,7 +73,8 @@ ul li{
     border-color: #45b8ef;
     width: 58px;
     height: 23px;
-    line-height: 23px;
+    line-height: 20px;
+    font-size: 13px;
     margin-right: 10px;
     text-align: center;
 }
@@ -143,6 +144,9 @@ ul li{
 	padding: 15px 30px 26px 40px;
 	position: relative;
 }
+.content .content-in .content_right .insert-box{
+	position: relative;
+}
 .content .content-in .content_right .invest-box .invest-num{
 	float: left;
     width: 168px;
@@ -154,9 +158,9 @@ ul li{
     font-size: 14px;
 }
 .content .content-in .content_right .invest-box .rmb{
-	position: absolute;
-    top: 55px;
-    left: 185px;
+	position: absolute; 
+	top: 9px;
+	left: 135px;
 }
 .content .content-in .content_right .invest-box .invest-total{
     float: left;
