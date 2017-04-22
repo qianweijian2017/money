@@ -4,6 +4,12 @@ body{
     font-size: 16px; 
     font:"Helvetica Neue",Helvetica,Arial,sans-serif; 
 }
+.fr{
+    float: right!important;
+}
+.fl{
+    float:left!important;
+}
 a{ 
     color:#333;
     cursor: pointer; 
