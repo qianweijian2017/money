@@ -122,15 +122,15 @@ a,span,i{
 	padding: 10px 160px;
 
 }
-.reg-box .reg-form .reg-footer div.vali-code{
-	
-}
+ 
 .reg-box .reg-form .reg-footer div.vali-code p{
 	margin-bottom: 20px;
-}
- 
+} 
 .reg-box .reg-form .reg-footer div.vali-code input{
 	padding-left: 10px;
+	height: 40px;
+	line-height: 40px;
+	margin: 10px;
 	border: 1px solid #51AFFF;
 }
 .reg-box .reg-form .reg-footer .reg-term{
@@ -298,7 +298,7 @@ a,span,i{
 	top: 50%;
 	margin-left: -400px;
 	margin-top: -220px; 
-	z-index:20;
+	z-index:200;
 }
 #clause-box h5{
 	height: 40px;
