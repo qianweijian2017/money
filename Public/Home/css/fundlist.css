@@ -10,6 +10,7 @@
 }
 .super-title .super-title-left h2{
 	float: left;
+	line-height: 75px;
 }
 .super-title .super-title-left ul.super-select-box{
 	float: left;
@@ -114,26 +115,41 @@
 	font-size: 22px;
 	font-weight: bold;
 	float: left;
+	line-height: 75px;
 }
 .super-title-left span{
 	margin: 0 10px; 
 	color: #9C9C9C;
 } 
-.super-title-left a,
-.super-title-right a{
+.super-title-left a{
 	font-size: 14px;
 	color: #51AFFF;
 }
-.super-title-left a:hover,
-.super-title-right a:hover{
+.super-title-left a:hover 
+{
 	color:#1194D3;
 }
 .super-title-right {
 	float: right;
 	font-size: 14px;
 }
-.super-title-right span{
-	color: #333333; 
+.super-title-right a{
+	display: block;
+	margin:20px 100px 0 0; 
+	border-radius: 5px;
+	border: 1px solid #fff;
+	background-color: #0078DD;
+	text-align: center;
+	width: 100px;
+	height: 40px;
+	line-height:40px;
+	color: #fff;
+	transition: border .5s,background-color .5s,color .5s;
+}
+.super-title-right a:hover{
+	background-color: #fff;
+	border: 1px solid #0078DD;
+	color: #0078DD;
 }
 .super-main{
 	clear: both;
