@@ -4,7 +4,7 @@
 	<div id="reg-content" class="container-fluid reg-content">
 		<div class="row reg-box">
 			<section class="reg-form">
-				<form>  
+				<form action="{:U('User/register')}" method="post">
 					<!-- 头部 -->
 					<div class="reg-header"> 
 				 		<div class="reg-header-title">
@@ -23,7 +23,7 @@
 								<label for="reg-phone">
 									<i class="fa fa-mobile-phone"></i>
 								</label>
-								<input type="text" name="phone" data-vali="phone" placeholder="手机号码" id="reg-phone"  />
+								<input type="text" name="user_phone" data-vali="phone" placeholder="手机号码" id="reg-phone"  />
 								 <div class="check-tip none">
 								 	<i class="fa fa-check-circle"></i>
 								 </div>
@@ -39,7 +39,7 @@
 								<label for="reg-pwd-input">
 									<i class="fa fa-lock"></i>
 								</label>
-								<input type="password" name="key" id="reg-pwd-input"
+								<input type="password" name="user_pwd" id="reg-pwd-input"
 								onkeyup="pwStrength(this.value)"  data-vali="pwd" placeholder="密码"   />
 							</div> 
 							<div class="reg-tips clearfix"> 
@@ -73,7 +73,7 @@
 								<label for="reg-phonetwo">
 									<i class="fa fa-thumbs-o-up "></i>
 								</label>
-								<input type="text" data-vali="phone" placeholder="推荐人手机号码(选填)" id="reg-phonetwo">
+								<input type="text" name="user_recommend_phone" data-vali="phone" placeholder="推荐人手机号码(选填)" id="reg-phonetwo">
 
 							</div>
 							<!-- 错误提示信息 -->

@@ -7,9 +7,10 @@
 .login_main .login_box{
     position: absolute;
     width: 305px;
-    height: 370px;
-    top:74px;
+    height: 410px;
+    top:35px;
     right: 130px;
+    text-align: center;
     background: #fff;
 
 
@@ -46,7 +47,7 @@
     text-align: center;
 }
 
-.login_main .login_box .login-item .login_err{margin-bottom:5px; }
+.login_main .login_box .login-item .login_err{position: absolute;top: 43px;left: 36px;}
 .login_main .login_box .login-item .login_err .err{color: red;display: block;line-height: 18px;font-size:12px;} 
 .login_main .login_box  .login-item input {
     width: 238px;

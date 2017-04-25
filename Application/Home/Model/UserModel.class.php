@@ -7,25 +7,14 @@ use Think\Model;
 */
 class UserModel extends Model
 {
-	// 用户名
-			//1.不能为空
-			 
-			//2.长度限制
-	//密码
-			//1.不能为空
-			//2.长度6-12
-	//重复密码
-			//两次输入的密码必须一致
-
-
 
 	// 保存自动验证的规则
     protected $_validate=array(
-	    array('user_name','require','用户名不能为空！'), //默认情况下用正则进行验证
-        array('user_name','','管理员用户名已存在！','3','unique'),
+	    array('user_phone','require','手机号不能为空！'), //默认情况下用正则进行验证
+		array('user_phone','/^1[3|4|5|8][0-9]\d{4,8}$/','手机号码格式错误！','0','regex',1),
+        array('user_phone','','手机号已注册！','3','unique'),
 		array('user_pwd','require','密码不能为空'),
-		array('user_pwd','6,12','密码不能少于6位，且不能多于12位',3,'length'),
-	  	array('repassword','user_pwd','两次输入的密码不一样',0,'confirm'), // 验证确认密码是否和密码一致
+		array('user_pwd','8,16','密码不能少于6位，且不能多于12位',3,'length'),
     );
 	
 }

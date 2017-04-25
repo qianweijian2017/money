@@ -1,0 +1,304 @@
+.width1000{
+    width:1000px;
+    margin:auto;
+}
+.nav_crumb{
+    width: 100%;
+    height: 54px;
+    background: #ebebeb;
+}
+.personal_crumb{
+    background: transparent;
+    height: 54px;
+    padding: 0px;
+}
+.personal_crumb>li>a{
+    color: #999;
+    height: 54px;
+    line-height: 54px;
+    font-size:14px;
+}
+.personal_crumb li:nth-child(1) a{
+font-weight: bold;
+}
+.personal_crumb>li>a:hover{
+color: #008EED;
+}
+.personal_left{
+    float: left;
+    margin-top: 20px;
+    width: 280px;
+    border-bottom: 1px solid #dedede;
+    background: #f4f4f4;
+    margin-right: 10px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.15);
+    overflow: hidden;
+}
+.personal_msg{
+    overflow: hidden;
+}
+.personal_left .portrait{
+    margin: 10px;
+    float: left;
+    width: 86px;
+    height: 92px;
+    overflow: hidden;
+}
+.personal_left .portrait img{
+    width: 86px;
+}
+.personal_left .portrait2{
+    margin: 10px;
+    float: left;
+    width: 150px;
+    height: 92px;
+}
+.personal_left .portrait2 h5{
+    font-size: 14px;
+    color: gray;
+}
+.personal_left .portrait2 p{
+    color: #009dec;
+    font-size: 12px;
+}
+.personal_left .portrait2 .ionc{
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(/public/Home/imgs/user/ionc.png);
+    background-position: -36px -628px;
+    width: 52px;
+    height: 16px;
+}
+.personal_left .portrait2 .shengji{
+    color:#0075C1;
+}
+.personal_left .state span{
+    display: inline-block;
+    color: #333;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+}
+.state{
+    margin: 10px;
+    margin-top: 0px;
+}
+.state li{
+    margin-right: 3px;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+}
+.state i{
+    vertical-align: middle;
+    display: inline-block;
+    width:18px;
+    height: 18px;
+    margin-right: 5px;
+    background-image: url(/public/Home/imgs/user/ionc.png);
+}
+.state a{
+    font-size: 12px;
+}
+.state .state_icon1{
+    background-position: -85px -28px;
+}
+.state .state_icon2{
+    background-position: -108px -28px;
+}
+.state .state_icon3{
+    background-position: -62px -57px;
+}
+.state .state_icon4{
+    background-position: -150px -28px;
+}
+.personal_grade{
+    margin: 10px;
+}
+.personal_grade span{
+    font-size: 12px;
+}
+.personal_grade i{
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+}
+.personal_grade .ppdengji_icon{
+    width: 68px;
+    height: 26px;
+    background-image: url(/public/Home/imgs/user/ionc.png);
+    background-position: -324px -223px;
+}
+.vipdengji a{
+    display: inline-block;
+    width:22px;
+    height: 25px;
+    line-height:25px;
+    text-align: center;
+    color: #fff;
+    background: #ea3957;
+    border-radius: 6px;
+}
+.personal_grade .safedengji_icon{
+    background-position: -324px -223px;
+}
+.safedengji span{
+    float: left;
+ }
+.safedengji{
+    margin: 10px 0px;
+    overflow: hidden;
+}
+.safedengji div{
+    vertical-align:length;
+    float: left;
+    height: 10px;
+    border-radius: 5px;
+}
+.safedengji .level{
+    margin-top: 5px;
+    width: 80px;
+    background: #ccc;
+}
+.safedengji .level_value{
+    width: 60px;
+    background: #009dec;
+}
+.level_msg span{
+ font-size: 14px;
+    color: #81d403;
+    padding-left: 4px;
+}
+.level_msg a{
+    font-size: 14px;
+    padding-left: 14px;
+    color: #0075C1;
+}
+.account_title{
+    height: 40px;
+    line-height: 40px;
+    text-indent: 1em;
+    font-weight: 700;
+    color: #989aae;
+}
+.my_account{
+    border-top: 1px solid #dedede;
+    font-size: 15px;
+}
+.invest_manage_title{
+    border-top: 1px solid #dedede;
+    font-size: 13px;
+}
+.invest_content a{
+    display: inline-block;
+width: 72px;
+    height: 72px;
+    text-align: center;
+    margin: 9px;
+}
+.invest_content a .img{
+     display: block;
+    width: 100%;
+    text-align: center;
+ }
+.invest_content a img{
+    width: 40px;
+}
+.invest_content a span{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+
+
+.personal_right{
+    float: left;
+    margin-top: 20px;
+    width: 710px;
+    height: 500px;
+}
+.personal_capital{
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.personal_trade{
+    overflow: hidden;
+}
+.personal_trade_balance{
+    float: left;
+}
+.personal_trade_balance span{
+     color: #898989;
+ }
+.personal_trade_balance h2{
+    color: #333;
+    display: inline-block;
+    margin: 0px 10px;
+}
+.personal_trade_balance a{
+    color: #0075C1;
+    margin-left: 50px;
+}
+.personal_trade_operate{
+    float: right;
+}
+.personal_trade_operate a{
+    margin-right: 10px;
+    display: inline-block;
+    padding: 9px 27px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background-color: #45b8ef;
+}
+.personal_trade_operate .cash{
+    background:#ff4f3f;
+}
+.personal_trade_operate .cash:hover{
+    background-color: #ff382c;
+}
+.personal_trade_operate .recharge:hover{
+    background-color: #279dd6;
+}
+.personal_profit{
+    overflow: hidden;
+    margin: 30px 25px;
+    clear: both;
+    width: 100%;
+}
+.personal_profit li{
+    float: left;
+}
+.personal_profit li+li{
+    margin-left: 125px;
+}
+.personal_profit p{
+    margin: 5px 0px;
+    font-size: 12px;
+    color: #898989;
+}
+.personal_profit span{
+    color: #b6b6b6;
+}
+.personal_profit a{
+    font-size: 12px;
+    color: #0075C1;
+}
+.personal_profit .cash{
+    font-size: 16px;
+    color: #666;
+}
+.all_profit{
+    color: #898989;
+}
+.all_profit span{
+    color: #0075C1;
+}

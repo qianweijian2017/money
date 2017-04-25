@@ -1,16 +1,19 @@
+*{
+	font-size: 12px;
+}
 .clearfix:before,.clearfix:after{
 	content: '';
 	display: block;
 	clear: both;
 }
-div,p,ul,li,dl,dd,label{
+div,p,ul,ol,li,dl,dd,label,h1,h2,h3,h4,h5{
 	margin: 0;
 	padding: 0;
 } 
 a,a:hover,a:link{
 	text-decoration: none;
 } 
-ul{
+ul,ol{
 	list-style: none; 
 }
 select:focus,input:focus,button,input{ 
@@ -20,6 +23,6 @@ select:focus,input:focus,button,input{
 .none{
 	display: none;
 }
-
+ 
  
  
