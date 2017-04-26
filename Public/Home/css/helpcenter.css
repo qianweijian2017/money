@@ -1,0 +1,161 @@
+.search-box{
+    height: 165px;
+    background: url("../imgs/search-bg.jpg") no-repeat;
+}
+.search-com{
+    width: 1100px;
+    padding-top: 50px;
+    text-align: center;
+    margin: 0 auto;
+}
+.search-com .search-input{
+    width: 536px;
+    height: 54px;
+    padding: 0 15px;
+    line-height: 16px;
+    font-size: 16px;
+    border: 4px solid #4f5559
+}
+.search-com .search-btn{
+    width: 110px;
+    height: 46px;
+    margin-top: -4px;
+    margin-left: -117px;
+    text-align: center;
+    line-height: 35px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0f91dd;
+    cursor: pointer;
+    border-radius: 0;
+}
+.help-box{
+    padding-top: 20px;
+    width: 1100px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+.help-box .help-left{
+    float: left;
+}
+.help-box .help-left .item{
+    width: 200px;
+    height: 152px;
+    margin-bottom: 13px;
+    padding: 20px 17px;
+    text-align: center;
+    border: 1px solid #e1e4e4;
+    border-top: 1px solid #35aaf2;
+    border-bottom: 3px solid #e1e4e4;
+    background-color: #ffffff;
+}
+.help-box .help-left .item .title{
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
+.help-box .help-left .item .phone{
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0f91dd;
+}
+.help-box .help-left .item span{
+    font-size: 12px;
+}
+.help-box .help-left .item .icon{
+    cursor: pointer;
+    width: 162px;
+    height: 65px;
+    background: url("../imgs/service.png") 3px -64px;
+}
+.help-box .help-left .weixin{
+    height: 215px;
+}
+.help-box .help-left .item .erwei{
+    height: 133px;
+    background: url("../imgs/service.png") -143px -28px;
+}
+.help-box .help-right{
+    padding: 40px 50px;
+    width: 878px;
+    margin-bottom: 50px;
+    float: right;
+    background: #fff;
+}
+.help-box .help-right .title{
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+.help-right .service-list{
+    padding-bottom: 30px;
+    border-bottom: 3px dotted #b2b2b2;
+    overflow: hidden;
+}
+.help-right .service-list li{
+    width: 188px;
+    height: 165px;
+    float: left;
+    text-align: center;
+}
+.help-right .service-list li .service-icon{
+    width: 102px;
+    height: 120px;
+    margin: 0 auto;
+    background: url("../imgs/self-help.png");
+}
+.help-right .service-list li .con01{
+    background-position: -30px -346px;
+}
+.help-right .service-list li .con02{
+    background-position: -224px -346px;
+}
+.help-right .service-list li .con03{
+    background-position: -415px -346px;
+}
+.help-right .service-list li .con04{
+    background-position: -607px -346px;
+}
+.help-problem{
+    margin-top: 35px;
+}
+.help-problem .problem-list{
+    overflow: hidden;
+}
+.help-problem .problem-list .pro-item{
+    width: 350px;
+    margin: 0 17px;
+    float: left;
+}
+.help-problem .problem-list .pro-item .item-title{
+    height: 36px;
+    line-height: 36px;
+    padding-left: 7px;
+    font-weight: bold;
+    color: #333333;
+    background-color: #f5f5f5;
+}
+.help-problem .problem-list .pro-item .item-box{
+    height: 98px;
+    padding-top: 15px;
+}
+.help-problem .problem-list .pro-item .item-box .item-text{
+    margin: 7px 0;
+    padding: 0 7px;
+    float: left;
+    line-height: 14px;
+}
+.help-problem .problem-list .pro-item .item-box .item-text a{
+    color: #797979;
+}
+.help-problem .problem-list .pro-item .item-box .item-text a:hover{
+    color: #1194d3;
+}
+.help-problem .problem-list .pro-item .item-box .item-text + .item-text{
+    border-left: 2px solid #808080;
+}
