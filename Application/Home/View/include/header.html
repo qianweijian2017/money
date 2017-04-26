@@ -40,7 +40,7 @@
         <span>|</span>
         <a class="recharge">充值</a>
         <span>|</span>
-        <a class="help">帮助中心</a>
+        <a href="{:U('Help/helpcenter')}" class="help">帮助中心</a>
         <span>|</span>
         <a class="phone"><span class="fa fa-mobile-phone"></span>手机APP</a>
         <a class="weibo"><i class="fa fa-weibo i_icon"></i></a>
@@ -73,8 +73,8 @@
                 <li class="<php>is_active(CONTROLLER_NAME,'Fund')</php>" hover="1">
                     <a href="{:U('Fund/fundmain')}"> 基金超市</a>
                 </li>
-                <li hover="1">
-                    <a>信息披露</a> 
+                <li class="<php>is_active(CONTROLLER_NAME,'Message')</php>" hover="1">
+                    <a href="{:U('Message/information')}">信息披露</a>
                 </li>
                 
             </ul>
