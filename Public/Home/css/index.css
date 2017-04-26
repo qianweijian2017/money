@@ -84,7 +84,6 @@ body{
 }
 .data-warp{
     border-bottom: 1px solid #e7e7e7;
-    margin-top: 20px;
     overflow: hidden;
 }
 .data-warp .data{
@@ -159,24 +158,40 @@ body{
     height: 87px;
 }
 .notice-warp .notice .notice-list .item .text{
-    margin-top: -105px;
+    margin-top: -75px;
     margin-left:95px;
 }
 .notice-warp .notice .notice-list .item .notice-img01{
     background: url("../imgs/notice.png") no-repeat;
     background-position: -1px -15px!important;
 }
+.notice-warp .notice .notice-list .item .notice-img01:hover{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -1px -19px!important;
+}
 .notice-warp .notice .notice-list .item .notice-img02{
     background: url("../imgs/notice.png") no-repeat;
     background-position: -114px -15px!important;
+}
+.notice-warp .notice .notice-list .item .notice-img02:hover{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -114px -19px!important;
 }
 .notice-warp .notice .notice-list .item .notice-img03{
     background: url("../imgs/notice.png") no-repeat;
     background-position: -224px -15px!important;
 }
+.notice-warp .notice .notice-list .item .notice-img03:hover{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -224px -19px!important;
+}
 .notice-warp .notice .notice-list .item .notice-img04{
     background: url("../imgs/notice.png") no-repeat;
     background-position: -336px -15px!important;
+}
+.notice-warp .notice .notice-list .item .notice-img04:hover{
+    background: url("../imgs/notice.png") no-repeat;
+    background-position: -336px -19px!important;
 }
 .notice-warp .notice .notice-list .item .text h3{
     font-weight: 100;
