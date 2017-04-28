@@ -32,8 +32,8 @@ a,span,i{
 }
 .reg-box .reg-form .reg-header .reg-header-title{
 	text-align: center;
-	font-size: 24px;
-	color: #363636;
+	font-size: 18px;
+	color: #999;
 }
 .reg-box .reg-form .reg-header .reg-header-login{
 	font-size: 14px;
@@ -45,6 +45,25 @@ a,span,i{
 }
 .reg-box .reg-form .reg-header .reg-header-login a:hover{
 	color: #1194D3;
+}
+.nav_tit{
+	overflow: hidden;
+	text-align: center;
+	width: 275px;
+	margin:20px auto 10px auto;
+}
+.nav_tit li{
+float: left;
+}
+.nav_tit li+li{
+	margin-left: 20px;
+}
+.nav_tit .active a{
+	color: #1088D4!important;
+	font-weight: 600;
+}
+.nav_tit li a:hover,.nav_tit li a:focus{
+	background: transparent!important;
 }
 /*用户填写内容*/
 .reg-box .reg-form .reg-body{
@@ -96,6 +115,11 @@ a,span,i{
 	font-size: 20px;
 	color: #54BD5E;
 }
+div.reg-input span{
+	position: absolute;
+	top:0px;
+	right: 10px;
+}
 .reg-box .reg-form .reg-body .reg-tips{
 	color: #999999;
 	margin-top: 10px;
@@ -120,9 +144,10 @@ a,span,i{
 }
 .reg-box .reg-form .reg-footer{
 	padding: 10px 160px;
-
 }
- 
+div.vali-code{
+	position:relative;
+}
 .reg-box .reg-form .reg-footer div.vali-code p{
 	margin-bottom: 20px;
 } 
@@ -164,7 +189,13 @@ a,span,i{
 	font-size: 16px;
 	box-shadow: inset 0 -1px 1px #2C95EF;
 }
-
+.verify_ts{
+	color: #1194D3;
+	font-size: 12px;
+	position: absolute;
+	bottom:-10px;
+	left:0px;
+}
 #reg_submit:disabled{
 	background-color: #ccc;
 	box-shadow: none;

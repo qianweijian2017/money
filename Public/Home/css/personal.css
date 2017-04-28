@@ -39,6 +39,7 @@ color: #008EED;
 }
 .personal_left .portrait{
     margin: 10px;
+    margin-top: 25px;
     float: left;
     width: 86px;
     height: 92px;
@@ -58,6 +59,7 @@ color: #008EED;
     color: gray;
 }
 .personal_left .portrait2 p{
+    margin-top: 5px;
     color: #009dec;
     font-size: 12px;
 }
@@ -72,6 +74,17 @@ color: #008EED;
 .personal_left .portrait2 .shengji{
     color:#0075C1;
 }
+.edit{
+    font-size: 14px;
+    padding: 3px;
+    background: #FF4F3F;
+    color: #fff;
+    border-radius:5px;
+}
+.edit:hover{
+    color: #fff;
+    background: #ff382c;
+}
 .personal_left .state span{
     display: inline-block;
     color: #333;
@@ -80,8 +93,7 @@ color: #008EED;
     font-size: 12px;
 }
 .state{
-    margin: 10px;
-    margin-top: 0px;
+    margin: 20px 10px 10px 10px;
 }
 .state li{
     margin-right: 3px;

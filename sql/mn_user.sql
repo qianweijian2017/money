@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-04-25 07:57:24
+-- Generation Time: 2017-04-28 02:07:27
 -- 服务器版本： 5.7.14
 -- PHP Version: 7.0.10
 
@@ -28,20 +28,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `mn_user` (
   `id` int(11) NOT NULL,
-  `user_pwd` varchar(255) NOT NULL,
   `user_name` varchar(255) DEFAULT NULL,
-  `user_phone` varchar(11) NOT NULL,
-  `create_time` int(11) NOT NULL,
-  `user_recommend_phone` varchar(11) DEFAULT NULL,
-  `user_portrait` varchar(255) DEFAULT '/public/Home/imgs/user/touxiang.png'
+  `user_phone` varchar(11) DEFAULT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `user_pwd` varchar(255) NOT NULL,
+  `user_portrait` varchar(255) DEFAULT '/Home/imgs/user/touxiang.png'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `mn_user`
 --
 
-INSERT INTO `mn_user` (`id`, `user_pwd`, `user_name`, `user_phone`, `create_time`, `user_recommend_phone`, `user_portrait`) VALUES
-(5, '25f9e794323b453885f5181f1b624d0b', '人居多', '15123456789', 1493106820, '', '/public/Home/imgs/user/touxiang.png');
+INSERT INTO `mn_user` (`id`, `user_name`, `user_phone`, `user_email`, `user_pwd`, `user_portrait`) VALUES
+(1, 'admin', '15123456789', NULL, '21232f297a57a5a743894a0e4a801fc3', '/upload/5901e22b678f4.png'),
+(2, NULL, NULL, 'admin@qq.com', '21232f297a57a5a743894a0e4a801fc3', '/Home/imgs/user/touxiang.png');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +61,7 @@ ALTER TABLE `mn_user`
 -- 使用表AUTO_INCREMENT `mn_user`
 --
 ALTER TABLE `mn_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

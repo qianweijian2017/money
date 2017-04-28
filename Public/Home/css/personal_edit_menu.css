@@ -1,0 +1,28 @@
+.width900{
+    width: 900px;
+    margin: 50px auto;
+    overflow: hidden;
+
+}
+.edit_left{
+    width: 120px;
+    float: left;
+    margin-right: 60px;
+    overflow: hidden;
+}
+.edit_left h4{
+    margin-bottom: 10px;
+    color: #333;
+}
+.left_list li{
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+.left_list li a{
+    color: #666;
+    font-size:14px;
+}
+.left_list li.active a{
+    color: #1999EE;
+    font-weight: bold;
+}
