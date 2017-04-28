@@ -7,23 +7,44 @@
         <li><a>个人中心</a></li>
     </ul>
 </div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal_con">
+    </div>
+</div>
+
 <div class="width1000">
     <div class="personal_left">
         <div class="personal_msg">
             <div class="portrait">
-                <img src="__PUBLIC__/Home/imgs/user/touxiang.png">
+                <img class="portrait_img" src="__PUBLIC__{$user_info['user_portrait']}">
             </div>
             <div class="portrait2">
-                <h5><a title="单击修改昵称">上午好，156***619</a></h5>
-                <p>注册号：1036812171713</p>
+                <h5>
+                    <if condition="$user_info['user_name'] neq '' ">
+                        <span>欢迎，{$user_info['user_name']}</span>
+                        <elseif condition="$user_info['user_email'] neq '' " />
+                        <span>欢迎，{$user_info['user_email']}</span>
+                        <else />
+                        <span>欢迎，{$user_info['user_phone']}</span>
+                    </if>
+                    <if condition="$user_info['user_gender'] eq 1">
+                        <span>&nbsp;先生</span>
+                        <elseif condition="$user_info['user_gender'] eq 2" />
+                        <span>&nbsp;女士</span>
+                    </if>
+                </h5>
+                <p>注册号：{$user_info['user_register']}</p>
                 <h6><a class="ionc"></a><a class="shengji">升级/缴费</a></h6>
+                <a class="edit" href="{:U('personal/personal_edit')}">编辑信息</a>
             </div>
         </div>
         <ul class="state" title="实名认证">
-                <li><i class="state_icon1"></i><a>未认证</a></li>
-                <li><i class="state_icon2"></i><a>未保障</a></li>
-                <li><i class="state_icon3"></i><a>已绑定</a></li>
-                <li><i class="state_icon4"></i><a>未绑定</a></li>
+                <li><i class="state_icon1"></i><a href="{:U('personal/personal_safe')}">未认证</a></li>
+                <li><i class="state_icon2"></i><a href="{:U('personal/personal_safe')}">未保障</a></li>
+                <li><i class="state_icon3"></i><a href="{:U('personal/personal_safe')}">已绑定</a></li>
+                <li><i class="state_icon4"></i><a href="{:U('personal/personal_safe')}">未绑定</a></li>
         </ul>
         <div class="personal_grade">
             <div class="ppdengji">
@@ -124,6 +145,6 @@
     </div>
 
 </div>
-
+<script src="__PUBLIC__/Home/js/personal.js"></script>
 
 <include file="include/footer"/>

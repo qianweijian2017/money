@@ -1,7 +1,6 @@
 ;$(function(){
 	var $reg_input=$(".reg-input input[type]");//所有的input对象
 	var $check=$(".check-tip");//打勾的小图标
-	var $strong_tip=$("#pwd-tip");	//密码强度的盒子
 	var $pwd_error_tip=$("#pwd-error");
 	init();
 	function init(){
@@ -23,16 +22,6 @@
 			Validate($(this));//验证input的值  
 		});
 	}
-	//当密码框输入内容时,让密码强度盒子显示
-	 
-	 $("#reg-pwd-input").bind("input propertychange",function(){ 
-		 $strong_tip.show();  
-		 if($(this).val().length<20&&$(this).val().length>8){ 
-			$pwd_error_tip.hide();
- 		 }else{ 
- 		 	$pwd_error_tip.show();
- 		 }
-	 }) 
 	 
 	//验证值的方法
 	function Validate($domObj){
@@ -53,24 +42,25 @@
  	function Regular(sRegExp){  
 	 	 return (new RegExp(sRegExp));  
 	}
-	//显示和隐藏推荐人手机输入框
-	$(".reg-slide-phone a").click(function(){
-		if($(this).children("i").hasClass("fa-caret-right")){
-			$(this).children("i").removeClass('fa-caret-right').addClass("fa-caret-down");
-		}else{
-			$(this).children("i").removeClass('fa-caret-down').addClass("fa-caret-right");
-		}
-		$("#recommend").toggle(); 
-	})
-	//点击己阅读
+	//点击己阅读手机
 	$(".reg-footer .reg-term input[type=checkbox]").change(function() { 
 
 		if($(this).prop("checked")==true){   
-			$("#reg_submit").removeProp("disabled");
+			$(".reg_submit1").removeProp("disabled");
 		}else{
-			 $("#reg_submit").prop("disabled","disabled");
+			 $(".reg_submit1").prop("disabled","disabled");
 		}
 		 
+	});
+	//点击己阅读邮箱
+	$(".reg-footer .reg-term2 input[type=checkbox]").change(function() {
+
+		if($(this).prop("checked")==true){
+			$(".reg_submit2").removeProp("disabled");
+		}else{
+			$(".reg_submit2").prop("disabled","disabled");
+		}
+
 	});
 
 	// 条款协议
@@ -90,17 +80,17 @@
  
 
 	//验证码插件  
-    var slider = new SliderUnlock("#slider",{
-			successLabelTip : "验证成功" 
-		},function(){
-			   $(".reg-pulg-in .plug-check-box").
-			   removeClass("none").css("background-color","#6BD863");
-			   $(".reg-pulg-in .plug-check-box").
-			   children("i").removeClass("fa-lock").
-			   addClass("fa-check"); 
-
-    	});
-    slider.init();
+    //var slider = new SliderUnlock("#slider",{
+	//		successLabelTip : "验证成功"
+	//	},function(){
+	//		   $(".reg-pulg-in .plug-check-box").
+	//		   removeClass("none").css("background-color","#6BD863");
+	//		   $(".reg-pulg-in .plug-check-box").
+	//		   children("i").removeClass("fa-lock").
+	//		   addClass("fa-check");
+    //
+    	//});
+    //slider.init();
  
 }())
 

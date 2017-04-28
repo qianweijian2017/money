@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_edit_menu.css">
+<div class="width900">
+    <div class="edit_left">
+        <h4>设置列表</h4>
+        <ul class="left_list">
+            <li><a href="{:U('personal/index')}">个人中心</a></li>
+            <li class="<if condition='ACTION_NAME eq personal_edit'>active</if>">
+                <a href="{:U('personal/personal_edit')}">基本信息</a>
+            </li>
+            <li class="<if condition='ACTION_NAME eq personal_safe'>active</if>">
+                <a href="{:U('personal/personal_safe')}">账户安全</a>
+            </li>
+            <li><a>账号绑定</a></li>
+            <li><a>我的级别</a></li>
+        </ul>
+    </div>
