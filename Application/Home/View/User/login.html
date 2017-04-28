@@ -12,31 +12,23 @@
         </div>
         <form class="login_form" name="login_form" action="{:U('user/login')}" method="post">
             <div class="login-item">
-                <div class="login_err" ng-show="login_form.user_name.$dirty">
-                    <span class="err" ng-show="login_form.user_name.$error.pattern||loginForm.user_name.$error.minlength" >
-                    手机号码格式有误
-                    </span> 
-                </div> 
-                
-                <input type="text" placeholder="手机号" name="user_phone" class="input" ng-maxlength="13" ng-model="user.user_name"
-        ng-pattern="/^1[34578]\d{9}$/" required>
+                <input type="text" placeholder="用户名/手机号/邮箱" name="user_login" class="input" ng-maxlength="13" ng-model="user.user_name" required>
             </div>
             <div class="login-item">
-
                 <div class="login_err" ng-show="login_form.user_pwd.$dirty">
                     <span class="err" ng-show="login_form.user_pwd.$error.minlength ||loginForm.user_pwd.$error.minlength" >
-                         请输入6到12位的字符
+                         请输入5到16位的字符
                     </span>
-           
+
                 </div> 
 
-                <input type="password" placeholder="登录密码" name="user_pwd" ng-model="user.user_pwd" ng-minlength="6" ng-maxlength="20" required>
+                <input type="password" placeholder="登录密码" name="user_pwd" ng-model="user.user_pwd" ng-minlength="5" ng-maxlength="16" required>
             </div>
 
 
             <!-- 验证码 -->
             <div class="login-item">
-                <input type="text" id="verify" name="verify" placeholder="请输入验证码" />
+                <input type="text" id="verify" name="verify" placeholder="请输入验证码" /><span class="login_err verify_ts"></span>
             </div>
             <img src="{:U('User/verify')}" onclick="Refresh(this)" style="margin-bottom: 10px;" />
             <!-- 验证码end -->
@@ -54,14 +46,21 @@
 
 <script type="text/javascript">
 
-    angular.module("login",[])
 </script>
 
 <include file='include/footer'/>
 
 <script  type="text/javascript">
+    <!--使用angular-->
+    angular.module("login",[])
     /*刷新验证码*/
     function Refresh($oVali){
         $oVali.src=$oVali.src+"?"+Math.random();
     }
+    $('#verify').bind('input propertychange',function () {
+        var verify_ajax=$(this).val();
+        $.post("{:U('user/verify_ajax')}",{verify_ajax},function(data){
+            $('.verify_ts').html(data.massage);
+        })
+    })
 </script>

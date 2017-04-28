@@ -1,0 +1,55 @@
+.personal_edit{
+    width: 700px;
+    float: left;
+    overflow: hidden;
+}
+.touxiang_img{
+    margin-bottom: 30px;
+}
+.touxiang_img h5{
+    margin-bottom: 5px;
+}
+.touxiang_img span{
+    color: #999;
+    font-size:12px;
+}
+.portrait_box{
+    width: 200px;
+    height: 200px;
+}
+.edit_content{
+    color: #666;
+    margin: 20px 0px 20px 0px ;
+
+}
+.edit_content .text{
+    border: 1px solid #dedede;
+    height: 35px;
+    width: 220px;
+}
+.gender label{
+    margin-right:10px;
+}
+.gender input{
+    margin: 0px 5px;
+}
+.birthday span{
+    float: left;
+    line-height:30px;
+}
+.birthday select{
+    width: 70px;
+    font-size: 12px;
+    padding: 5px;
+    border: 1px solid #dedede;
+}
+.birthday label{
+    margin-right:10px;
+}
+.submit{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    font-size:14px;
+    background: #1999EE;
+}

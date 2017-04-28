@@ -24,11 +24,14 @@
     </div>
     <div class="header_top_right">
         <if condition="$Think.session.user neq ''">
-            <a class="portrait"><img src="{$Think.session.user.user_portrait}"></a>
+            <a class="portrait"><img src="__PUBLIC__{$Think.session.user.user_portrait}"></a>
             <if condition="$Think.session.user.user_name neq '' ">
                 <a>欢迎，{$Think.session.user.user_name}</a>
+                <elseif condition="$Think.session.user.user_email neq '' " />
+                <a>欢迎，{$Think.session.user.user_email}</a>
                 <else />
-                <a>欢迎，<?=substr_replace(session(user)[user_phone],"*****",3,6)?></a>
+                <a>欢迎，{$Think.session.user.user_phone}</a>
+                <!--<a>欢迎，<?=substr_replace(session(user)[user_phone],"*****",3,6)?></a>-->
             </if>
             <span>|</span>
             <a  href="{:U('User/SignOut')}" class="login">退出</a>
@@ -73,9 +76,9 @@
                 <li class="<php>is_active(CONTROLLER_NAME,'Fund')</php>" hover="1">
                     <a href="{:U('Fund/fundmain')}"> 基金超市</a>
                 </li>
-                <li class="<php>is_active(CONTROLLER_NAME,'Message')</php>" hover="1">
-                    <a href="{:U('Message/information')}">信息披露</a>
-                </li>
+                 <li class="<php>is_active(CONTROLLER_NAME,'Message')</php>" hover="1">
+                     <a href="{:U('Message/information')}">信息披露</a>
+                 </li>
                 
             </ul>
         </nav>
