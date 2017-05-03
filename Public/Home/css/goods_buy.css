@@ -1,0 +1,47 @@
+.bg{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom:0px;
+    z-index: 99;
+}
+.bank{
+    background: rgba(255,255,255,0.9);
+    width: 500px;
+    overflow: hidden;
+    margin: auto;
+    padding: 50px 50px;
+    margin-top: 15%;
+}
+.form_content{
+    width: 100%;
+    overflow: hidden;
+}
+.i_content{
+    position: relative;
+}
+.i_content span{
+    position: absolute;
+    top: 17px;
+    right:8px;
+}
+input {
+    width:100%;
+    height: 50px;
+}
+.input{
+    padding-left: 10px;
+    border:1px solid #dedede;
+    margin-bottom: 20px;
+}
+.submit{
+    background: #00a0e9;
+    color: #fff;
+    font-size:14px;
+    border-radius: 6px;
+}
+.submit:hover{
+    background: #00b0f9;
+}

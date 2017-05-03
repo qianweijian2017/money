@@ -1,0 +1,38 @@
+.width100{
+    width: 100%;
+    background: #fff;
+    margin: 0px;
+}
+.width1000{
+    width:1000px;
+    margin:auto;
+    overflow: hidden;
+}
+.personal_con{
+    padding: 30px 0px 80px 0px;
+}
+/***面包屑导航****/
+.nav_crumb{
+    width: 100%;
+    height: 54px;
+    background: #ebebeb;
+}
+.personal_crumb{
+    background: transparent;
+    height: 54px;
+    padding: 0px;
+}
+.personal_crumb>li>a{
+    color: #999;
+    height: 54px;
+    line-height: 54px;
+    font-size:14px;
+}
+.personal_crumb li:nth-child(1) a{
+    font-weight: bold;
+}
+.personal_crumb>li>a:hover{
+    color: #008EED;
+}
+/***面包屑导航完****/
+

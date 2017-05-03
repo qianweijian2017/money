@@ -20,28 +20,10 @@ class UserController extends Controller
 				$result=$user_table->where($sql)->find();
 
 				if($result){
-					$user_info=array();
-					if($result['user_email']){
-						$email_info=$result['user_email'];
-						$email_array = explode("@", $email_info);
-						$prevfix = (strlen($email_array[0]) < 4) ? "" : substr($email_info, 0, 3); //邮箱前缀
-						$count = 0;
-						$email_info = preg_replace('/([\d\w+_-]{0,100})@/', '***@', $email_info, -1, $count);
-						$user_info['user_email'] = $prevfix . $email_info;
-					}
-					if($result['user_phone']){
-						$phone_info=$result['user_phone'];
-						$pattern = '/(1[3458]{1}[0-9])[0-9]{4}([0-9]{4})/i';
-						$user_info['user_phone'] = preg_replace($pattern, '$1****$2', $phone_info); // substr_replace($name,'****',3,4);
-					}
-					if($result['user_name']){
-						$name_info=$result['user_name'];
-						$user_info['user_name'] = substr($name_info,0,3) . "***" . substr($name_info, -3);
-					}
+					$user_info=hidden($result);
 					$user_info['id']=$result['id'];
 					$user_info['user_portrait']=$result['user_portrait'];
 //				print_r($user_info);
-
 					session('user',$user_info);
 //					session('userAll',$result);
 					$this->success('登录成功',U('personal/index'));

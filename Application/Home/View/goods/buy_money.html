@@ -1,0 +1,45 @@
+<include file="include/header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_common.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/goods_buy.css">
+
+<div class="width100">
+    <div class="bg">
+    <div class="width1000 personal_con">
+
+            <div class="bank">
+                <form action="{:U('goods/doBuy')}" method="post">
+                    <php>
+                        $goods_info=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and stauts=0')->find();
+                    </php>
+                    <div class="form_content">
+                        <div class="i_content">
+                            <input class="input" type="text" value="{$goods_info['fund_code']}" placeholder="代号" disabled="true">
+                            <input type="hidden" name="fund_code" value="{$goods_info['fund_code']}">
+                            <span>代号</span>
+                        </div>
+                        <div class="i_content">
+                            <input class="input" type="text" value="30" placeholder="期限" disabled="true">
+                            <input class="input" type="hidden" name="length_day" value="30">
+                            <span>期限（天）</span>
+                        </div>
+                        <div class="i_content">
+                            <input class="input" type="text" name="money" value="{$goods_info['money']}" placeholder="金额">
+                            <span>金额</span>
+                        </div>
+                        <div class="i_content">
+                            <input class="input" type="password" name="trader_pwd" placeholder="输入交易密码">
+                            <span>交易密码</span>
+                        </div>
+                    </div>
+                    <div class="form_content">
+                        <input class="submit" type="submit" value="购买">
+                    </div>
+                </form>
+            </div>
+
+
+    </div><!--内容-->
+    </div>
+    <!--满屏-->
+</div>
+<include file="include/footer"/>

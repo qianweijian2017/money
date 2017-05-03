@@ -1,0 +1,72 @@
+<include file="include/header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_common.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_safe_edit.css">
+
+<div class="width100">
+    <div class="nav_crumb">
+        <ul class="breadcrumb personal_crumb width1000">
+            <li><a>你的位置：</a></li>
+            <li><a href="{:U('index/index')}">首页</a></li>
+            <li><a href="{:U('personal/index')}">个人中心</a></li>
+            <li><a>账户安全</a></li>
+        </ul>
+    </div>
+    <div class="width1000 personal_con">
+        <include file="personal_edit_menu"/>
+        <div class="safe_box">
+            <form class="safe" action="{:U('personal/doSafe_edit')}" method="post" style="display:<if condition='$cate eq pwd'>block</if>;">
+                <div class="form_content">
+                    <input class="input" type="password" name="old_user_pwd" placeholder="请输入原来的密码">
+                </div>
+                <div class="form_content">
+                    <input class="input" type="password" name="user_pwd" placeholder="请输入新的密码">
+                </div>
+                <div class="form_content">
+                    <input class="input" type="password" name="repassword" placeholder="请再输入新的密码">
+                </div>
+                <div class="form_content">
+                    <input class="submit" type="submit" value="更新">
+                </div>
+            </form>
+            <form class="safe" action="{:U('personal/doSafe_edit')}" method="post" style="display:<if condition='$cate eq email'>block</if>;">
+                <if condition="$stauts eq 1">
+                    <div class="form_content">
+                        <input class="input" type="email" name="old_user_email" placeholder="请输入原来的邮箱">
+                    </div>
+                </if>
+                <div class="form_content">
+                    <input class="input" type="email" name="user_email" placeholder="请输入新的邮箱">
+                </div>
+                <div class="form_content">
+                    <input class="submit" type="submit" value="更新">
+                </div>
+            </form>
+            <form class="safe" action="{:U('personal/doSafe_edit')}" method="post" style="display:<if condition='$cate eq phone'>block</if>;">
+                <if condition="$stauts eq 1">
+                    <div class="form_content">
+                        <input class="input" type="text" name="old_user_phone" placeholder="请输入原来的手机号">
+                    </div>
+                </if>
+                <div class="form_content">
+                    <input class="input" type="text" name="user_phone" placeholder="请输入新的手机号">
+                </div>
+                <div class="form_content">
+                    <input class="submit" type="submit" value="更新">
+                </div>
+            </form>
+            <form class="safe" action="{:U('personal/doSafe_edit')}" method="post" style="display:<if condition='$cate eq real'>block</if>;">
+                <div class="form_content">
+                    <input class="input" type="text" name="user_real_name" placeholder="请输入新的姓名"><br>
+                    <input class="input" type="text" name="user_id_card" placeholder="请输入新的身份证号">
+                </div>
+                <div class="form_content">
+                    <input class="submit" type="submit" value="更新">
+                </div>
+            </form>
+        </div>
+
+    </div><!--内容-->
+    <!--满屏-->
+</div>
+
+<include file="include/footer"/>

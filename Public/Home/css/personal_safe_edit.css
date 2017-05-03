@@ -1,0 +1,29 @@
+.safe_box{
+    width: 720px;
+    float: left;
+}
+.safe{
+    display: none;
+}
+.form_content{
+    width: 100%;
+    overflow: hidden;
+}
+input {
+    width: 300px;
+    height: 50px;
+}
+.input{
+    padding-left: 10px;
+    border:1px solid #dedede;
+    margin-bottom: 20px;
+}
+.submit{
+    background: #00a0e9;
+    color: #fff;
+    font-size:14px;
+    border-radius: 6px;
+}
+.submit:hover{
+    background: #00b0f9;
+}

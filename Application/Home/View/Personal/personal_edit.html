@@ -1,105 +1,119 @@
 <include file="include/header"/>
-<include file="personal_edit_menu"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_common.css">
 <link rel="stylesheet" href="__PUBLIC__/Home/css/personal_edit.css">
-<div class="personal_edit">
-    <form action="{:U('personal/doPersonal_edit')}" method="post" enctype="multipart/form-data">
-        <div class="touxiang_img">
-            <h5>头像照片</h5>
-            <span>仅支持JPG、GIF、PNG、JPEG、BMP格式，文件小于2M</span>
-            <div class="portrait_box">
-                <input type="file" name="user_portrait" class="portrait_img" data-default-file="__PUBLIC__{$user_info['user_portrait']}">
-            </div>
-        </div>
-        <div class="edit_content">
-            <span>用户名：</span>
-            <input class="text" type="text" value="{$user_info['user_name']}" name="user_name">
-        </div>
-        <div class="edit_content gender">
-            <span>性别：</span>
-            <label><input type="radio" name="user_gender" <?=$user_info['user_gender']==1?'checked':''?> value="1">男</label>
-            <label><input type="radio" name="user_gender" <?=$user_info['user_gender']==2?'checked':''?> value="2">女</label>
-        </div>
-        <div class="edit_content birthday">
-            <span>生日：</span>
-            <select name="year"  id="birthdayYear">
-                <option value="2017">2017</option>
-                <option value="2016">2016</option>
-                <option value="2015">2015</option>
-                <option value="2014">2014</option>
-                <option value="2013">2013</option>
-                <option value="2012">2012</option>
-                <option value="2011">2011</option>
-                <option value="2010">2010</option>
-                <option value="00后">00后</option>
-                <option value="2009">2009</option>
-                <option value="2008">2008</option>
-                <option value="2007">2007</option>
-                <option value="2006">2006</option>
-                <option value="2005">2005</option>
-                <option value="2004">2004</option>
-                <option value="2003">2003</option>
-                <option value="2002">2002</option>
-                <option value="2001">2001</option>
-                <option value="2000">2000</option>
-            </select>
-            <label>年</label>
-            <select name="month" id="birthdayMonth">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                </select>
-            <label>月</label>
-            <select name="day" id="birthdayDay">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option></select>
-            <label>日</label>
-            <em>有惊喜哦~</em>
-        </div>
-        <div class="edit_content">
-            <input class="submit" type="submit" value="更新">
-        </div>
-    </form>
+<div class="width100">
+    <div class="nav_crumb">
+        <ul class="breadcrumb personal_crumb width1000">
+            <li><a>你的位置：</a></li>
+            <li><a href="{:U('index/index')}">首页</a></li>
+            <li><a href="{:U('personal/index')}">个人中心</a></li>
+            <li><a>基本信息</a></li>
+        </ul>
+    </div>
+    <div class="width1000 personal_con">
+        <include file="personal_edit_menu"/>
+        <div class="personal_edit">
+            <form action="{:U('personal/doPersonal_edit')}" method="post" enctype="multipart/form-data">
+                <div class="touxiang_img">
+                    <h5>头像照片</h5>
+                    <span>仅支持JPG、GIF、PNG、JPEG、BMP格式，文件小于2M</span>
+                    <div class="portrait_box">
+                        <input type="file" name="user_portrait" class="portrait_img" data-default-file="__PUBLIC__{$user_info['user_portrait']}">
+                    </div>
+                </div>
+                <div class="edit_content">
+                    <span>用户名：</span>
+                    <input class="text" type="text" value="{$user_info['user_name']}" name="user_name">
+                </div>
+                <div class="edit_content gender">
+                    <span>性别：</span>
+                    <label><input type="radio" name="user_gender" <?=$user_info['user_gender']==1?'checked':''?> value="1">男</label>
+                    <label><input type="radio" name="user_gender" <?=$user_info['user_gender']==2?'checked':''?> value="2">女</label>
+                </div>
+                <div class="edit_content birthday">
+                    <span>生日：</span>
+                    <select name="year"  id="birthdayYear">
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="00后">00后</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                    </select>
+                    <label>年</label>
+                    <select name="month" id="birthdayMonth">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <label>月</label>
+                    <select name="day" id="birthdayDay">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option></select>
+                    <label>日</label>
+                    <em>有惊喜哦~</em>
+                </div>
+                <div class="edit_content">
+                    <input class="submit" type="submit" value="更新">
+                </div>
+            </form>
 
 
-</div>
+        </div>
+
+    </div><!--内容-->
+    <!--满屏-->
 </div>
 <link rel="stylesheet" href="__PUBLIC__/Lib/dropify/dropify.min.css">
 <script src="__PUBLIC__/Lib/dropify/dropify.min.js"></script>
