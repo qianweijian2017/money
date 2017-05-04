@@ -12,11 +12,12 @@ public function buy(){
 		$data['fund_code']=I('fund_code');
 		$data['money']=I('money');
 		$data['user_id']=session('user')['id'];
-		$goods_info=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and stauts=0')->find();
+		$data['start_time']=time();
+		$goods_info=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and status=0')->find();
 		if(!$goods_info){
 			M('goods')->add($data);
 		}else{
-			M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and stauts=0')->save($data);
+			M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and status=0')->save($data);
 		}
 		$user_money=M('user_money')->where('user_id='.session('user')['id'])->find();
 		if(!$user_money){
@@ -47,11 +48,11 @@ public function buy(){
 					->find();
 			if($trader_pwd['trader_pwd']==md5(I('trader_pwd'))){
 				$data['money']=I('money');
-				$data['stauts']=1;
+				$data['status']=1;
 				$data['start_time']=time();
 				$data['length_day']=I('length_day');
 				$data['end_time']=$data['start_time']+I('length_day')*60*60*24;
-				$result=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and stauts=0')->save($data);
+				$result=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and status=0')->save($data);
 				$money=M('user_money')->field('money')->where('user_id='.session('user')['id'])->find();
 				$money['money']=$money['money']-I('money');
 				$result_money=M('user_money')->where('user_id='.session('user')['id'])->save($money);

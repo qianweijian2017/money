@@ -1,0 +1,31 @@
+<include file="include/header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_common.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_bank.css">
+
+<div class="width100">
+    <div class="nav_crumb">
+        <ul class="breadcrumb personal_crumb width1000">
+            <li><a>你的位置：</a></li>
+            <li><a href="{:U('index/index')}">首页</a></li>
+            <li><a href="{:U('personal/index')}">个人中心</a></li>
+            <li><a>充值中心</a></li>
+        </ul>
+    </div>
+    <div class="width1000 personal_con">
+        <div class="bank">
+            <form action="{:U('personal/withdraw')}" method="post">
+                <div class="form_content">
+                    <input class="input" type="text" name="money" placeholder="提现额度"><br>
+                    <input class="input" type="text" name="bank_card" placeholder="银行卡号"><br>
+                    <input class="input" type="password" name="trader_pwd" placeholder="交易密码">
+                </div>
+                <div class="form_content">
+                    <input class="submit" type="submit" value="提现">
+                </div>
+            </form>
+        </div>
+
+    </div><!--内容-->
+    <!--满屏-->
+</div>
+<include file="include/footer"/>

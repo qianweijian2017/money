@@ -10,11 +10,6 @@
         </ul>
     </div>
     <div class="width1000 personal_con">
-        <!-- 模态框（Modal） -->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal_con">
-            </div>
-        </div>
         <div class="personal_left">
             <div class="personal_msg">
                 <div class="portrait">
@@ -74,12 +69,14 @@
                 </div>
                 <div class="vipdengji">
                     <span>会员等级：</span>
-                    <a href="">P1</a>
+                    <a>P1</a>
                 </div>
                 <div class="safedengji">
                     <span>安全等级：</span>
                     <div class="level"><div class="level_value" style="width: <?=$num*20?>px"></div></div>
-                    <div class="level_msg"><a>提升</a></div>
+                    <if condition="$num*20 lt 80">
+                        <div class="level_msg"><a href="{:U('personal/personal_safe')}">提升</a></div>
+                    </if>
                 </div>
             </div>
             <div class="account_title my_account">
@@ -140,33 +137,86 @@
                     </div>
                     <div class="personal_trade_operate">
                         <a class="recharge" href="{:U('personal/recharge')}">充值</a>
-                        <a class="cash">提现</a>
+                        <a class="cash"  href="{:U('personal/withdraw')}">提现</a>
                     </div>
                 </div>
                 <ul class="personal_profit">
                     <li>
                         <p>总资产<span>(元)</span></p>
-                        <p class="cash">0.00</p>
+                        <p class="cash">{$user_info['user_all_money']}</p>
                         <p><a>查看详情></a></p>
                     </li>
                     <li>
                         <p>累计收益<span>(元)</span></p>
-                        <p class="cash">0.00</p>
+                        <p class="cash">{$user_info['val_income']}</p>
                         <p><a>查看详情></a></p>
                     </li>
                     <li>
                         <p>我的积分</p>
-                        <p class="cash">0</p>
+                        <p class="cash">103</p>
                         <p><a>积分商城></a></p>
                     </li>
                 </ul>
-                <p class="all_profit">累计投资：<span>0</span>笔， 共计：<span>0.00</span>元</p>
+                <p class="all_profit">累计投资：<span>{$user_info['count_invest']}</span>笔， 共计：<span>{$user_info['invest_money']}</span>元</p>
             </div>
+
+            <ul id="myTab" class="nav nav-tabs xxk_title">
+                <li class="active"><a href="#run" data-toggle="tab">进行中</a></li>
+                <li><a href="#finish" data-toggle="tab">已完成</a></li>
+                <li><a href="#not" data-toggle="tab">未完成</a></li>
+            </ul>
+            <div class="tab-content xxk_content">
+                <div class="tab-pane fade in active" id="run">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>资金</th>
+                            <th>代号</th>
+                            <th>期限</th>
+                            <th>剩余天数</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody_ajax"></tbody>
+                    </table>
+                    <div class="pagination page_ajax"></div>
+                </div>
+                <div class="tab-pane fade" id="finish">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>产品id</th>
+                            <th>资金</th>
+                            <th>代号</th>
+                            <th>期限</th>
+                            <th>利率（%）</th>
+                            <th>收益（元）</th>
+                        </tr>
+                        </thead>
+                        <tbody class="finish_tbody"></tbody>
+                    </table>
+                    <div class="pagination finish_page"></div>
+                </div>
+                <div class="tab-pane fade" id="not">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>资金</th>
+                            <th>代号</th>
+                        </tr>
+                        </thead>
+                        <tbody class="not_tbody"></tbody>
+                    </table>
+                    <div class="pagination not_page"></div>
+                </div>
+            </div>
+
         </div>
 
     </div><!--内容-->
     <!--满屏-->
 </div>
-
+<script rel="stylesheet" src="__PUBLIC__/Home/js/personal.js"></script>
 <include file="include/footer"/>
-<script src="__PUBLIC__/Home/js/personal.js"></script>
+

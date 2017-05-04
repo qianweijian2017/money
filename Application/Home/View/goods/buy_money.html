@@ -9,7 +9,7 @@
             <div class="bank">
                 <form action="{:U('goods/doBuy')}" method="post">
                     <php>
-                        $goods_info=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and stauts=0')->find();
+                        $goods_info=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and status=0')->find();
                     </php>
                     <div class="form_content">
                         <div class="i_content">

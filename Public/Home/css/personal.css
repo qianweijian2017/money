@@ -299,3 +299,13 @@ width: 72px;
 .all_profit span{
     color: #0075C1;
 }
+.xxk_title{
+    padding: 10px 20px 0px 20px;
+}
+.xxk_content{
+    padding: 10px 0px 0px 0px;
+}
+.xxk_content .pagination{
+    margin: 0px;
+    padding-left:10px;
+}

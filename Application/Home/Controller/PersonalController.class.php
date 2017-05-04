@@ -9,8 +9,12 @@ use Think\Upload;
 */
 class PersonalController extends AuthController
 {
+
+	public $psn_page_num=10;//每页显示的数量
+
 	public function index(){
-		if(!M('user_money')->where('user_id='.session(user)['id'])->find()){
+		$id=session(user)['id'];
+		if(!M('user_money')->where('user_id='.$id)->find()){
 			$money_add=array();
 			$money_add['user_id']=session(user)['id'];
 			M('user_money')->add($money_add);
@@ -31,9 +35,80 @@ class PersonalController extends AuthController
 		$user_info['user_phone']=$result['user_phone'];
 		$user_info['user_email']=$result['user_email'];
 		$user_info['user_id_card']=$result['user_id_card'];
+
+		//总资产
+		$user_fund=M('goods')
+				->field('money')
+				->where('user_id='.$id.' and status=1')
+				->select();
+		$val_money='';
+		foreach($user_fund as $value){
+			$val_money +=$value['money'];
+		}
+		$user_info['user_all_money']=$val_money+$user_info['money'];
+		//总收益
+		$user_income=M('goods_fund_income')
+				->field('income_money,money')
+				->where('user_id='.$id)
+				->select();
+		$val_income='';
+		$val_finish='';
+		foreach($user_income as $value){
+			$val_income +=$value['income_money'];
+			$val_finish +=$value['money'];
+		}
+		$user_info['count_invest']=count($user_income)+count($user_fund);
+		$user_info['val_income']=$val_income;
+		$user_info['invest_money']=$val_finish+$val_money;
+
 		$this->assign('user_info',$user_info);
+
 		$this->display();
 	}
+
+//	ajax分页刷新进行中，个人中心首页
+	public function ajax_run(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('goods')->where('status=1 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'run');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('goods')
+				->where('status=1 and user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+//	ajax分页刷新进行中，个人中心首页
+	public function ajax_not(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('goods')->where('status=0 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'not');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('goods')
+				->where('status=0 and user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+	//	ajax分页刷新已完成，个人中心首页
+	public function ajax_finish(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('goods_fund_income')
+				->where('user_id='.session(user)['id'])
+				->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'finish');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('goods_fund_income')
+				->where('user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('goods_id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+
+//	编辑个人信息
 	public function personal_edit(){
 		$user_info= M('user')->alias('u')
 				->field('u.user_name,u.user_portrait,uc.user_gender,uc.user_birthday')
@@ -210,7 +285,7 @@ class PersonalController extends AuthController
 		}
 
 	}
-
+//绑定银行卡
 	function personal_bank(){
 		$this->display();
 	}
@@ -234,6 +309,7 @@ class PersonalController extends AuthController
 			$this->error($bank->getError());
 		}
 	}
+//	交易密码
 	public function trader_pwd(){
 		if($_POST){
 			$_arr=array(
@@ -255,8 +331,45 @@ class PersonalController extends AuthController
 			$this->display();
 		}
 	}
+//	充值
 	public function recharge(){
 		if(IS_POST){
+			if(I("money")>0){
+				$user_money=M('user_money');
+				$result_money=$user_money->where('user_id='.session(user)['id'])->find();
+				if(!$result_money['trader_pwd']){
+					$this->error('请先设置您的交易密码',U("personal/trader_pwd"));
+				}else{
+					$card_list=M('user_bankcard')->where('user_id='.session(user)['id'])->select();
+					foreach($card_list as $value){
+						if($value['bank_card']==I('bank_card')){
+							if($result_money['trader_pwd']==md5(I('trader_pwd'))){
+								$data['money']=I('money')+$result_money['money'];
+								$result=$user_money->where('user_id='.session(user)['id'])->save($data);
+								if($result){
+									$this->success('充值成功',U("personal/index"));
+								}else{
+									$this->error('充值失败');
+								}
+							}else{
+								$this->error('交易密码不正确');
+							}
+						}else{
+							$this->error('该银行卡还没有绑定');
+						}
+					}
+				}
+			}else{
+				$this->error('输入的额度不正确');
+			}
+		}else{
+			$this->display();
+		}
+	}
+	//	提现
+	public function withdraw(){
+		if(IS_POST){
+			if(I("money")>0){
 			$user_money=M('user_money');
 			$result_money=$user_money->where('user_id='.session(user)['id'])->find();
 			if(!$result_money['trader_pwd']){
@@ -266,12 +379,16 @@ class PersonalController extends AuthController
 				foreach($card_list as $value){
 					if($value['bank_card']==I('bank_card')){
 						if($result_money['trader_pwd']==md5(I('trader_pwd'))){
-							$data['money']=I('money')+$result_money['money'];
+							if(I('money')<$result_money['money']){
+								$data['money']=$result_money['money']-I('money');
+							}else{
+								$data['money']=0;
+							}
 							$result=$user_money->where('user_id='.session(user)['id'])->save($data);
 							if($result){
-								$this->success('充值成功',U("personal/index"));
+								$this->success('提现成功',U("personal/index"));
 							}else{
-								$this->error('充值失败');
+								$this->error('提现失败');
 							}
 						}else{
 							$this->error('交易密码不正确');
@@ -280,6 +397,9 @@ class PersonalController extends AuthController
 						$this->error('该银行卡还没有绑定');
 					}
 				}
+			}
+			}else{
+				$this->error('输入的额度不正确');
 			}
 		}else{
 			$this->display();
