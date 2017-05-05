@@ -106,9 +106,9 @@ function sliceNumber($iNumber)
 		 	}   
 		 }
 		 for ($j = count($sNumber) -1 ; $j >=0 ;$j--) { 
-		 	 $iNumber.=$sNumber[$j]; 
+		 	 $newNumber.=$sNumber[$j]; 
 		 }
 		
 	}
-	return $iNumber;
+	return $newNumber;
 }
