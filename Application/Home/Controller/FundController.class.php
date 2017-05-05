@@ -28,7 +28,10 @@ class FundController extends Controller
 	    	$sPages=$page->show();
     	}
     	//获取列表
-    	$fundlist=$fund->where($where)->order('year_profit+0 desc')->limit($page->firstRow.',8' )->select();
+    	$fundlist=$fund->where($where)
+				    	->order('year_profit+0 desc')
+				    	->limit($page->firstRow.',8' )
+				    	->select();
     	$this->assign('fundlist',$fundlist);// 赋值数据集
     	$this->assign('sPages',$sPages);// 赋值分页输出  
 		$this->display(); // 输出模板 
@@ -38,10 +41,7 @@ class FundController extends Controller
 	   	return $where;
 	} 
 
-	public function detail(){ 
-
-		$this->display();
-	}
+	
 
 
  
