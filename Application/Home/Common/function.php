@@ -86,3 +86,29 @@ function hidden($result){
 //	print_r($user_info);
 	return $user_info;
 }
+
+/**
+ * 对数字进行分割
+ */
+
+function sliceNumber($iNumber)
+{	
+	if($iNumber>999){
+		 $aNumber=str_split($iNumber); 
+		 $dot="," ;
+		 for ($i = count($aNumber) -1 ; $i >=0 ;$i--) { 
+		 	 $sNumber[]=$aNumber[$i];
+
+		 }
+		 foreach ($sNumber as $key => $value) {
+		 	 if(($key+1) % 3 == 0){
+	 			 $sNumber[$key] = $dot.$value;
+		 	}   
+		 }
+		 for ($j = count($sNumber) -1 ; $j >=0 ;$j--) { 
+		 	 $iNumber.=$sNumber[$j]; 
+		 }
+		
+	}
+	return $iNumber;
+}
