@@ -1,0 +1,77 @@
+/*导航*/
+.subnav {
+    width: 100%;
+    margin: 0 auto;
+    background: #ebebeb;
+    font-size: 14px;
+    color: #999;
+}
+.subnav ul {
+    height: 54px;
+    line-height: 54px;
+    width: 1170px;
+    margin: 0 auto;
+    position: relative;
+}
+.subnav ul li {
+    float: left;
+    padding: 0 5px;
+
+}
+.subnav ul li a {
+    color: #999;
+    padding: 0 10px 0 0;
+}
+.subnav ul li:last-child {
+    color: #666;
+}
+.mod-box{
+    background: #ebebeb;
+    overflow: hidden;
+}
+.mod-cont{
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+}
+/*左边导航*/
+.mod-cont .mod-left{
+    position: relative;
+    float: left;
+    width: 206px;
+}
+.mod-cont .mod-left .left-list{
+    font-size: 14px;
+    background: #fff;
+}
+.mod-cont .mod-left .left-list .item{
+    position: relative;
+    color: #333;
+    padding-top: 20px;
+    height: 60px
+}
+.mod-cont .mod-left .left-list .item h2{
+    padding: 0 34px;
+}
+
+.mod-cont .mod-left .left-list .item .strong {
+    font-size: 16px;
+    font-weight: 700;
+}
+.mod-cont .mod-left .left-list .item .tip {
+    font-size: 12px;
+    color: #b6b6b6;
+    height: 20px;
+    padding-left: 34px;
+}
+.mod-cont .mod-left .left-list .active{
+    background: #45b8ef;
+}
+.mod-cont .mod-left .left-list .active .strong{
+    color: #fff;
+}
+/*右边模块*/
+.mod-right{
+    float: right;
+    width: 944px;
+}
