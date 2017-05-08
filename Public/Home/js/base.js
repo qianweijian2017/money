@@ -1,4 +1,13 @@
 ;(function () {
+    for ( i=0;i<6;i++){
+        $val=$('.progress-val').eq(i).text();
+        $('.progress-ing').eq(i).css({
+            width:$val
+        });
+    }
+
+
+
     //导航栏，选中展开
     // $('[hover="1"]').mouseenter(function(){
     //     $(this).addClass('open');
@@ -22,5 +31,6 @@
         }
     });
     $(".nav_title li.active").children("a").prop("href","javascript:;")
+
 
 }());
