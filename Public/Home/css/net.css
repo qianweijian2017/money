@@ -39,11 +39,22 @@
     position: relative;
     float: left;
     width: 206px;
+    z-index: 9; 
+}
+#nav_bg{
+    width: 211px;
+    height: 60px; 
+    border-left:6px solid #45B8EF;
+    z-index: -1px;
+    position: absolute;
+    top: 100px;
+    left: -6px;
 }
 .mod-cont .mod-left .left-list{
     font-size: 14px;
     background: #fff;
 }
+
 .mod-cont .mod-left .left-list .item{
     position: relative;
     color: #333;
@@ -75,3 +86,196 @@
     float: right;
     width: 944px;
 }
+
+.mod-com {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 1px #ccc;
+    
+}
+.mod-com h4{
+    width: 74px; 
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.mod-com ul
+,.mod-com ul li
+,.mod-com h4{
+    float: left;
+} 
+.mod-com ul li a
+,.mod-com  p a
+,.mod-com h4{
+     color: #9F9F9F; 
+     font-size: 12px;
+     padding: 0 12px; 
+}  
+.mod-com ul li a i
+,.mod-com ul li a:hover{
+    color: #45B8EF;
+}
+.mod-com ul li a i{
+    margin-left: 5px; 
+}
+.mod-com  p {
+    float: right;
+    margin-right: 10px;
+}
+ 
+.mod-list {
+    width: 100%;
+    overflow: hidden;
+    background: #F5F5F5;
+}
+.mod-list  .prlist{  
+    background: #fff;
+    overflow: hidden; 
+    border:1px solid #fff; 
+}
+ 
+.mod-list .prlist:first-of-type{
+    margin-top:10px;
+}
+.mod-list .prlist .prlist_title{
+    width: 100%;
+    padding: 5px 18px 15px 25px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 20px;
+    color: #45B8EF;
+    position: relative;
+    box-sizing: border-box;
+}
+.mod-list .prlist .prlist_title .fir{ 
+    font-weight: 500;
+}
+.mod-list .prlist .prlist_title .sml{
+    margin: 0 4px;
+    padding: 0 4px;
+    color: #4cace6;
+    font-size: 12px;
+    border: 1px solid #4cace6;
+    border-radius: 4px;
+}
+.mod-list .prlist .explain{
+    padding: 39px 10px 30px 50px;
+    overflow: hidden;
+}
+.mod-list .prlist .explain>div{
+    float: left;
+}
+.mod-list .prlist .explain .main-rate span:nth-child(3){ 
+    font-size: 20px; 
+    color: #ea4343;
+    font-family: Arial;
+}
+.mod-list .prlist .explain .main-rate span:nth-child(2){ 
+    font-size: 30px; 
+    color: #ea4343;
+}
+.mod-list .prlist .explain .main-rate span:nth-child(1){ 
+    display: block;
+    color: #333;
+    font-weight: 500;
+    font-size: 10px;
+}
+.mod-list .prlist .explain .mod{ 
+    font-size: 24px;
+    color: #333; 
+    height: 55px;
+    float: left;
+}
+.mod-list .prlist .explain .mod-lock
+{
+    margin-left: 185px;
+    line-height: 45px;
+}
+.mod-list .prlist .explain .mod-total{ 
+    line-height: 45px; 
+    margin-left: 114px;
+}
+.mod-list .prlist .explain .mod .total{
+    font-family: Arial;
+
+}
+.mod-list .prlist .explain .mod .num{
+    font-size: 16px;
+}
+.mod-list .prlist .explain .mod .hb{
+    display: block;
+    color: #333;
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 12px;
+}
+.mod-list .prlist .explain .progress{
+    width: 80px;
+    height: 10px; 
+
+    margin: 0;
+    margin-left: 10px;
+    background-color: #E0E0E0;
+    font-size: 12px;
+    display: inline-block;
+}
+.mod-list .prlist .explain .progress .progress-bar{
+    line-height: 13px;
+    margin: 0;
+}
+.mod-list .prlist .explain .pro .progress2{
+    font-size: 12px;
+    background: none;
+    height: 15px;
+    margin: 0;
+}
+.mod-list .prlist .explain .pro span{
+    color: #999;
+    float: left;
+    font-size: 12px;
+
+}
+.mod-list .prlist .explain .pro{ 
+    width: 250px;
+    line-height: 13px;
+    height: 22px; 
+    float: right;
+}
+
+.mod-list .prlist .explain .goumai{
+    width: 250px;
+    float: right;
+}
+.mod-list .prlist .explain .goumai:hover .goumai_btn{
+    background: #ff4f3f;
+    border-radius: 4px; 
+}
+.mod-list .prlist .explain .goumai .goumai_btn{
+    width: 130px;
+    height: 40px;
+    line-height: 40px; 
+    background: #ea4343;
+    color: #fff;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+}
+.regular_fenye{
+    width: 20%;
+    margin: auto;
+    display: block;
+    padding: 30px 0;
+    margin-bottom: 30px;
+}
+.foow{
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+.foow span{
+    display: block;
+    float: left;
+    padding: 30px 0;
+}
+
