@@ -512,7 +512,7 @@ h2 {
     float: left;
     width: 407px;
     border-bottom: 1px solid #cccccc;
-    padding-bottom: 24px;
+    padding-bottom: 25px;
     padding-left: 34px;
     padding-right: 34px;
 }
@@ -526,11 +526,11 @@ h2 {
 .bd-row li:nth-child(4) {
     padding-top: 8px;
     border-bottom: none;
+    border-right:none;
 }
 
 .bd-row li:nth-child(4) a {
     display: block;
-    margin-top: 26px;
     margin-left: -14px;
 }
 
