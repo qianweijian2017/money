@@ -121,10 +121,11 @@ function sliceNumber($iNumber)
 	if(strpos($iNumber,".")){
 		$ext=substr($iNumber,strpos($iNumber,",")); 
 	}
-	if($iNumber > 999){
-		 $aNumber=str_split($iNumber); 
+	// 数字是四位数时
+	if($iNumber > 999){	
+		 $aNumber=str_split($iNumber); 						//将字符串分割个单个字母
 		 $dot="," ;
-		 for ($i = count($aNumber) -1 ; $i >=0 ;$i--) { 
+		 for ($i = count($aNumber) -1 ; $i >=0 ;$i--) {   //倒序排列
 		 	 $sNumber[]=$aNumber[$i];
 
 		 }
@@ -139,6 +140,10 @@ function sliceNumber($iNumber)
 		
 	}else{
 		return $iNumber;
+	}
+	//首个位置的逗号去掉
+	if(strpos($newNumber,",") == 0 ){ 
+		$newNumber = substr($newNumber,1);
 	}
 	return $newNumber;
 }
