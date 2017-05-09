@@ -12,8 +12,7 @@
 		<li><a href="">省心宝</a>></li>
 		<li>项目详情</li>
 	</ul>
-</div>
-
+</div> 
 <!--content-->
 <div class="content">
 	<div class="content-in">
@@ -107,7 +106,7 @@
   <div class="bs-example bs-example-taps" data-example-id="togglable-taps">
     <ul id="myTabs" class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="false">项目介绍</a></li>
-      <li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">债权明细</a></li>
+      <li role="presentation" class="" id="ajaxgo"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">债权明细</a></li>
       <li role="presentation" class=""><a href="#third" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">风险提示</a></li>
       <li role="presentation" class=""><a href="#forth" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="true">常见问题</a></li>
     </ul>
@@ -198,48 +197,30 @@
         			</tr>
         		</thead>
         		<tbody id="record_panelPlan">
-        			<tr>
+        			<!-- <tr>
         				<td>11928799002</td>
         				<td>覃**</td>
         				<td>4404****9063</td> 
         				<td>3,000.00</td>
         				<td><a href="">详情</a></td>
-        			</tr>
-        			<tr>
-        				<td>11928799002</td>
-        				<td>覃**</td>
-        				<td>4404****9063</td> 
-        				<td>3,000.00</td>
-        				<td><a href="">详情</a></td>
-        			</tr>
-        			<tr>
-        				<td>11928799002</td>
-        				<td>覃**</td>
-        				<td>4404****9063</td> 
-        				<td>3,000.00</td>
-        				<td><a href="">详情</a></td>
-        			</tr>
+        			</tr>  -->
         		</tbody>
         	</table>
-        </div>
-      	<ul class="pagination person_fy">
-      		<li>
-      			<a href="#"  >
+        </div> 
+      	<ul class="pagination person_fy" id="ajax_page">
+      		<!-- <li>
+      			<a href="javascript:;" data-src="1"   >
       			 上一页 
       			</a>
       		</li>
-      		<li><a href="#">1</a></li>
-      		<li><a href="#">2</a></li>
-      		<li><a href="#">3</a></li>
-      		<li><a href="#">4</a></li>
-      		<li><a href="#">5</a></li>
-      		<li><a href="#">6</a></li>
-      		<li><a href="#">...</a></li>
+      		<li><a href="javascript:;" data-src="2" >1</a></li>
+      		<li><a href="javascript:;" data-src="3" >2</a></li>
+      		<li><a href="javascript:;" data-src="4" >3</a></li> 
       		<li>
-      			<a href="#" >
+      			<a href="javascript:;" data-src="2"  >
       				 下一页 
       			</a>
-      		</li>
+      		</li> -->
       	</ul>
       </div>
 
@@ -305,8 +286,27 @@
 
 </div>
 </volist>
- 
-
+ <input type="hidden" id="fixid" value="{:I('get.fixid')}">
+<script type="text/javascript">
+  $('#ajaxgo').click(function () {
+      getBorrower($('#fixid').val(),1);
+  }) 
+  function bindClick() {
+    $("#ajax_page li a").click(function () {
+        var proj_id  =   $('#fixid').val();
+        var pagenum  =   $(this).data("src");  
+        getBorrower(proj_id,pagenum);  
+    });
+  }
+  
+  function getBorrower(proj_id,pagenum) {
+    $.post("{:U('Regular/getProjBorrower')}",{proj_id,pagenum},function (data) { 
+       $('#record_panelPlan').html(data.info);
+       $("#ajax_page").html(data.page);
+       bindClick();
+    });
+  }
+</script>
   
  <include file='include/footer'/>
  <script type="text/javascript" src="__PUBLIC__/Home/js/detail.js"></script>
