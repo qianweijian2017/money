@@ -18,7 +18,7 @@ class IndexController extends Controller
             $shengxinbao->where("id=".($i+1))->setField('result',$data['result']);
 
         }
-        $data_sxb = $shengxinbao->where('proj_type=1')->order('result desc')->select();
+        $data_sxb = $shengxinbao->table('mn_project_lock a,mn_project b')->where('b.proj_type=1 and a.type_id=b.proj_type')->order('result desc')->select();
         $this->assign('data', $data_sxb[0]);// 赋值数据集
         $this->assign('data_sec', $data_sxb[1]);// 赋值数据集
         $this->assign('data_thr', $data_sxb[2]);// 赋值数据集
@@ -40,7 +40,7 @@ class IndexController extends Controller
         }
 
         //按照进度排序
-        $data_yyz = $yueyuezneg->where('proj_type=2')->order('result desc')->select();
+        $data_yyz = $yueyuezneg->table('mn_project_lock a,mn_project b')->where('b.proj_type=2 and a.type_id=b.proj_type')->order('result desc')->select();
         $this->assign('data_yyz', $data_yyz[0]);// 赋值数据集
         $this->assign('data_yyz_total', $data_yyz[1]);// 赋值数据集
         $this->assign('data_yyz_thr', $data_yyz[2]);// 赋值数据集
