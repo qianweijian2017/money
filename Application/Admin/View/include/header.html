@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>昭昭理财后台管理系统</title><link rel="stylesheet" type="text/css" href="__LIB__/font-awesome-4.7.0/css/font-awesome.min.css">
+ 	<link rel="stylesheet" type="text/css" href="__LIB__/bootsrapv3.3.7/css/bootstrap.min.css">
+ 	<link rel="stylesheet" type="text/css" href="__ADMIN__/css/reset.css">
+ 	<link rel="stylesheet" type="text/css" href="__ADMIN__/css/common.css"> 
+ 	<link rel="stylesheet" type="text/css" href="__ADMIN__/css/add.css"> 
+ 	<!-- 获取控制器名,全局变量 --> 
+	 <script type="text/javascript">
+	 	var controllerName="{$Think.CONTROLLER_NAME}";
+	 	var postDelUrl="{:U('Ajax/delete')}"; 
+	 	var postEditUrl="{:U('Ajax/edit')}"; 
+	 	// var postDelUrl="{:U('Ajax/delete')}"; 
+	 	// var postDelUrl="{:U('Ajax/delete')}"; 
+
+	 </script>
+ </head>
+ <body> 
+  <!-- 公共头部 -->
+<header id="header" class="header"> 
+	<div class="header-logo">
+		<a href="{:U('index/index')}">
+			<img src="__ADMIN__/imgs/logo.png">
+		</a>
+	</div>
+	<div class="header-title">
+		昭昭理财后台管理系统
+	</div>
+	<div class="header-userbar">
+		<ul>   
+			<li title="退出"> 
+				<a href="javascript:;">
+					<i class="fa fa-sign-out"></i>
+				</a>
+			</li> 
+		</ul>
+	</div>
+</header>
+<nav id="nav" class="left-nav">
+	<div class="header-left-nav">
+		  <!-- 第一个一级菜单开始 -->
+		  <dl class="pbottom_10">
+		 	 <!-- 标题 -->
+		 	<dt>
+		 		<a href="javascript:;">
+					<i class="fa fa-th"></i>
+		 			<span>前台管理</span>
+		 		</a>
+		 	</dt>  
+		 	 <!-- 标题end -->
+		 	 <!-- 选项 -->
+		 	 <dd>
+		 		<a href="javascript:;">
+					<p><i class="fa  fa-plane"></i></p>
+		 			<span>首页导航</span>
+		 		</a>
+		 	</dd> 
+		 	<dd>
+		 		<a href="javascript:;">
+					<p><i class="fa fa-cart-plus"></i></p>
+		 			<span>首页排版内容</span>
+		 		</a>
+		 	</dd> 
+		 	<!-- 选项end -->
+		 </dl>
+		  <!-- 第一个一级菜单end -->
+		 <!-- 第二个一级菜单开始 -->
+		 <dl class="pbottom_50">
+			<!-- 标题 -->
+		 	<dt>
+		 		<a href="javascript:;">
+		 			<i class="fa fa-book"></i>
+		 			<span>后台管理</span>
+		 		</a>
+		 	</dt>  
+		 	<!-- 标题end -->
+		 	<!-- 选项 -->
+		 	<dd>
+		 		<a href="{:U('User/userlist')}">
+		 			<p><i class="fa fa-user-o"></i></p>
+		 			<span>用户列表</span>
+		 		</a>
+		 	</dd>
+		 	<dd>
+		 		<a href="{:U('fund/fundlist')}">
+					<p><i class="fa fa-building-o"></i></p>
+		 			<span>基金详情</span>
+		 		</a>
+		 	</dd>
+		 	<dd>
+		 		<a href="javascript:;">
+					<p><i class="fa fa-heart-o"></i></p>
+		 			<span>项目详情</span>
+		 		</a>
+		 	</dd>  
+		 	<dd>
+		 		<a href="javascript:;">
+					<p><i class="fa fa-line-chart"></i></p>
+		 			<span>统计图表</span>
+		 		</a>
+		 	</dd>
+		 	<!-- 选项 end-->
+		 </dl>
+		 <!-- 第二个一级菜单end -->
+	</div>
+</nav>
+<!-- 公共头部end -->
+
+
+<!-- 主要内容开始  -->
+<div id="main" class="main">
+	<div class="main-title">
+		 
+	</div>
+	

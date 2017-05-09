@@ -1,7 +1,7 @@
-<?
+<?php
 
 	 // 获取基金表数据
-	 public function getFundData($num='',$fund){
+	 function getFundData($num='',$fund){
          $array=array();
          //得到网页数据
           $json = file_get_contents('http://www.gffunds.com.cn/apistore/JsonService?service=BaseInfo&method=Fund&op=queryFundByGFCategory');

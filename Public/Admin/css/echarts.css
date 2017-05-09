@@ -1,0 +1,12 @@
+#chartsbox{
+	width: 100%;
+	height: 500px;
+	clear: both;
+	margin-top: 20px;
+}
+.charts .btn_charts{
+	width: 150px;
+	height: 30px;
+	color: #fff;
+	background-color: #61A0A8;
+}

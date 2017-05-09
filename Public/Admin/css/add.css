@@ -1,0 +1,62 @@
+.addbook label{
+	display: block;
+	margin: 20px 0;
+	line-height: 20px;
+	clear: both;
+}
+.addbook label span{
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+	float: left;
+	 
+}
+.addbook label cite{
+	float: left;
+	margin-left: 10px;
+	font-style: normal;
+}
+.addbook label cite input[type='date']{
+	width: 200px;
+}
+
+.addbook p{
+	font-size: 16px;
+	line-height: 25px; 
+	color: #f00;
+}
+
+.addbook p.show_time{
+	width: 140px;
+	float: left;
+}
+.addbook form{ 
+	text-align: center;
+}
+.addbook form .book_left{
+	float: left;
+}
+.addbook form .book_right{
+	float: left;
+}
+.addbook form button[type='submit']{
+	display: block; 
+	margin-left: 313px;  
+	clear: both;
+}
+.addbook form select{ 
+	font-style: normal;
+	width: 150px;
+	height: 30px;
+}
+ 
+.addbook form select:focus{
+	border: 1px solid #ccc;
+}
+.addbook form select option{
+	font-style: normal;
+}
+.addbook form .filebox{
+	clear: both; 
+	margin: 30px 0 30px 200px;
+}

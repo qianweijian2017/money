@@ -1,0 +1,252 @@
+body,html{
+	 height: 100%;
+}
+/*table表格点击背景*/
+.tb_bg{
+	background-color: #C9C9C9;
+}
+.center{
+	text-align: center!important;
+	font-size: 20px;
+	color: #f00; 
+}
+.center:hover{
+	background: none!important;
+}
+.header{
+	height: 80px;
+	line-height: 80px;   
+	background-color: #3779AD;
+}
+.pbottom_10{
+	padding-bottom: 10px;
+}
+.pbottom_50{
+	padding-bottom: 50px;
+}
+#nav,.header-logo{
+	min-width:200px;
+	width: 15%;  
+	background-color: #3779AD;
+	float: left;
+}
+.header-logo{
+	text-align: center;
+}
+.header-logo a{ 
+	color: #fff;
+	display: block;
+}
+.header-logo a img{
+	width: 98%;
+	height: 60px;
+}
+.header .header-title{
+	font-size: 20px;
+	font-weight: 600;
+	text-indent: 50px; 
+	float: left;
+	color: #fff; 
+}
+ 
+.header .header-userbar{
+	float: right;
+	margin-right: 30px;
+	width: 25%; 
+}
+.header .header-userbar ul{
+	float: right;
+	width: 100%;
+}
+.header .header-userbar ul li{
+	float: right;
+ 	width: 18%;
+	text-align: center;
+}
+.header .header-userbar ul >li> a{ 
+	font-size: 20px;
+}
+.header .header-userbar ul >li> a:hover{
+	color: #f00;
+} 
+.header .header-userbar ul >li> a >i{
+	color: #fff;
+}
+/*左侧导航*/
+.left-nav {
+	clear: both;
+	overflow: hidden;
+
+}
+.left-nav .header-left-nav{ 
+	padding-bottom: 9999px;
+	margin-bottom: -9999px;
+}
+.left-nav .header-left-nav dl{ 
+	background-color: #3779AD;
+}
+.left-nav .header-left-nav dl > dt{
+	width: 100%;
+	height: 50px; 
+	line-height: 50px;
+} 
+.left-nav .header-left-nav dl > dd:hover{
+	background-color: rgba(255,255,255,.1);
+}
+.left-nav .header-left-nav dl dt>a,
+.left-nav .header-left-nav dl dd>a{
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	height: 100%;
+	text-indent: 20px;
+}
+.left-nav .header-left-nav dl dd>a{
+	color: #fff;
+} 
+.left-nav .header-left-nav dl dd>a:hover{
+	color: #fff;
+}
+.left-nav .header-left-nav dl a i{
+	color: #fff; 
+	font-size: 20px;
+	margin-top: 15px;
+	float: left;
+}
+.left-nav .header-left-nav dl a span{
+	float: left;
+}
+.left-nav .header-left-nav dl >dd a:hover i{
+	color: #f00;
+}
+.left-nav .header-left-nav > dl >dd{ 
+	height: 45px;
+	line-height: 45px;
+}
+.left-nav .header-left-nav > dl >dd p{
+	float: left;
+	width: 30px;
+}
+.left-nav .header-left-nav > dl >dd> a{ 
+	text-indent: 30px;
+}
+.left-nav .header-left-nav > dl >dd> a i{
+	font-size: 14px;
+}
+/*主要内容开始*/
+.main .ManagerBar .search_box{
+
+}
+.main .ManagerBar .search_box form label{
+	display: block;
+}
+.main .ManagerBar .search_box form label>input{
+	border: none;
+	margin: 0 5px;
+}
+.main .ManagerBar .search_box form select{
+	width: 175px;
+	height: 35px;
+}
+.main .ManagerBar .search_box form select option{
+	height: 35px;
+}
+#search_news{
+	margin: 0 0 0 10px;
+}
+ #main{
+    padding-right: 0;
+ 	min-height: 400px;
+ 	width: 80%;
+ 	margin-left: 1%;
+ 	float: left;
+ }
+
+/*列表显示table*/
+table.common_table{
+	font-size: 13px;
+
+} 
+table.common_table tr th{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+table.common_table tr th:first-child{
+	text-align: left;
+	width: 80px;
+}
+table.common_table tr td{
+	text-align: center;
+}
+table.common_table tr td:first-child{
+	text-align: left;
+}
+table.common_table tr td:first-child input[type='checkbox']{
+	margin-left: 15px; 
+	width: 15px;
+	height: 15px;
+}
+table.common_table tr:hover{
+	background-color: #C9C9C9;
+	 
+}
+table.common_table tr:first-child:hover{
+	background-color: #fff;
+}
+table.common_table tr td.book_title{
+	width: 200px;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+/*分页*/
+.b-page {
+    background:#fff;
+    box-shadow:0 1px 2px 0 #e2e2e2;
+}
+.b-page .page {
+    width:100%;
+    padding:10px 15px;
+    background:#fff;
+    text-align:center;
+    overflow:hidden;
+}
+.b-page .page .first,.b-page .page .prev,.b-page .page .current,.b-page .page .num,.b-page .page .current,.b-page .page .next,.b-page .page .end {
+    padding:8px 16px;
+    margin:0 5px;
+    display:inline-block;
+    color:#008cba;
+    border:1px solid #f2f2f2;
+    border-radius:5px;
+}
+.b-page .page .first:hover,.b-page .page .prev:hover,.b-page .page .current:hover,.b-page .page .num:hover,.b-page .page .current:hover,.b-page .page .next:hover,.b-page .page .end:hover {
+    text-decoration:none;
+    background:#3779AD;
+    color: #fff;
+}
+.b-page .page .current {
+    background-color:#3779AD;
+    color:#fff;
+    border-radius:5px;
+    border:1px solid #3779AD;
+}
+.b-page .page .current:hover {
+    text-decoration:none;
+    background:#3779AD;
+}
+
+
+
+
+ 
+
+
