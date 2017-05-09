@@ -1,13 +1,22 @@
 ;(function () {
+    //初始化首页数据
+    $tar="100%";
     for ( i=0;i<6;i++){
+
         $val=$('.progress-val').eq(i).text();
         $('.progress-ing').eq(i).css({
             width:$val
         });
+        console.log($val);
+        if($val==$tar){
+            $('.ft').find('.btn').eq(i).css({
+                background:"#cccccc",
+                borderColor:"#cccccc"
+            }).text("已购满")
+        }
+
+
     }
-
-
-
     //导航栏，选中展开
     // $('[hover="1"]').mouseenter(function(){
     //     $(this).addClass('open');
