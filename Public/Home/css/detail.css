@@ -300,9 +300,9 @@ th{
 	text-align: center;
 	line-height: 40px;
 }
-.person_fy{
-	width: 36%;
+.person_fy{ 
     display: block;
+    width: 400px;
     margin:40px auto;
     padding:10px 0;
 }
@@ -316,4 +316,24 @@ th{
 }
 p{
 	line-height: 23px;
+}
+
+#ajax_page .page{
+	width: 455px;
+	padding: 5px;
+}
+#ajax_page .page a{
+	margin: 0;
+	padding: 2px 7px;
+	font-size: 14px;
+}
+#ajax_page .page .current{
+	padding: 2px 7px;
+	margin: 0 2px;
+}
+#ajax_page .page .rows{ 
+	letter-spacing: -1px;
+	width: 90px;
+	float: right;
+	line-height: 27px;
 }

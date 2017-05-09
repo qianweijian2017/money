@@ -12,38 +12,14 @@
 		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'9'))}" class="<php>select_active(I('get.ftype'),9)</php>">
 		 		 			全部
 		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'1'))}" class="<php>select_active(I('get.ftype'),'1')</php>">
-		 		 			混合型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'5'))}" class="<php>select_active(I('get.ftype'),'5')</php>">
-		 		 			债券型
-		 		 		</a>
-		 		 	</li>
-		 		 	
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'3'))}" class="<php>select_active(I('get.ftype'),'3')</php>">
-		 		 			货币型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'2'))}" class="<php>select_active(I('get.ftype'),'2')</php>">
-		 		 			指数型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'6'))}" class="<php>select_active(I('get.ftype'),'6')</php>" >
-		 		 			理财型
-		 		 		</a>
-		 		 	</li>
-		 		 	<li>
-		 		 		<a href="{:U('Fund/fundlist',array('ftype'=>'4'))}" class="<php>select_active(I('get.ftype'),'4')</php>">
-		 		 			海外型
-		 		 		</a>
-		 		 	</li>
+		 		 	</li> 
+		 		 	<volist name='fund_type_nav' id='type_item' empty='没有选项'> 
+			 		 	<li>
+			 		 		<a href="{:U('Fund/fundlist',array('ftype'=>$type_item[type_id]))}" class="<php>select_active(I('get.ftype'),$type_item[type_id])</php>">
+			 		 			{$type_item.type_name}
+			 		 		</a>
+			 		 	</li>
+		 		 	</volist>
 		 		 </ul>
 		 	</div> 
 		 	 
@@ -54,29 +30,27 @@
 		  <!-- 主列表开始 -->
 		 	<div class="super-list"> 
 		 	<!-- 遍历开始 --> 
-		 	<volist name="fundlist" id="fundItem">
+		 	<volist name="fundlist" id="fundItem" empty="数据为空">
 		 		<!-- 列表单个选项 --> 
-		 		 <php>
+		 		 <php> 
 		 		 	$right_margin="right-margin"; 
 		 		 	if($i==4||$i==8){
 						$right_margin="";
-		 		 	}
-		 		 	$icon_color=""; 
-		 		 	$fund_type=trim($fundItem['fund_type']); 
-					switch($fund_type){
-						case "指数型":$icon_color="yellow";break;
-						case "货币型":$icon_color="green";break;
-						case "债券型":$icon_color="bohe";break;
-						case "海外型":$icon_color="red";break;
-						case "理财型":$icon_color="licai";break;
+		 		 	} 
+		 		 	$type_id=trim($fundItem['type_id']); 
+					switch($type_id){
+						case "2":$icon_color="yellow";break;
+						case "3":$icon_color="green";break; 
+						case "4":$icon_color="red";break;
+						case "5":$icon_color="bohe";break;
+						case "6":$icon_color="licai";break;
 						default:$icon_color="default";
 		 		 	 }
 		 		 </php> 
 				<if condition="$fundItem['year_profit'] lt 0" > 
 					<assign name="Green" value="ColorGreen" />  
 						 
-				</if>
-				
+				</if> 
 		 		<div class="super-item {$right_margin}">
 		 			<div class="super-item-tip">
 		 				<span class="{$icon_color}">{$fundItem.fund_type}</span>

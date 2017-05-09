@@ -12,7 +12,7 @@
     	<volist name="projlist" id="projitem">
 	    	<div class="prlist">
 	    		<div class="prlist_title">
-	    		   <span class="fir">180天定期宝{$projitem['create_time']|date="Ymd-i",###}</span>
+	    		   <span class="fir">{$projitem['proj_lock']}天定期宝{$projitem['create_time']|date="Ymd-i",###}</span>
 	    		   <!-- <span class="sml">手动</span>
 	    		   <span class="sml">满减券</span>
 	    		   <span class="sml">加息券</span> -->
@@ -39,7 +39,7 @@
 					<div class="pro">			
 						<php> 
 	                    	$progress=($projitem['proj_amount'])/($projitem['proj_total'])*100;
-	                    	$progress=number_format($progress , 2, '.', '');
+	                    	$progress=sprintf("%.2f",substr(sprintf("%.3f", $progress), 0, -2));
 	                    </php>	
 						<div class="progress">
 	                      <div class="progress-bar" role="progressbar" aria-valuenow="{$progress}" aria-valuemin="0" aria-valuemax="100" style="width: {$progress}%">                      
