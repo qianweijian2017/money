@@ -32,4 +32,12 @@ $(document).ready(function () {
             top:"0px"
         });
     });
+
+    	$(".carousel-inner img").eq(0).addClass("active");
+
+
+    	$(".carousel-inner li").eq(0).addClass("active");
+
+        
 });
+

@@ -4,6 +4,7 @@ namespace Home\Controller;
 
 use Think\Controller;
 
+
 class IndexController extends Controller
 {
     public function index()
@@ -45,9 +46,19 @@ class IndexController extends Controller
         $this->assign('data_yyz_total', $data_yyz[1]);// 赋值数据集
         $this->assign('data_yyz_thr', $data_yyz[2]);// 赋值数据集
 
+         
+        $ppt_info=M('ppt')
+                 ->select();
+                 /*print_r($ppt_info);*/
+                 $this->assign('ppt_info',$ppt_info);
+        $cont=count($ppt_info);
+             $this->assign('cont',$cont); 
+
+
         $this->display('./index');
 
     }
+
 
 
 }
