@@ -6,23 +6,40 @@
 <div class="banner">
     <div class="banner-img carousel slide" id="slidershow" data-ride="carousel">
         <div class="banner-list carousel-inner">
-            <img class="item active" src="__PUBLIC__/Home/imgs/01.jpg" alt="">
-            <img class="item" src="__PUBLIC__/Home/imgs/02.jpg" alt="">
+            <volist name="ppt_info" id="fundItem">
+                <img class="item" src="__PUBLIC__{$fundItem.pic_path}" alt="">
+            </volist>
+            
+
+            
+           <!--  <img class="item" src="__PUBLIC__/Home/imgs/02.jpg" alt="">
             <img class="item" src="__PUBLIC__/Home/imgs/03.jpg" alt="">
             <img class="item" src="__PUBLIC__/Home/imgs/04.jpg" alt="">
             <img class="item" src="__PUBLIC__/Home/imgs/05.png" alt="">
             <img class="item" src="__PUBLIC__/Home/imgs/06.jpg" alt="">
-        </div>
+        </div> -->
         <!-- 显示幻灯片数量的容器 -->
+        <form>
+            <input type="hidden" value="{$cont}" class="con">
+        </form>
         <ul class="carousel-indicators">
-            <li data-slide-to="0" class="active" data-target="#slidershow"></li>
-            <li data-slide-to="1" data-target="#slidershow"></li>
-            <li data-slide-to="2" data-target="#slidershow"></li>
-            <li data-slide-to="3" data-target="#slidershow"></li>
-            <li data-slide-to="4" data-target="#slidershow"></li>
-            <li data-slide-to="5" data-target="#slidershow"></li>
+
+            <script type="text/javascript">
+                var carou="";
+                for (var i = 0; i <$(".con").val(); i++) {
+                   carou+='<li data-slide-to="'+i+'"  data-target="#slidershow"></li>'
+                   $('.carousel-indicators').html(carou);
+                }
+            </script>
+            <!-- <li data-slide-to="0" class="active" data-target="#slidershow"></li>
+            <li data-slide-to="1"  data-target="#slidershow"></li>
+            <li data-slide-to="2"  data-target="#slidershow"></li>
+            <li data-slide-to="3"  data-target="#slidershow"></li>
+            <li data-slide-to="4"  data-target="#slidershow"></li>
+            <li data-slide-to="5"  data-target="#slidershow"></li> -->
+
         </ul>
-    </div>
+       </div>
     <div class="banner-box">
         <div id="login">
             <div class="banner-box-hd">
