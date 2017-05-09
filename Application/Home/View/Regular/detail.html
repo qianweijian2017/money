@@ -2,7 +2,7 @@
  
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail.css?1">
 	 
-<volist name="projitem" id="projitem">
+ 
 
 <div class="navli">
 	<ul>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="content_info">
 				<div class="main-rate">
-					<span>8.5</span>
+					<span>{$projitem['pro_profit']}</span>
 					<span>%</span>
 					<span>预期年化收益率&nbsp;<i class="fa fa-question-circle-o"></i></span>
 				</div>
@@ -192,8 +192,7 @@
         				<th>借款人/企业</th>
         				<th width="20%">身份证/机构代码</th> 
         				<!-- <th width="20%">债权匹配金额（元）</th> -->
-        				<th width="20%">借款总额（元）</th>
-        				<th width="10%">查看</th>
+        				<th width="20%">借款总额（元）</th> 
         			</tr>
         		</thead>
         		<tbody id="record_panelPlan">
@@ -285,7 +284,7 @@
   </div>
  
 </div>
-</volist>
+ 
  <input type="hidden" id="fixid" value="{:I('get.fixid')}">
 <script type="text/javascript">
   var fixid   = $('#fixid').val();
@@ -298,6 +297,7 @@
        $("#ajax_page").on('click','a',function (event) {  
          event.preventDefault();
          var url = $(this).attr('href');
+
          $.get(url,{},function (data) {  
              var user_info =  data.info; 
              $('#record_panelPlan').html(data.userhtml);
@@ -309,10 +309,12 @@
  
   
   function getBorrower(id,pagenum) { 
+
     $.get("{:U('Regular/getProjBorrower')}",{id,pagenum},function (data) {  
+       console.log(data);
        var user_info =  data.info; 
        $('#record_panelPlan').html(data.userhtml);
-       $("#ajax_page").html(data.page);
+       $("#ajax_page").html(data.pagehtml);
        
     });
   }

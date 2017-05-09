@@ -1,106 +1,104 @@
 <include file='include/header'/>
  
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail.css?1">
-	 
-<volist name="projectitem" id="projectitem">
+   
+ 
 
 <div class="navli">
-	<ul>
-		<li>您所在的位置:</li>
-		<li><a href="">首页</a>></li>
-		<li><a href="">投资理财</a>></li>
-		<li><a href="">省心宝</a>></li>
-		<li>项目详情</li>
-	</ul>
+  <ul>
+    <li>您所在的位置:</li>
+    <li><a href="">首页</a>></li>
+    <li><a href="">投资理财</a>></li> 
+    <li>项目详情</li>
+  </ul>
 </div> 
 <!--content-->
 <div class="content">
-	<div class="content-in">
-		<div class="content_left">
-			<div class="content_left_title">
-			   <div>
-         <h3>{$projectitem['proj_lock']}天定期宝[{$projectitem['create_time']|date="Ymd-i",###}]</h3>
+  <div class="content-in">
+    <div class="content_left">
+      <div class="content_left_title">
+         <div><h3>{$projitem['proj_lock']}天定期宝[{$projitem['create_time']|date="Ymd-i",###}]</h3></div>
+         <div class="newcus">
+          <ul>
+            <li>加息券</li>
+            <li>满减券</li>
+            <li>新手</li>
+            <li>手动</li>
+          </ul>
          </div>
-			   <div class="newcus">
-				  <ul>
-  					<li>加息券</li>
-  					<li>满减券</li>
-  					<li>新手</li>
-  					<li>手动</li>
-				  </ul>
-			   </div>
-			</div>
-			<div class="content_info">
-				<div class="main-rate">
-					<span>8.5</span>
-					<span>%</span>
-					<span>预期年化收益率&nbsp;<i class="fa fa-question-circle-o"></i></span>
-				</div>
+      </div>
+      <div class="content_info">
+        <div class="main-rate">
+          <span>{$projitem['pro_profit']}</span>
+          <span>%</span>
+          <span>预期年化收益率&nbsp;<i class="fa fa-question-circle-o"></i></span>
+        </div>
 
-				<div class="mod">
-					<span class="total">{$projectitem['proj_lock']}</span>
-					<span class="num">天</span>
-					<span class="hb">锁定期</span>
-				</div>
+        <div class="mod">
+          <span class="total">{$projitem['proj_lock']}</span>
+          <span class="num">天</span>
+          <span class="hb">锁定期</span>
+        </div>
 
-				<div class="mod" style="margin-left: 50px;">
-					<span class="total">{$projectitem['proj_total']/10000}</span>
-					<span class="num">万</span>
-					<span class="hb">融资金额</span>
-				</div> 
-				<div class="exp">{$projectitem['proj_lock']}天锁定期后随时可退，不退出可持续享有收益
-				</div>
-			</div>
+        <div class="mod" style="margin-left: 50px;">
+          <span class="total">{$projitem['proj_total']/10000}</span>
+          <span class="num">万</span>
+          <span class="hb">融资金额</span>
+        </div> 
+        <div class="exp">{$projitem['proj_lock']}天锁定期后随时可退，不退出可持续享有收益
+        </div>
+      </div>
 
-		</div>
+    </div>
 
-		<div class="content_right">
+    <div class="content_right">
    
-			<div class="content_right_head">
-				<div>
-					<span>投资进度：</span>
+      <div class="content_right_head">
+        <div>
+          <span>投资进度：</span>
           <php>  
-                $progress=($projectitem['proj_amount'])/($projectitem['proj_total'])*100;
+                $progress=($projitem['proj_amount'])/($projitem['proj_total'])*100;
                 $progress=number_format($progress , 2, '.', '');
           </php>  
-					<div class="progress">
+          <div class="progress">
                       <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {$progress}%">                      
                       </div>
           </div>
            <span>{$progress}%</span>
-				</div>
-          <php>   
-                $remain=intval($projectitem['proj_total'])-intval($projectitem['proj_amount']); 
+        </div>
+          <php>  
+
+                $remain=intval($projitem['proj_total'])-intval($projitem['proj_amount']); 
                 $remain=sliceNumber($remain);
 
           </php>  
-				<div>剩余金额：	<span class="money">{$remain}</span>
-				&nbsp;元</div>
+        <div>剩余金额：  <span class="money">{$remain}</span>
+        &nbsp;元</div>
 
-				<div>账户余额： <a href="{:U('User/login')}" class="login">登入可见</a></div>
-			</div>
+        <div>账户余额： <a href="{:U('User/login')}" class="login">登入可见</a></div>
+      </div>
 
-			<div class="invest-box">
-				<form action="{:U('goods/buy')}" method="post">
-					<p style="font-size: 10px;">购买金额：</p>
-					<div class="insert-box">
-						<input id="investNum" name="money" class="invest-num" type="text" value="100">
-						<input name="fund_code" type="hidden" value="270002">
-						<span class="rmb">元</span>
-						<div id="btnTotal" class="invest-total">全额</div>
-					</div>
+      <div class="invest-box">
+        <form action="{:U('goods/buy')}" method="post">
+          <p style="font-size: 10px;">购买金额：</p>
+          <div class="insert-box">
+            <input id="investNum" name="money" class="invest-num" type="text" value="100">
+            <input name="fund_code" type="hidden" value="270002">
+            <span class="rmb">元</span>
+            <div id="btnTotal" class="invest-total">全额</div>
+          </div>
 
-					<input class="lijibuy" type="submit" value="立即购买"/>
-				</form>
+          <input class="lijibuy" type="submit" value="立即购买"/>
+        </form>
 
-			</div>
+      </div>
 
-			<div class="tip">
-			 <p>小P提醒：理财有风险，投资需谨慎</p>
-			</div>
+      <div class="tip">
+       <p>小P提醒：理财有风险，投资需谨慎</p>
+      </div>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </div> 
 
 <div class="content">
@@ -119,64 +117,64 @@
          <h5 class="mceNonEditable">项目进度</h5>
          <div class="liuctu"></div>
          <div class="liuc">
-         	<ul>
-         		<li>
-         			<p>今日投资</p>
-         			<p class="today">【今日日期】</p>
-         		</li>
-         		<li>
-         			<p>开始计息</p>
-         			<p class="start-day">【开始计息日期】</p>
-         			<p>预计日期&nbsp;<i class="fa fa-question-circle-o"></i></p>	
-         		</li>
-         		<li>
-         			<p>锁定期满</p>
-         			<p class="lockend-day">【锁定期满日期】</p>
-         			<p>预计日期&nbsp;<i class="fa fa-question-circle-o">
-         			</i></p>
-         		</li>
-         		<li>
-         			<p>随时可申请退出</p>
+          <ul>
+            <li>
+              <p>今日投资</p>
+              <p class="today">【今日日期】</p>
+            </li>
+            <li>
+              <p>开始计息</p>
+              <p class="start-day">【开始计息日期】</p>
+              <p>预计日期&nbsp;<i class="fa fa-question-circle-o"></i></p>  
+            </li>
+            <li>
+              <p>锁定期满</p>
+              <p class="lockend-day">【锁定期满日期】</p>
+              <p>预计日期&nbsp;<i class="fa fa-question-circle-o">
+              </i></p>
+            </li>
+            <li>
+              <p>随时可申请退出</p>
               <p>2~5个自然日内到账</p>
-         		</li>
-         	</ul>
+            </li>
+          </ul>
          </div>
          
          <div class="table">
          <table class="stepup-guarantee table-stepup">
-         	<tbody>
-         		<tr><th>如何获得收益</th>
-         			<td>债权匹配成功当日开始计息（一般为投资次日），投资者退出成功后按退出本金的比例结算对应收益</td>
-         		</tr>
-         		<tr><th>投资期限</th>
-         			<td><span class="\&quot;strong\&quot;">最短持有30天，最长投资期限为6个月</span></td>
-         		</tr>
-         		<tr><th>起投和限购金额</th>
-         			<td><span class="strong"><span id="min-invest-amount">100.00</span>元起投</span>，并以<span id="increase-invest-amount">100.00</span>元的整数倍递增；单人限购50,000.00元</td>
-         		</tr>
-         		<tr><th>如何退出</th>
-         			<td>
-         				<div class="\&quot;quit-box" cf="">
-         					<p>1、关于时间：30天锁定期过后，投资者可随时申请退出，但锁定期内不能退出；</p>
-         					<p>2、关于金额：投资者可以选择部分或全额退出，每笔申请退出金额至少为100元以上，并以100的整数倍递增；</p>
-         					<p>3、关于结息：按退出本金的比例结算对应的利息； 退出本金在退出期间仍然计息，尚未申请退出的本金将继续投资计息，不影响其利息计算；退出成功当日不计息；</p>
-         				</div>
-         			</td>
-         		</tr>
-         		<tr><th>退出时间</th>
-         			<td>申请退出后，系统将以债权转让方式退出并按批次撮合交易，视债权转让交易情况而定，成功退出一般只需要2~5个自然日；</td>
-         		</tr>
-         		<tr><th>费用说明</th>
-         			<td>退出费0元；</td>
-         		</tr>
-         		<tr><th>服务协议</th>
-         			<td><a class="primary" href="/StepUp/GetAgreement/1?prjType=104039" target="_blank">点击查看</a>
-         				<ul>
-         					<li style="display: none;" class="date" data-repayment-date="">协议范本： <span> <a href="/StepUp/GetAgreement/1?prjType=104039" target="_blank">查看详情</a></span></li>
-         				</ul>
-         			</td>
-         		</tr>
-         	</tbody>
+          <tbody>
+            <tr><th>如何获得收益</th>
+              <td>债权匹配成功当日开始计息（一般为投资次日），投资者退出成功后按退出本金的比例结算对应收益</td>
+            </tr>
+            <tr><th>投资期限</th>
+              <td><span class="\&quot;strong\&quot;">最短持有30天，最长投资期限为6个月</span></td>
+            </tr>
+            <tr><th>起投和限购金额</th>
+              <td><span class="strong"><span id="min-invest-amount">100.00</span>元起投</span>，并以<span id="increase-invest-amount">100.00</span>元的整数倍递增；单人限购50,000.00元</td>
+            </tr>
+            <tr><th>如何退出</th>
+              <td>
+                <div class="\&quot;quit-box" cf="">
+                  <p>1、关于时间：30天锁定期过后，投资者可随时申请退出，但锁定期内不能退出；</p>
+                  <p>2、关于金额：投资者可以选择部分或全额退出，每笔申请退出金额至少为100元以上，并以100的整数倍递增；</p>
+                  <p>3、关于结息：按退出本金的比例结算对应的利息； 退出本金在退出期间仍然计息，尚未申请退出的本金将继续投资计息，不影响其利息计算；退出成功当日不计息；</p>
+                </div>
+              </td>
+            </tr>
+            <tr><th>退出时间</th>
+              <td>申请退出后，系统将以债权转让方式退出并按批次撮合交易，视债权转让交易情况而定，成功退出一般只需要2~5个自然日；</td>
+            </tr>
+            <tr><th>费用说明</th>
+              <td>退出费0元；</td>
+            </tr>
+            <tr><th>服务协议</th>
+              <td><a class="primary" href="/StepUp/GetAgreement/1?prjType=104039" target="_blank">点击查看</a>
+                <ul>
+                  <li style="display: none;" class="date" data-repayment-date="">协议范本： <span> <a href="/StepUp/GetAgreement/1?prjType=104039" target="_blank">查看详情</a></span></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
          </table>
          </div>
       </div>
@@ -185,80 +183,80 @@
         <p class="p-t30 p-b10">为了保护借款人信息，仅展示部分债权标的，投资省心宝后可在我的账户><a href="/StepUp/Home?projectType=104039" target="_blank" class="in">省心宝</a>中查看已购买项目的匹配记录</p>
 
         <div class="person_info">
-        	<h4>已接入互联网金融风险信息共享系统</h4>
-        	<table style="width: 100%">
-        		<thead>
-        			<tr>
-        				<th width="20%">项目编号</th>
-        				<th>借款人/企业</th>
-        				<th width="20%">身份证/机构代码</th> 
-        				<!-- <th width="20%">债权匹配金额（元）</th> -->
-        				<th width="20%">借款总额（元）</th>
-        				<th width="10%">查看</th>
-        			</tr>
-        		</thead>
-        		<tbody id="record_panelPlan">
-        			<tr>
-        				<td>11928799002</td>
-        				<td>覃**</td>
-        				<td>4404****9063</td> 
-        				<td>3,000.00</td>
-        				<td><a href="">详情</a></td>
-        			</tr>   
-        		</tbody>
-        	</table>
+          <h4>已接入互联网金融风险信息共享系统</h4>
+          <table style="width: 100%">
+            <thead>
+              <tr>
+                <th width="20%">项目编号</th>
+                <th>借款人/企业</th>
+                <th width="20%">身份证/机构代码</th> 
+                <!-- <th width="20%">债权匹配金额（元）</th> -->
+                <th width="20%">借款总额（元）</th>
+                
+              </tr>
+            </thead>
+            <tbody id="record_panelPlan">
+              <!-- <tr>
+                <td>11928799002</td>
+                <td>覃**</td>
+                <td>4404****9063</td> 
+                <td>3,000.00</td>
+                <td><a href="">详情</a></td>
+              </tr>  -->
+            </tbody>
+          </table>
         </div> 
-      	<ul class="pagination person_fy" id="ajax_page">
-      		<li>
-      			<a href="javascript:;" data-src="1"   >
-      			 上一页 
-      			</a>
-      		</li>
-      		<li><a href="javascript:;" data-src="2" >1</a></li>
-      		<li><a href="javascript:;" data-src="3" >2</a></li>
-      		<li><a href="javascript:;" data-src="4" >3</a></li> 
-      		<li>
-      			<a href="javascript:;" data-src="2"  >
-      				 下一页 
-      			</a>
-      		</li>
-      	</ul>
+        <ul class="pagination person_fy b-page" id="ajax_page">
+        <!--  <li>
+            <a href="javascript:;" data-src="1"   >
+             上一页 
+            </a>
+          </li>
+          <li><a href="javascript:;" data-src="2" >1</a></li>
+          <li><a href="javascript:;" data-src="3" >2</a></li>
+          <li><a href="javascript:;" data-src="4" >3</a></li> 
+          <li>
+            <a href="javascript:;" data-src="2"  >
+               下一页 
+            </a>
+          </li> -->
+        </ul>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="third" aria-labelledby="dropdown1-tab">
-      	<div class=''>
-      		<p class="strengthen">
-      			由于债权标的项目受市场、政策、法律等各种因素的影响，昭昭理财理财作为网贷信息中介平台主要提供信息发布和交易撮合服务，不向投资人或对借贷项目提供任何形式的担保，不承诺保本付息，无论是明示或暗示的。昭昭理财理财提供的各种信息及资料仅供参考，不构成任何投资建议或引导，投资人应依其独立判断做出决策并承担由此带来的投资风险。
-      		</p>
-      		<p class="mt-30">
-      			因此请您在投资本项目时，对项目风险务必要有清醒的认识，并根据自身的风险承受能力及资产情况、收入状况、风险偏好等，结合以往的投资经验综合考虑是否投资本项目。
-      		</p>
-      	</div>
-      	<p class="strengthen mt-30">包括但不限于以下风险：</p>
-      	<div class="mt-30">
-      		<p>（一）市场风险</p>
-      		<p>市场风险是指债权标的的预期收益因受经济因素、政治因素和交易制度等各种因素影响而引起的波动，导致收益水平变化而产生的风险。市场风险主要包括：政策风险、经济周期风险、利率风险和购买力风险。</p>
-      	</div>
-      	<div class="mt-30">
-      		<p>（二）信息风险</p>
-      		<p>信息风险是指在项目运作过程中，因信息中介方的知识、经验、判断等会影响其对获取的信息的判断。若信息中介方获取的信息不够全面、准确将可能导致投资人判断有误，从而影响最终的投资收益。</p>
-      	</div>
-      	<div class="mt-30">
-      		<p>（三）违约风险</p>
-      		<p>违约风险是指项目融资方因死亡、失踪、停业、解散、撤销、破产，或者被有关监管机构撤销相关业务许可等原因导致不能按时履行还款职责的风险。</p>
-      	</div>
-      	<div class="mt-30">
-      		<p>（四）技术风险</p>
-      		<p>技术风险是指因本项目通过互联网信息技术平台进行信息撮合成交，因此可能存在信息技术系统故障的风险。</p>
-      	</div>
-      	<div class="mt-30">
-      		<p>（五）操作风险</p>
-      		<p>操作风险是指相关人员在业务操作过程中，因操作失误或操作不规范而引起的风险。</p>
-      	</div>
-      	<div class="mt-30">
-      		<p>（六）不可抗力因素导致的风险</p>
-      		<p>不可抗力风险是指遭受无法预见、无法克服、无法避免等不可抗力的客观情况所导致的项目无法按时还款的风险，包括但不限于洪水、地震及其它自然灾害、战争、骚乱、火灾、突发性公共卫生事件、政府征用、没收、法律法规变化或其他突发事件、项目相关方非正常的暂停或终止业务等。</p>
-      	</div>
+        <div class=''>
+          <p class="strengthen">
+            由于债权标的项目受市场、政策、法律等各种因素的影响，昭昭理财理财作为网贷信息中介平台主要提供信息发布和交易撮合服务，不向投资人或对借贷项目提供任何形式的担保，不承诺保本付息，无论是明示或暗示的。昭昭理财理财提供的各种信息及资料仅供参考，不构成任何投资建议或引导，投资人应依其独立判断做出决策并承担由此带来的投资风险。
+          </p>
+          <p class="mt-30">
+            因此请您在投资本项目时，对项目风险务必要有清醒的认识，并根据自身的风险承受能力及资产情况、收入状况、风险偏好等，结合以往的投资经验综合考虑是否投资本项目。
+          </p>
+        </div>
+        <p class="strengthen mt-30">包括但不限于以下风险：</p>
+        <div class="mt-30">
+          <p>（一）市场风险</p>
+          <p>市场风险是指债权标的的预期收益因受经济因素、政治因素和交易制度等各种因素影响而引起的波动，导致收益水平变化而产生的风险。市场风险主要包括：政策风险、经济周期风险、利率风险和购买力风险。</p>
+        </div>
+        <div class="mt-30">
+          <p>（二）信息风险</p>
+          <p>信息风险是指在项目运作过程中，因信息中介方的知识、经验、判断等会影响其对获取的信息的判断。若信息中介方获取的信息不够全面、准确将可能导致投资人判断有误，从而影响最终的投资收益。</p>
+        </div>
+        <div class="mt-30">
+          <p>（三）违约风险</p>
+          <p>违约风险是指项目融资方因死亡、失踪、停业、解散、撤销、破产，或者被有关监管机构撤销相关业务许可等原因导致不能按时履行还款职责的风险。</p>
+        </div>
+        <div class="mt-30">
+          <p>（四）技术风险</p>
+          <p>技术风险是指因本项目通过互联网信息技术平台进行信息撮合成交，因此可能存在信息技术系统故障的风险。</p>
+        </div>
+        <div class="mt-30">
+          <p>（五）操作风险</p>
+          <p>操作风险是指相关人员在业务操作过程中，因操作失误或操作不规范而引起的风险。</p>
+        </div>
+        <div class="mt-30">
+          <p>（六）不可抗力因素导致的风险</p>
+          <p>不可抗力风险是指遭受无法预见、无法克服、无法避免等不可抗力的客观情况所导致的项目无法按时还款的风险，包括但不限于洪水、地震及其它自然灾害、战争、骚乱、火灾、突发性公共卫生事件、政府征用、没收、法律法规变化或其他突发事件、项目相关方非正常的暂停或终止业务等。</p>
+        </div>
       </div>
 
       <div role="tabpanel" class="tab-pane fade" id="forth" aria-labelledby="dropdown2-tab">
@@ -284,27 +282,37 @@
     </div>
   
   </div>
-
+ 
 </div>
-</volist>
+ 
  <input type="hidden" id="fixid" value="{:I('get.fixid')}">
 <script type="text/javascript">
-  $('#ajaxgo').click(function () {
-      getBorrower($('#fixid').val(),1);
-  }) 
-  function bindClick() {
-    $("#ajax_page li a").click(function () {
-        var proj_id  =   $('#fixid').val();
-        var pagenum  =   $(this).data("src");  
-        getBorrower(proj_id,pagenum);  
-    });
-  }
+  var fixid   = $('#fixid').val();
+  var pagenum = 1 ;
+  $('#ajaxgo').click(function () { 
+      getBorrower(fixid,pagenum);
+          
+  }) ;
+   $(function () {
+       $("#ajax_page").on('click','a',function (event) {  
+         event.preventDefault();
+         var url = $(this).attr('href');
+         $.get(url,{},function (data) {  
+             var user_info =  data.info; 
+             $('#record_panelPlan').html(data.userhtml);
+             $("#ajax_page").html(data.pagehtml);
+             
+          }); 
+      });
+   })
+ 
   
-  function getBorrower(proj_id,pagenum) {
-    $.post("{:U('Regular/getProjBorrower')}",{proj_id,pagenum},function (data) { 
-       $('#record_panelPlan').html(data.info);
-       $("#ajax_page").html(data.page);
-       bindClick();
+  function getBorrower(id,pagenum) { 
+    $.get("{:U('Regular/getProjBorrower')}",{id,pagenum},function (data) {  
+       var user_info =  data.info; 
+       $('#record_panelPlan').html(data.userhtml);
+       $("#ajax_page").html(data.pagehtml);
+       
     });
   }
 </script>
