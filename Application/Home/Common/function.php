@@ -1,4 +1,4 @@
-<?
+<?php
 function is_active($this_control,$menu_name)
 {
 	 if($this_control==$menu_name){
@@ -17,6 +17,31 @@ function select_active($this_select,$current_type='')
 	}
 }
 
+
+/**
+ *  net页面的左侧样式动态
+ * @param  [type] $this_type    [description]
+ * @param  [type] $current_type [description]
+ * @return [type]               [description]
+ */
+function net_menu_active($this_type,$current_type)
+{  
+	if( $this_type == $current_type ){
+		echo "active";
+	}else{
+		echo "";
+	}
+	 
+}
+function net_nav_active($this_type,$current_type)
+{  
+	if( $this_type == $current_type ){
+		echo 'class="active"';
+	}else{
+		echo "";
+	}
+	 
+}
 /**
  * 公共的函数库
  * 它可以在admin应用下的任意的模型、控制器、视图模版
@@ -57,7 +82,7 @@ function pic($pic_path)
 }
 //数据部分隐藏
 function hidden($result){
-	$user_info=array();
+	$user_info=array();  
 	if($result['user_email']){
 		$email_info=$result['user_email'];
 		$email_array = explode("@", $email_info);
@@ -83,7 +108,7 @@ function hidden($result){
 		$ID_card=$result['user_id_card'];
 		$user_info['user_id_card'] = substr($ID_card,0,4) . "******" . substr($ID_card, -4);
 	}
-//	print_r($user_info);
+ 	// print_r($user_info);
 	return $user_info;
 }
 
@@ -92,8 +117,11 @@ function hidden($result){
  */
 
 function sliceNumber($iNumber)
-{	
-	if($iNumber>999){
+{	 
+	if(strpos($iNumber,".")){
+		$ext=substr($iNumber,strpos($iNumber,",")); 
+	}
+	if($iNumber > 999){
 		 $aNumber=str_split($iNumber); 
 		 $dot="," ;
 		 for ($i = count($aNumber) -1 ; $i >=0 ;$i--) { 
@@ -101,7 +129,7 @@ function sliceNumber($iNumber)
 
 		 }
 		 foreach ($sNumber as $key => $value) {
-		 	 if(($key+1) % 3 == 0){
+		 	 if(( $key+1 ) % 3 == 0){
 	 			 $sNumber[$key] = $dot.$value;
 		 	}   
 		 }
@@ -109,6 +137,8 @@ function sliceNumber($iNumber)
 		 	 $newNumber.=$sNumber[$j]; 
 		 }
 		
+	}else{
+		return $iNumber;
 	}
 	return $newNumber;
 }
