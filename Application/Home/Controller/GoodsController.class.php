@@ -47,20 +47,25 @@ public function buy(){
 					->where('user_id='.session('user')['id'])
 					->find();
 			if($trader_pwd['trader_pwd']==md5(I('trader_pwd'))){
-				$data['money']=I('money');
-				$data['status']=1;
-				$data['start_time']=time();
-				$data['length_day']=I('length_day');
-				$data['end_time']=$data['start_time']+I('length_day')*60*60*24;
-				$result=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and status=0')->save($data);
-				$money=M('user_money')->field('money')->where('user_id='.session('user')['id'])->find();
-				$money['money']=$money['money']-I('money');
-				$result_money=M('user_money')->where('user_id='.session('user')['id'])->save($money);
-				if($result&&$result_money){
+				$user_money=M('user_money')->where('user_id='.session('user')['id'])->find();
+				if($user_money['money']>I('money')){
+					$data['money']=I('money');
+					$data['status']=1;
+					$data['start_time']=time();
+					$data['length_day']=I('length_day');
+					$data['end_time']=$data['start_time']+I('length_day')*60*60*24;
+					$result=M('goods')->where('user_id='.session('user')['id'].' and fund_code='.I('fund_code').' and status=0')->save($data);
+					$money=M('user_money')->field('money')->where('user_id='.session('user')['id'])->find();
+					$money['money']=$money['money']-I('money');
+					$result_money=M('user_money')->where('user_id='.session('user')['id'])->save($money);
+					if($result&&$result_money){
 
-					$this->success('交易成功',U('personal/index'));
+						$this->success('交易成功',U('personal/index'));
+					}else{
+						$this->error('交易失败',U('personal/index'));
+					}
 				}else{
-					$this->error('交易失败',U('personal/index'));
+					$this->error('余额不足，请及时充值',U("personal/recharge"));
 				}
 			}else{
 				$this->error('交易密码不正确');

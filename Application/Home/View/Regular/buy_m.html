@@ -1,0 +1,42 @@
+<include file="include/header"/>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/personal_common.css">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/goods_buy.css">
+
+<div class="width100">
+    <div class="bg">
+    <div class="width1000 personal_con">
+
+            <div class="bank">
+                <form action="{:U('regular/doBuy')}" method="post">
+                    <div class="form_content">
+                        <div class="i_content">
+                            <input class="input" type="text" value="<?=$_GET['proj_no']?>" placeholder="代号" disabled="true">
+                            <input type="hidden" name="proj_no" value="<?=$_GET['proj_no']?>">
+                            <span>代号</span>
+                        </div>
+                        <div class="i_content">
+                            <input class="input" type="text" value="<?=$_GET['proj_lock']?>" placeholder="期限" disabled="true">
+                            <input class="input" type="hidden" name="length_day" value="<?=$_GET['proj_lock']?>">
+                            <span>期限（天）</span>
+                        </div>
+                        <div class="i_content">
+                            <input class="input" type="text" name="in_amount" value="<?=$_GET['in_amount']?>" placeholder="金额">
+                            <span>金额</span>
+                        </div>
+                        <div class="i_content">
+                            <input class="input" type="password" name="trader_pwd" placeholder="输入交易密码">
+                            <span>交易密码</span>
+                        </div>
+                    </div>
+                    <div class="form_content">
+                        <input class="submit" type="submit" value="购买">
+                    </div>
+                </form>
+            </div>
+
+
+    </div><!--内容-->
+    </div>
+    <!--满屏-->
+</div>
+<include file="include/footer"/>
