@@ -65,10 +65,13 @@
 .mod-cont .mod-left .left-list .item h2{
     padding: 0 34px;
 }
-
+ 
 .mod-cont .mod-left .left-list .item .strong {
     font-size: 16px;
     font-weight: 700;
+}
+.mod-cont .mod-left .left-list .item a h2.strong span.em{
+    color: #FE4850;
 }
 .mod-cont .mod-left .left-list .item .tip {
     font-size: 12px;
