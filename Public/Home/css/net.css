@@ -208,6 +208,7 @@
 .mod-list .prlist .explain .mod-lock
 {
     margin-left: 185px;
+    width: 66px;
     line-height: 45px;
 }
 .mod-list .prlist .explain .mod-total{ 
