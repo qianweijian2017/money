@@ -11,27 +11,18 @@ $(document).ready(function () {
 
     });
 
-    $('.main-con ul li').on('mouseenter', function () {
-        $(this).stop().animate({
+    $('.main-con ul li').on('mouseover', function () {
+        $(this).stop().css({
             opacity: 1,
-            top:"10px"
+            boxShadow: "3px 4px 32px -12px inset"
         });
 
     }).on('mouseout', function () {
-        $(this).stop().animate({
-            top:"0px"
+        $(this).stop().css({
+            boxShadow: "0px 0px 0px 0px"
         });
     });
-    $('.main-con ul li').children().on('mouseenter', function () {
-        $(this).parent().stop().animate({
-            opacity: 1,
-            top:"10px"
-        })
-    }).on('mouseout', function () {
-        $(this).stop().animate({
-            top:"0px"
-        });
-    });
+
 
     	$(".carousel-inner img").eq(0).addClass("active");
 
