@@ -1,0 +1,398 @@
+html,body{
+	background: #ebebeb;
+	font-size: 13px;
+	font-family: "微软雅黑";
+}
+a{
+	text-decoration: none;
+	color: #363636;
+}
+a:hover{
+	text-decoration: none;
+}
+ul{
+	padding: 0;
+}
+ul li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+.xq_hd{
+	width: 100%;
+	background: #0f91dd;
+    color: #fff;
+}
+.xq_hd ul{
+	font-size: 14px;
+	width: 1100px;
+	height: 44px;
+    line-height: 44px;
+    margin:0 auto;
+    position: relative;
+}
+.xq_hd ul li a{
+	color: #9fdaff;
+	padding: 0 10px;
+}
+.xq_hd ul li:nth-child(1){
+	padding-right: 10px;
+}
+.xq_hd ul li:nth-child(5){
+	padding-left: 10px;
+}
+.fund-deta{
+	width: 1100px;
+	margin: 0 auto;
+	margin-top: 20px;
+	overflow: hidden;
+	background: #fff;
+}
+.fund-deta>div{
+	float:left;
+}
+.fund-deta .fund-deta-left .lehd span{
+    display: block;
+}
+.fund-deta .fund-deta-left{
+	width: 60%;
+	padding:20px 30px; 
+}
+.fund-deta .fund-deta-left .lehd{
+	width: 100%;
+	border-bottom: 1px solid #EDEAE3;
+	padding-bottom: 30px;
+	overflow: hidden;
+}
+.fund-deta .fund-deta-left .lehd ul{
+	width: 100%;
+}
+.fund-deta .fund-deta-left .lehd ul li{
+	width: 33%;
+	text-align: center;
+}
+ 
+.fund-deta .fund-deta-left .lehd .zhi{
+	color: #f75646;
+	font-weight: 700; 
+	
+}
+.fund-deta .fund-deta-left .lehd .zhi .ee{
+	font-size: 36px;
+	font-style: normal;
+}
+.fund-deta .fund-deta-left .lehd .zhi_txt{
+	color: #333333;
+}
+.fund-deta .fund-deta-left .lehd .zhi .enormal{
+	font-style: normal;
+}
+.fund-deta .fund-deta-left .line{
+	width: 100px;
+	height: 1px;
+	background: #51AFFF;
+}
+.fund-deta .fund-deta-left .quxian{
+	margin-top: 10px;
+}
+.fund-deta .fund-deta-left .quxian .mon{
+	float: right;
+}
+.fund-deta .fund-deta-left .quxian .mon a{
+	padding: 2px 4px;
+	border: 1px solid #363636;
+	border-radius: 4px;
+	color: #363636;
+}
+.fund-deta .fund-deta-left .zhangfu{
+	width: 100%;
+}
+.fund-deta .fund-deta-left .zhangfu .fd{
+	width: 30%;
+	float: left;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #F8F8F8;
+	margin: 10px 10px;
+}
+.fund-deta .fund-deta-left .zhangfu .fd span{
+	display: block;
+}
+.fund-deta .fund-deta-left .zhangfu .fd span:nth-child(2){
+    font-size: 18.14px;
+    font-weight: 700;
+    color: #f75646;
+}
+.fund-deta .fund-deta-right{
+	padding: 10px 10px;
+}
+.fund-deta .fund-deta-right .qd{
+	padding: 1px 2px;
+	color: #fff;
+	border-radius: 4px;
+	background: #617BE8; 
+}
+.fund-deta .fund-deta-right .le{
+	width: 50px;
+	height: 1px;
+	background: #EDEAE3;
+	margin:30px 0;
+}
+.fund-deta .fund-deta-right .fundjs li{
+    float: none;
+    margin-bottom: 10px;
+    color: gray;
+}
+.fund-deta .fund-deta-right .dru{
+	border: 1px dashed #EDEAE3;
+	width: 385px;
+	height: 300px;
+	text-align: center;
+}
+.fund-deta .fund-deta-right .dru a{	
+	display: block;
+	width: 60%;
+	margin: auto;
+	text-align: center;
+	background: #51AFFF;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 0;
+	margin-top: 150px;
+}
+.fundgaikuang{
+	width: 1100px;
+	margin: auto;
+	overflow: hidden;
+	margin-top: 15px;
+	border: 1px solid #EAEAEA;
+	box-shadow: 1px 1px 1px 1px #E5E5E5;
+}
+.fundgaikuang .nav-tabs li{	
+	font-size: 15px;
+	width: 100px;
+	text-align: center;
+}
+.fundgaikuang .nav-tabs li.active{
+	border-top: 2px solid #51AFFF;
+} 
+.fundgaikuang .fn{
+	overflow: hidden;
+	background: #fff;
+}
+.fundgaikuang .fn #gk .tab-t{
+	overflow: hidden;
+}
+.fundgaikuang .fn .tab-pane{
+	padding: 50px 100px 60px;
+	overflow: hidden;
+}
+.fundgaikuang .fn #gk .tab-t-l{
+	float: left;
+	width: 50%;
+	overflow: hidden;
+}
+.fundgaikuang .fn #gk .tab-t-l ul li{
+	float: none;
+	line-height: 34.5px;
+    font-size: 14px;
+}
+.fundgaikuang .fn #gk .tab-t-l ul li span:nth-child(1){
+	color: gray;
+}
+.fundgaikuang .fn #gk .tab-t-r{
+	float: left;
+	padding-left: 55px;
+	overflow: hidden;
+}
+.fundgaikuang .fn #gk .tab-t-r ul li{
+	float: none;
+	line-height: 34.5px;
+    font-size: 14px;
+}
+.fundgaikuang .fn #gk .tab-t-r ul li span:nth-child(1){
+	color: gray;
+}
+.fundgaikuang .fn #gk .zc{
+	position:relative;
+	clear: both;
+	margin-top: 30px;
+}
+.fundgaikuang .fn #gk .zc span:nth-child(1){
+	font-size: 16px;
+	color: #363636;
+}
+.fundgaikuang .fn #gk .zcfb{
+	margin-top: 20px;
+	overflow: hidden;
+}
+.fundgaikuang .fn #gk .zcfb>div{
+	float: left;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-l{
+	overflow: hidden;
+}
+.fundgaikuang .fn #gk .zcfb .fbt{
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	border: 18px solid #57B3FF;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r{
+	margin-left: 120px;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r .zcfb-rin{
+	margin-top: 28px;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r .sdw{
+	font-weight: normal;
+	margin-right: 100px;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r .sdw div[class^="cir"]{
+	display: inline-block;
+	width: 15px;
+    height: 15px;
+    margin-right: 20px;
+    background-color: #2a9af9;
+    border-radius: 50%;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r .sdw span[class^="per"]{
+	margin-left: 40px;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r .sdw .cir-2{
+    background: #57b3ff;
+}
+.fundgaikuang .fn #gk .zcfb .zcfb-r .sdw .cir-3{
+    background: #9ad1ff;
+} 
+.fundgaikuang .fn #gk .zcfb .zcfb-r .sdw .cir-4{
+    background: #cee8ff;
+}
+.fundgaikuang .fn #gk .zy{
+	width: 100%;
+	margin-top: 50px;
+	overflow: hidden;
+}
+.fundgaikuang .fn #gk .zy .zycy{
+	position:relative;
+	clear: both;
+	margin-top: 30px;
+}
+.fundgaikuang .fn #gk .zy .zycy span:nth-child(1){
+	font-size: 16px;
+	color: #363636;
+}	
+.fundgaikuang .fn #gk .zy .d-table{
+	width: 100%;
+	margin-top: 20px;
+}
+.fundgaikuang .fn #gk .zy .d-table table{
+	border:1px solid #EDEAE3;
+}
+.fundgaikuang .fn #gk .zy .d-table table thead tr th{
+	background: #F0F0F0;
+	padding: 13px ;
+}
+.fundgaikuang .fn #gk .zy .d-table table tbody{
+	width: 100%;
+}
+.fundgaikuang .fn #gk .zy .d-table table tbody tr{
+	border:1px solid #EDEAE3;
+}
+.fundgaikuang .fn #gk .zy .d-table table tbody tr td{
+	border:1px solid #EDEAE3;
+	padding: 12px 20px;
+}
+.fundgaikuang .fn #gk .zy .d-table table tbody tr .t-c{
+	margin-top: auto;
+	text-align: center;
+}
+/*.fundgaikuang .fn #gk*/ .zc-tips{
+	margin-top: 20px;
+    line-height: 25px;
+}
+.yingmi-box{
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+.fundgaikuang .fn #agent .fund-agent .agentcal{
+    color: #FFF;
+    line-height: 20px;
+    font-size: 18px;
+    font-weight: 700;
+	float: left;
+    margin-right: 30px;
+    width: 100px;
+    height: 100px;
+    background: #51afff;    
+    border-radius: 50%;
+    padding: 32px;
+}
+.fundgaikuang .fn #agent .fund-agent {
+	overflow: hidden;
+}
+.fundgaikuang .fn #agent .fund-agent .agent-de{
+	width: 84%;
+    float: left;
+    overflow: hidden;
+}
+.fundgaikuang .fn #agent .fund-agent .agent-de .name{
+	font-size: 18px;
+    color: #363636;
+    font-weight: 500;
+}
+.fundgaikuang .fn #agent .fund-agent .agent-de .perjs{
+	margin-top: 15px;
+	line-height: 27px;
+	color: gray;
+}
+.fundgaikuang .fn #agent .fx{
+	width: 165px;
+	clear: both;
+    padding: 15px 25px ;
+    border: 1px solid #EDEAE3;
+    margin-top: 20px;
+}
+table{
+	border: 1px solid #edeae3;
+}
+table th{
+	font-size: 14px;
+    border-left: 1px solid #edeae3;
+    border-bottom: 1px solid #edeae3;
+}
+.fundgaikuang .fn #agent .fx span:nth-child(2){
+	color:#F75646;
+}
+.fundgaikuang .fn #flv .hl-table table thead tr th{
+	color: gray;
+    background: #f0f0f0;
+    padding: 10px;
+}
+.fundgaikuang .fn #flv .hl-table table th{
+    text-align: center;
+}
+.fundgaikuang .fn #flv .hl-table table td{
+	text-align: center;
+	padding: 10px 0;
+}
+.color-up{
+	font-size: 14px;
+	color: #F85646;
+}
+.text-through{
+	text-decoration: line-through;
+}
+.foow{
+	width: 30%;
+	margin: auto;
+	text-align: center;
+}
+.foow span{
+	display: block;
+	float: left;
+	padding: 30px 0;
+}
