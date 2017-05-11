@@ -183,6 +183,7 @@
 }
 .mod-list .prlist .explain>div{
     float: left;
+    width: 110px;
 }
 .mod-list .prlist .explain .main-rate span:nth-child(3){ 
     font-size: 20px; 
