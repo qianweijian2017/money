@@ -27,13 +27,13 @@ class FundController extends Controller
 	 * @return [type] [description]
 	 */
 	public function fundlist(){  
-		$fund 	   			=  M('fund'); // 实例化fund数据对象  fund 是你的表名   
-		$where  			=  I("get.ftype")=="9"?"1=1":$this->getWhere(I("get.ftype"));   
-    	$count  			=  $fund -> alias('f')
+		$fund 	   		   =  M('fund'); // 实例化fund数据对象  fund 是你的表名   
+		$where  		   =  I("get.ftype")=="9"?"1=1":$this->getWhere(I("get.ftype"));   
+    	$count  		   =  $fund  -> alias('f')
     							   	 -> where($where) 
     				 			   	 -> join('__FUND_TYPE__ t on t.type_id =f.fund_type','left')
     				 			   	 -> count(); //where 为条件,可作分类分页   
-    	$sPages="";							//定义分页
+    	$sPages = "";							//定义分页
     	if($count>8){ 
 	    	$page 		   =   new Page($count,8);	//count总页数,limit是显示的行数 
 	    	$sPages 	   =   $page -> show();
@@ -42,13 +42,13 @@ class FundController extends Controller
     	$fundlist 		   =   $fund ->  alias('f')
     							     ->  join('__FUND_TYPE__ t on t.type_id =f.fund_type','left')
     							     ->  where($where)  
-				    			     ->	order('year_profit+0 desc')
-				    			     ->	limit($page->firstRow.',8' )
-				    			     ->	select();
+				    			     ->	 order('year_profit+0 desc')
+				    			     ->	 limit($page->firstRow , 8 )
+				    			     ->	 select();
 		//类型列表
 		$fund_type 		   =  M('fund_type');
 		$fund_type_nav	   =  $fund_type -> field('type_id , fund_type as type_name')
-										 -> select();
+										 -> select();	//将基金的类型选项动态化
 		$this -> assign('fund_type_nav',$fund_type_nav);
     	$this -> assign('fundlist',$fundlist);// 赋值数据集
     	$this -> assign('sPages',$sPages);// 赋值分页输出  
@@ -60,14 +60,10 @@ class FundController extends Controller
 	 * @return [type]            [description]
 	 */
 	public function getWhere($fund_type){  
-		$where="type_id = $fund_type"; 
+		$where="type_id = $fund_type"; //按基金类型排序
 		
 	   	return $where;
 	} 
 
-	
-
-
- 
-
+	 
 }

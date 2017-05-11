@@ -1,9 +1,15 @@
 <include file='include/header'/>
  
-<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail.css?1">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail.css">
    
- 
-
+<link rel="stylesheet" type="text/css" href="__LIB__/layer/skin/default/layer.css">
+<script type="text/javascript" src="__LIB__/layer/layer.js"></script>
+<script type="text/javascript">
+  var $user          = "{:session('user')}";
+  var getProjectInfo = "{:U('getProjectInfo')}";
+  var doLend         = "{:U('doLend')}";
+  var getTotal       = "{:U('getTotal')}";
+</script>
 <div class="navli">
   <ul>
     <li>您所在的位置:</li>
@@ -29,9 +35,9 @@
       </div>
       <div class="content_info">
         <div class="main-rate">
-          <span>{$projitem['pro_profit']}</span>
+          <span>{$projitem['br_profit']}</span>
           <span>%</span>
-          <span>预期年化收益率&nbsp;<i class="fa fa-question-circle-o"></i></span>
+          <span>贷款利率</span>
         </div>
 
         <div class="mod">
@@ -47,8 +53,7 @@
         </div> 
         <div class="exp">{$projitem['proj_lock']}天锁定期后随时可退，不退出可持续享有收益
         </div>
-      </div>
-
+      </div> 
     </div>
 
     <div class="content_right">
@@ -57,38 +62,33 @@
         <div>
           <span>投资进度：</span>
           <php>  
-                $progress=($projitem['proj_amount'])/($projitem['proj_total'])*100;
-                $progress=number_format($progress , 2, '.', '');
+                
           </php>  
           <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {$progress}%">                      
+                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">                      
                       </div>
           </div>
-           <span>{$progress}%</span>
+           <span>100.00%</span>
         </div>
-          <php>  
-
+          <php>   
                 $remain=intval($projitem['proj_total'])-intval($projitem['proj_amount']); 
-                $remain=sliceNumber($remain);
-
+                $remain=sliceNumber($remain); 
           </php>  
-        <div>剩余金额：  <span class="money">{$remain}</span>
+        <div>剩余金额:<span class="money">{$projitem['proj_amount']}</span>
         &nbsp;元</div>
 
         <div>账户余额： <a href="{:U('User/login')}" class="login">登入可见</a></div>
       </div>
 
       <div class="invest-box">
-        <form action="{:U('goods/buy')}" method="post">
-          <p style="font-size: 10px;">购买金额：</p>
+        <form action="" method="post"  onsubmit="return false;">
+          <p style="font-size: 16px;">借款金额：</p>
           <div class="insert-box">
-            <input id="investNum" name="money" class="invest-num" type="text" value="100">
-            <input name="fund_code" type="hidden" value="270002">
-            <span class="rmb">元</span>
-            <div id="btnTotal" class="invest-total">全额</div>
+            <input id="investNumone" name="money" class="invest-num" type="text" value="100"> 
+            <span class="rmb">元</span> 
           </div>
 
-          <input class="lijibuy" type="submit" value="立即购买"/>
+          <input class="btn_user_br" id='open_lend_box' type="button" value="立即借款"/>
         </form>
 
       </div>
@@ -284,38 +284,34 @@
   </div>
  
 </div>
- 
+  <div class="bank" id="bank">  
+      <div class="form_content">
+          <div class="i_content">
+              <input class="input" id="fund_code" type="text"   placeholder="代号" disabled="true">
+              
+              <span>代号</span>
+          </div>
+          <div class="i_content">
+              <input class="input" type="text"  id="length_day" placeholder="期限" disabled="true">
+              
+              <span>期限（天）</span>
+          </div>
+          <div class="i_content">
+              <input class="input" type="text" id="investNum" value="3" placeholder="金额">
+              <span>金额</span>
+          </div>
+          <div class="i_content">
+              <input class="input" type="password" id="trader_pwd" placeholder="输入交易密码">
+              <span>交易密码</span>
+          </div>
+      </div>
+      <div class="form_content">
+          <input class="submit" type="button" id="btn_user_br" value="借款">
+      </div>
+                 
+ </div>
  <input type="hidden" id="fixid" value="{:I('get.fixid')}">
-<script type="text/javascript">
-  var fixid   = $('#fixid').val();
-  var pagenum = 1 ;
-  $('#ajaxgo').click(function () { 
-      getBorrower(fixid,pagenum);
-          
-  }) ;
-   $(function () {
-       $("#ajax_page").on('click','a',function (event) {  
-         event.preventDefault();
-         var url = $(this).attr('href');
-         $.get(url,{},function (data) {  
-             var user_info =  data.info; 
-             $('#record_panelPlan').html(data.userhtml);
-             $("#ajax_page").html(data.pagehtml);
-             
-          }); 
-      });
-   })
  
-  
-  function getBorrower(id,pagenum) { 
-    $.get("{:U('Regular/getProjBorrower')}",{id,pagenum},function (data) {  
-       var user_info =  data.info; 
-       $('#record_panelPlan').html(data.userhtml);
-       $("#ajax_page").html(data.pagehtml);
-       
-    });
-  }
-</script>
   
  <include file='include/footer'/>
- <script type="text/javascript" src="__PUBLIC__/Home/js/detail.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Home/js/net.js"></script> 

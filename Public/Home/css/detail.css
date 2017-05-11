@@ -82,8 +82,12 @@ ul li{
 	padding: 20px 60px;
 	font-family: "微软雅黑";
 }
+.content .content-in .content_left .content_info .main-rate{
+	margin: 25px 28px 0 0;
+}
+
 .content .content-in .content_left .content_info .main-rate span:nth-child(1){
-	font-size: 54px;
+	font-size: 34px; 
 	color: #fe4850;
 }
 .content .content-in .content_left .content_info .main-rate span:nth-child(2){
@@ -94,6 +98,7 @@ ul li{
 	display: block;
     color: #999;
     font-weight: 500;
+    font-size: 13px; 
 }
 .content .content-in .content_left .content_info .mod{
     margin: 25px 28px 0 112px;
@@ -175,7 +180,8 @@ ul li{
 	border: 1px solid #45b8ef;
     color: #45b8ef;
 }
-.content .content-in .content_right .invest-box .lijibuy{
+.content .content-in .content_right .invest-box .lijibuy,
+.content .content-in .content_right .invest-box .btn_user_br{
 	line-height: 44px;
     width: 190px;
     background: #ff4f3f;
@@ -187,7 +193,8 @@ ul li{
     clear: both;
     cursor: pointer;
 }
-.content .content-in .content_right .invest-box .lijibuy:hover{
+.content .content-in .content_right .invest-box .lijibuy:hover,
+.content .content-in .content_right .invest-box .btn_user_br:hover{
 	background: #ff382c;
 }
 .content .content-in .content_right .tip{
@@ -196,7 +203,7 @@ ul li{
 	color: #999;
 	text-align: center;
 	font-weight: 600;
-	font-size: 10px;
+	font-size: 12px;
 	border-top: 1px solid #e0e0e0;
 	margin-top: 135px;
 }
@@ -336,4 +343,56 @@ p{
 	width: 90px;
 	float: right;
 	line-height: 27px;
+}
+
+/*弹出层*/
+#bank{
+	display: none;
+}
+.bg{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom:0px;
+    z-index: 99;
+}
+.bank{
+    background: rgba(255,255,255,0.9);
+    width: 500px;
+    overflow: hidden;
+    margin: auto;
+    padding: 50px 50px;
+    
+}
+.form_content{
+    width: 100%;
+    overflow: hidden;
+}
+.i_content{
+    position: relative;
+}
+.i_content span{
+    position: absolute;
+    top: 17px;
+    right:8px;
+}
+input {
+    width:100%;
+    height: 50px;
+}
+.input{
+    padding-left: 10px;
+    border:1px solid #dedede;
+    margin-bottom: 20px;
+}
+.submit{
+    background: #00a0e9;
+    color: #fff;
+    font-size:14px;
+    border-radius: 6px;
+}
+.submit:hover{
+    background: #00b0f9;
 }
