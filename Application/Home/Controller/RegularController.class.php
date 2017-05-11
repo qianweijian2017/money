@@ -1,20 +1,20 @@
 <?php 
 namespace Home\Controller;
 use Think\Controller;
-use Org\Util\page;// µ¼Èë·ÖÒ³Àà
+use Org\Util\page;// å¯¼å…¥åˆ†é¡µç±»
 class RegularController extends Controller
 {
     /**
-     * ¶¨ÆÚÀí²Æ 
+     * å®šæœŸç†è´¢ 
      * @return [type] [description]
      */
     public function regular()
     { 
     	$model  =  M('project'); 
-    	$count=$model->where('status=1')->count(); //where ÎªÌõ¼ş,¿É×÷·ÖÀà·ÖÒ³
-    	$sPages = "";							//¶¨Òå·ÖÒ³
+    	$count=$model->where('status=1')->count(); //where ä¸ºæ¡ä»¶,å¯ä½œåˆ†ç±»åˆ†é¡µ
+    	$sPages = "";							//å®šä¹‰åˆ†é¡µ
     	if($count > 8){ 
-	    	$page = new Page($count,8);	//count×ÜÒ³Êı,limitÊÇÏÔÊ¾µÄĞĞÊı 
+	    	$page = new Page($count,8);	//countæ€»é¡µæ•°,limitæ˜¯æ˜¾ç¤ºçš„è¡Œæ•° 
 	    	$sPages = $page->show();
     	}
     	$project=$model->alias('p')
@@ -25,12 +25,12 @@ class RegularController extends Controller
                        ->limit($page->firstRow,8)
                         ->order('p.id desc')
 		    		   ->select();
-    	$this->assign('projlist',$project);// ¸³ÖµÊı¾İ¼¯
-    	$this->assign('sPages',$sPages);// ¸³Öµ·ÖÒ³Êä³ö  
+    	$this->assign('projlist',$project);// èµ‹å€¼æ•°æ®é›†
+    	$this->assign('sPages',$sPages);// èµ‹å€¼åˆ†é¡µè¾“å‡º  
         $this->display();
     }
     /**
-     * ¶¨ÆÚÀí²ÆÏêÇé
+     * å®šæœŸç†è´¢è¯¦æƒ…
      * @return [type] [description]
      */
     public function detail(){ 
@@ -42,7 +42,7 @@ class RegularController extends Controller
                                      -> join('__PROJECT_LOCK__ l on l.type_id = p.proj_type')
                                     ->where('p.id='.$id)
                                      -> find();
-                $this -> assign('projitem',$project);// ¸³ÖµÊı¾İ¼¯
+                $this -> assign('projitem',$project);// èµ‹å€¼æ•°æ®é›†
             }
         }
         $money='';
@@ -51,11 +51,13 @@ class RegularController extends Controller
             $money=M('user_money')->field('money')->where('user_id='.$user_id)->find() ;
         }
         $this->assign('money',$money);
+
         $this->display();
     }
+
     public function buy(){
         if(!session(user)){
-            $this->error('ÇëÏÈµÇÂ¼',U('user/login'));exit();
+            $this->error('è¯·å…ˆç™»å½•',U('user/login'));exit();
         }
         if(I('money')>0){
             $data=array();
@@ -75,27 +77,27 @@ class RegularController extends Controller
                 $money_add['user_id']=session(user)['id'];
                 $result=M('user_money')->add($money_add);
                 if($result){
-                    $this->success('ÇëÉèÖÃ½»Ò×ÃÜÂë',U("personal/trader_pwd"));
+                    $this->success('è¯·è®¾ç½®äº¤æ˜“å¯†ç ',U("personal/trader_pwd"));
                 }
             }elseif(!$user_money['trader_pwd']){
-                $this->success('ÇëÉèÖÃ½»Ò×ÃÜÂë',U("personal/trader_pwd"));
+                $this->success('è¯·è®¾ç½®äº¤æ˜“å¯†ç ',U("personal/trader_pwd"));
             }elseif($user_money['money']<I('money')){
-                $this->error('Óà¶î²»×ã£¬Çë¼°Ê±³äÖµ',U("personal/recharge"));
+                $this->error('ä½™é¢ä¸è¶³ï¼Œè¯·åŠæ—¶å……å€¼',U("personal/recharge"));
             }else{
-                // Ìø×ªµ½ Admin·Ö×éIndexÄ£¿éview²Ù×÷£¬uid²ÎÊıÎª1£¬ÑÓ³Ù3ÃëÌø×ª
-//			$this->redirect('Admin-Index/view', array('uid'=>1), 3,'Ò³ÃæÌø×ªÖĞ~');
+                // è·³è½¬åˆ° Adminåˆ†ç»„Indexæ¨¡å—viewæ“ä½œï¼Œuidå‚æ•°ä¸º1ï¼Œå»¶è¿Ÿ3ç§’è·³è½¬
+//			$this->redirect('Admin-Index/view', array('uid'=>1), 3,'é¡µé¢è·³è½¬ä¸­~');
                 $proj_type=M('project')->field('proj_type')->where('proj_no='.$data['proj_no'])->find();
                 $proj_lock=M('project_lock')->field('proj_lock')->where('type_id='.$proj_type['proj_type'])->find();
                 print_r($data);
                 $this->redirect('regular/buy_m', array('proj_no'=>I('proj_no'),'in_amount'=>$data['in_amount'],'proj_lock'=>$proj_lock['proj_lock']));
             }
         }else{
-            $this->error('ÊäÈëµÄ½ğ¶î²»ÕıÈ·');
+            $this->error('è¾“å…¥çš„é‡‘é¢ä¸æ­£ç¡®');
         }
     }
     public function doBuy(){
         if(!session(user)){
-            $this->error('ÇëÏÈµÇÂ¼',U('user/login'));exit();
+            $this->error('è¯·å…ˆç™»å½•',U('user/login'));exit();
         }
         if(I('in_amount')>0){
             $trader_pwd=M('user_money')
@@ -108,66 +110,71 @@ class RegularController extends Controller
                     $pro=M('project')->field('proj_total,proj_amount')->where('proj_no='.I('proj_no'))->find();
                     $cha=$pro['proj_total']-$pro['proj_amount'];
                     if($cha>I('in_amount')){
-//                        ±£´æÓÃ»§½»Ò×
+//                        ä¿å­˜ç”¨æˆ·äº¤æ˜“
                         $data['in_amount']=I('in_amount');
                         $data['status']=1;
                         $data['start_time']=time();
                         $data['end_time']=$data['start_time']+I('length_day')*60*60*24;
                         $result=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.I('proj_no').' and status=0')->save($data);
-                        //         ¼õÈ¥ÓÃ»§Ç®
+                        //         å‡å»ç”¨æˆ·é’±
                         $result_money=M('user_money')->where('user_id='.session('user')['id'])->setDec('money',I('in_amount'));
-                        //         Ôö¼ÓÈÚ×Ê
+                        //         å¢åŠ èèµ„
                         $amount=M('project')->where('proj_no='.I('proj_no'))->setInc('proj_amount',$data['in_amount']);
-                        //         ĞŞ¸Äresult
+                        //         ä¿®æ”¹result
                         $result_data=($pro['proj_amount']+I('in_amount'))/$pro['proj_total'];
                         $result_p=M('project')->where('proj_no='.I('proj_no'))->setField('result',$result_data);
                         if($result&&$result_money&&$amount){
-                            $this->success('½»Ò×³É¹¦',U('personal/index'));
+
+                            $this->success('äº¤æ˜“æˆåŠŸ',U('personal/index'));
                         }else{
-                            $this->error('½»Ò×Ê§°Ü');
+                            $this->error('äº¤æ˜“å¤±è´¥');
                         }
                     }else{
-//                        ±£´æÓÃ»§½»Ò×
+//                        ä¿å­˜ç”¨æˆ·äº¤æ˜“
                         $data['in_amount']=$cha;
                         $data['status']=1;
                         $data['start_time']=time();
                         $data['end_time']=$data['start_time']+I('length_day')*60*60*24;
                         $result=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.I('proj_no').' and status=0')->save($data);
-//                        ĞŞ¸ÄÖ÷±í
+//                        ä¿®æ”¹ä¸»è¡¨
                         $result_p=M('project')->where('proj_no='.I('proj_no'))->setField('result',1);
                         $status_p=M('project')->where('proj_no='.I('proj_no'))->setField('status',2);
                         $proj_amount=M('project')->where('proj_no='.I('proj_no'))->setField('proj_amount',$pro['proj_total']);
-//                        ¼õÈ¥ÓÃ»§Ç®
+//                        å‡å»ç”¨æˆ·é’±
                         $result_money=M('user_money')->where('user_id='.session('user')['id'])->setDec('money',$cha);
                         if($result&&$status_p&&$result_money){
-                            $this->success('½»Ò×³É¹¦',U('personal/index'));
+
+                            $this->success('äº¤æ˜“æˆåŠŸ',U('personal/index'));
                         }else{
-                            $this->error('½»Ò×Ê§°Ü',U('personal/index'));
+                            $this->error('äº¤æ˜“å¤±è´¥',U('personal/index'));
                         }
                     }
+
                 }else{
-                    $this->error('Óà¶î²»×ã£¬Çë¼°Ê±³äÖµ',U("personal/recharge"));
+                    $this->error('ä½™é¢ä¸è¶³ï¼Œè¯·åŠæ—¶å……å€¼',U("personal/recharge"));
                 }
                }else{
-                $this->error('½»Ò×ÃÜÂë²»ÕıÈ·');
+                $this->error('äº¤æ˜“å¯†ç ä¸æ­£ç¡®');
             }
         }else{
-            $this->error('ÊäÈëµÄ½ğ¶î²»ÕıÈ·');
+            $this->error('è¾“å…¥çš„é‡‘é¢ä¸æ­£ç¡®');
         }
     }
+
     /**
-     * »ñÈ¡Í¶×ÊÈËÊı¾İ
+     * è·å–æŠ•èµ„äººæ•°æ®
      * @return [type] [description]
      */
     public function getProjBorrower()
     {   
-        //»ñÈ¡»ù½ğµÄID
-        //Í¨¹ıIDÈ¥²éÕÒ»ù½ğ´úÂë
-        //ÔÙÍ¨¹ı»ù½ğ´úÂëÈ¥²éÕÒ±¾»ù½ğ±»½è×ßµÄÓÃ»§ºÍÆäÏêÏ¸ĞÅÏ¢
+        //è·å–åŸºé‡‘çš„ID
+        //é€šè¿‡IDå»æŸ¥æ‰¾åŸºé‡‘ä»£ç 
+        //å†é€šè¿‡åŸºé‡‘ä»£ç å»æŸ¥æ‰¾æœ¬åŸºé‡‘è¢«å€Ÿèµ°çš„ç”¨æˆ·å’Œå…¶è¯¦ç»†ä¿¡æ¯
        $borrower      =   M('ProjBorrower');
-       $project       =   M('project');           //ÏîÄ¿±í 
+       $project       =   M('project');           //é¡¹ç›®è¡¨ 
        $proj_id       =   I('get.id'); 
        $pagenum       =   I('get.pagenum'); 
+
        $proj_no       =   $project   ->  field("proj_no")
                                      ->  where("id = $proj_id")
                                      ->  find(); 
@@ -178,9 +185,11 @@ class RegularController extends Controller
                                     -> join('__USER_CONTENT__ c on c.user_id = u.id')
                                     -> where("proj_no = {$proj_no}") 
                                     ->  count();    
+
        $page          =   new \Org\Util\page($count,3);
        $pagehtml      =   $page -> show();
        
+
        $info          =   $borrower -> alias('b')
                                     -> join('__USER__ u on u.id = b.user_id')
                                     -> join('__USER_CONTENT__ c on c.user_id = u.id')
@@ -189,6 +198,7 @@ class RegularController extends Controller
                                     -> select(); 
                                    
        foreach ($info as $key => $value) {  
+
                $user['user_real_name']  =  $value['user_real_name'];
                $user['user_id_card']    =  $value['user_id_card'];
                $user                    =  hidden($user);
@@ -199,6 +209,7 @@ class RegularController extends Controller
                                 <td>{$user['user_id_card']}</td> 
                                 <td>{$user_in_amount}</td> 
                             </tr>" ; 
+
         }  
        $this -> ajaxReturn(
             array(
@@ -208,5 +219,7 @@ class RegularController extends Controller
        );  
        exit;               
     }
+
+
   
 }
