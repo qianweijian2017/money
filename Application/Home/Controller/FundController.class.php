@@ -16,6 +16,7 @@ class FundController extends Controller
 		$fund = M('fund'); 
 		$fundmain=$fund -> alias('f')
 						-> join('__FUND_TYPE__ t on t.type_id =f.fund_type','left')
+						-> field('f.*,t.*,f.id as fund_id')
 						-> order('year_profit desc') 
 						-> limit(0,8) 
 						-> select();
@@ -41,6 +42,7 @@ class FundController extends Controller
     	//获取列表
     	$fundlist 		   =   $fund ->  alias('f')
     							     ->  join('__FUND_TYPE__ t on t.type_id =f.fund_type','left')
+    							     ->  field('f.*,t.*,f.id as fund_id')
     							     ->  where($where)  
 				    			     ->	 order('year_profit+0 desc')
 				    			     ->	 limit($page->firstRow , 8 )
@@ -53,6 +55,19 @@ class FundController extends Controller
     	$this -> assign('fundlist',$fundlist);// 赋值数据集
     	$this -> assign('sPages',$sPages);// 赋值分页输出  
 		$this -> display(); // 输出模板 
+	}
+	/**
+	 * 基金详情
+	 * @return [type] [description]
+	 */
+	public function funddetail()
+	{
+		$fixid      =   I('fixid',false);
+		$fund 	 	=  	M('fund');
+		$funditem   =   $fund -> find($fixid); 
+
+		$this -> assign('funditem',$funditem);
+		$this -> display();
 	}
 	/**
 	 * Where条件

@@ -1,0 +1,526 @@
+ 
+  
+<include file='include/header'/>
+
+<link rel="stylesheet" type="text/css" href="__HOME__/css/funddetail.css">
+ 
+	<div class="xq_hd">
+		<ul>
+		    <li><i class="fa fa-map"></i></li>
+			<li>您所在的位置:</li>
+			<li><a href="">首页</a>></li>
+			<li><a href="">基金列表</a>></li>
+			<li>基金详情</li>			
+		</ul>
+	</div>  
+ 
+		
+	 
+	<div class="fund-deta">
+		<div class="fund-deta-left">
+
+			<div class="lehd">
+				<ul>
+					<li> 
+						<span class="zhi"><em class="ee">{$funditem.navunit}</em>&nbsp;<em class="enormal">元</em></span>
+						<span class="zhi_txt">最新净值<b>({$funditem.create_time|date='Y-m-d',###})</b></span>
+					</li>
+					<li>
+						<span class="zhi"><em class="ee">{$funditem.year_profit}</em>&nbsp;<em class="enormal">%</em></span>
+						<span class="zhi_txt">今年来涨幅<b>{{$funditem.create_time|date='Y-m-d',###})</b></span>
+					</li>
+					<li>
+						<span class="zhi"><em class="ee">91/</em>&nbsp;<em>190</em></span>
+						<span class="zhi_txt">近一周同类排名</span>
+					</li>
+				</ul>
+			</div>
+			<div class="zoushi">
+				<div class="line"></div>
+				<div class="quxian">
+					<span>基金净值走势图</span>
+					<div class="mon">
+						<a href="">近一个月</a>
+						<a href="javascript:;">近三个月</a>
+						<a href="javascript:;">近半年</a>
+					</div>
+					<!--曲线图表 -->
+					<div class="picta">
+						
+					</div>
+				</div>
+			</div>
+			<div class="fund-deta-center" id="main">
+			 
+			</div>
+			<div class="zhangfu">
+				<div class="fd">
+					<span>日涨幅</span>
+					<span>{$funditem.day_up}%</span>
+				</div>
+				<div class="fd">
+					<span>近一周涨幅</span>
+					<span>{$funditem['day_up']*7}%</span>
+				</div>
+				<div class="fd">
+					<span>近三月涨幅</span>
+					<span>{$funditem['day_up']*30}%</span>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="fund-deta-right">
+			<h3>国泰基金</h3>
+			<div>
+				<span>国泰中国企业境外高收益债券&nbsp;</span>
+				<span class="qd">QDII</span>
+			</div>
+			<div class="le"></div>
+			<ul class="fundjs">
+				<li>
+					<span>基金代码:</span>
+					<span>000103</span>
+				</li>
+				<li>
+					<span>基金状态:</span>
+					<span>停止申购</span>
+				</li>
+				<li>
+					<span>风险等级:</span>
+					<span>中等</span>
+				</li>
+			</ul>
+			 
+		</div>
+	</div>
+
+	<div class="fundgaikuang">
+		<ul id="myTabs" class="nav nav-tabs" >
+			<li  class="active"><a href="#gk" data-toggle="tab" >基金概况</a></li>
+			<li  class=""><a href="#agent"  data-toggle="tab" >基金经理</a></li>
+			<li  class=""><a href="#flv"   data-toggle="tab" >费率</a></li>
+		</ul>
+		
+		<div id="myTabContent" class="tab-content fn">
+			<div  class="tab-pane fade active in" id="gk" >
+			   <div class="tab-t">
+			    <div class="tab-t-l">
+			        <ul>
+			    		<li>
+			    			<span>基金全称&nbsp;&nbsp;</span>
+			    			<span>国泰中国企业境外高收益债券型证券投资基金</span>
+			    		</li>
+			    		<li>
+			    			<span>基金简称&nbsp;&nbsp;</span>
+			    			<span>国泰中国企业境外高收益债券</span>
+			    		</li>
+			    		<li>
+			    			<span>基金代码&nbsp;&nbsp;</span>
+			    			<span>000103</span>
+			    		</li>
+			    		<li>
+			    			<span>基金类型&nbsp;&nbsp;</span>
+			    			<span>QDII</span>
+			    		</li>
+			    	</ul>			    	
+			    </div>
+			    <div class="tab-t-r">
+                    <ul>
+			    		<li>
+			    			<span>基金公司&nbsp;&nbsp;</span>
+			    			<span>国泰基金</span>
+			    		</li>
+			    		<li>
+			    			<span>成立日期&nbsp;&nbsp;</span>
+			    			<span>2013-04-26</span>
+			    		</li>
+			    		<li>
+			    			<span>总规模&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			    			<span>7.42万份 (2017-03-31)</span>
+			    		</li>
+			    		<li>
+			    			<span>总资产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			    			<span>10.19亿元 (2017-03-31)</span>
+			    		</li>
+			    	</ul> 
+			    </div>
+               </div>
+			    <div class="zc">
+			    	<span>资产分布</span> 
+			    	<span>（截止日期</span>
+			    	<span>2017-03-31</span>
+			    	<span>）</span>
+			    </div>
+
+			    <div class="zcfb">
+			    	<div class="zcfb-l" id="fundcake">
+			    		 
+			    	</div>
+			    	<div class="zcfb-r">
+			    	    <div class="zcfb-rin">
+			    			<label class="sdw">
+			    				<div class="cir-1"></div>
+			    				股票
+			    				<span class="per-1">6.0%</span>
+			    			</label>
+			    			<label class="sdw">
+			    				<div class="cir-2"></div>
+			    				债券
+			    				<span class="per-2">91.25%</span>
+			    			</label>
+			    		</div>
+			    		<div class="zcfb-rin">	
+			    			<label class="sdw">
+			    				<div class="cir-3"></div>
+			    				现金
+			    				<span class="per-3">7.36%</span>
+			    			</label>
+			    			<label class="sdw">
+			    				<div class="cir-4"></div>
+			    				其他
+			    				<span class="per-4">1.39%</span>
+			    			</label>
+			    		</div>	
+			    	</div>
+			    </div>
+
+			    <div class="zy">
+			    	<div class="zycy">
+			    		<span>主要持有</span>
+			    		<span>（截止日期</span>
+			    		<span>2017-03-31</span>
+			    	    <span>）</span>			  
+			    	</div>
+
+			    	<div class="d-table">
+			    		<table   style="width: 100%">
+			    			<thead>
+			    				<tr>
+			    					<th>证券名称</th>
+			    					<th>证券代码</th>
+			    					<th>持仓量（股）</th>
+			    					<th>公允价值（元）</th>
+			    					<th>占净资产比例（%）</th>
+			    				</tr>
+			    			</thead>
+			    			<tbody>
+			    				<tr>
+			    					<td class="t-c">暂无数据</td>
+			    				</tr>
+			    			</tbody>
+			    		</table>
+			    	</div>
+			    </div>
+
+			    <p class="zc-tips">
+			    	提示：以上数据信息来自于盈米财富，仅供参考。基金公司保留最终修改权力，实际产生的费用以基金公司确认为准，请用户参考基金募集说明书或者致电基金公司查询。
+			    </p>
+
+			    <div class="yingmi-box">
+			    	<span>基金销售服务由</span>
+			    	<img src="__HOME__/imgs/yingmi-logo.png">
+			    	<span>提供 基金销售资格证号：000000378</span>
+			    </div>
+			</div>
+
+  
+			<div  class="tab-pane fade " id="agent" >
+                <div class="fund-agent">
+                	<div class="agentcal">基金 <br> 经理</div>
+                	<div class="agent-de">
+                		<span class="name">吴向军</span>
+                		<p class="perjs">硕士研究生,11年证券基金从业经历。2004年6月至2007年6月在美国Avera Global Partners工作，担任股票分析师；2007年6月至2011年4月美国Security Global Investors工作，担任高级分析师。2011年5月起加盟国泰基金管理有限公司。2013年4月起任国泰中国企业境外高收益债券型证券投资基金的基金经理。2013年8月起任国泰美国房地产开发股票型证券投资基金的基金经理。2015年7月起任国泰大宗商品配置证券投资基金(LOF)基金经理、国泰纳斯达克100指数证券投资基金基金经理。2015年8月起任国际业务部副总监。2015年12月起任国泰全球绝对收益型基金优选证券投资基金的基金经理。</p>
+                	</div>
+                </div>
+                <div class="fx">
+                	<span>风险等级</span>
+                	<span>中等风险</span>
+                </div>
+
+                <p class="zc-tips">
+                	提示：以上数据信息来自于盈米财富，仅供参考。基金公司保留最终修改权力，实际产生的费用以基金公司确认为准，请用户参考基金募集说明书或者致电基金公司查询。
+                </p>
+
+                <div class="yingmi-box">
+			    	<span>基金销售服务由</span>
+			    	<img src="__HOME__/imgs/yingmi-logo.png">
+			    	<span>提供 基金销售资格证号：000000378</span>
+			    </div>
+			</div>
+			<div  class="tab-pane fade " id="flv" >
+			     <div class="hl-table">
+			     	<table style="width: 100%;">
+			     		<thead>
+			     			<tr>
+			     				<th width="60%">条件</th>
+			     				<th width="40%">申购费率</th>
+			     			</tr>
+			     		</thead>
+			     		<tbody>
+			     			<tr>
+			     				<td>
+			     					<span >0</span>
+			     					<span >.00</span>
+			     					<span >万元</span>
+			     					<span > &lt; 认购金额 &lt; </span>
+			     					<span >50</span>
+			     					<span >.00</span>
+			     					<span>万元</span>
+			     				</td>
+			     				<td>
+			     					<span>
+			     						<i class="color-up" >
+			     							<span>0.60</span>
+			     							<span>%</span>
+			     						</i>
+			     						<span >&nbsp;&nbsp;</span>
+			     						<i class="f-12 text-through" >
+			     							<span >0.80</span>
+			     							<span >%</span>
+			     						</i>
+			     						<span >&nbsp;</span>
+			     						<i class="f-12" >
+			     							<span>（</span>
+			     							<span >7.5</span>
+			     							<span >折</span>
+			     							<span>）</span>
+			     						</i>
+			     					</span>
+			     				</td>
+			     			</tr>
+			     			<tr>
+			     				<td>
+			     					<span >50</span>
+			     					<span >.00</span>
+			     					<span >万元</span>
+			     					<span > &lt;认购金额 &lt;</span>
+			     					<span >200</span>
+			     					<span >.00</span>
+			     					<span>万元</span>
+			     				</td>
+			     				<td>
+			     					<i>
+			     						<span>0.60</span>
+			     						<span>%</span>
+			     					</i>
+			     				</td>
+			     			</tr>
+			     			<tr>
+			     				<td>
+			     					<span >200</span>
+			     					<span >.00</span>
+			     					<span >万元</span>
+			     					<span > &lt;认购金额 &lt;</span>
+			     					<span >500</span>
+			     					<span >.00</span>
+			     					<span>万元</span>
+			     				</td>
+			     				<td>
+			     					<i>
+			     						<span>0.40</span>
+			     						<span>%</span>
+			     					</i>
+			     				</td>
+			     			</tr>
+			     			<tr>
+			     				<td>
+			     					<span>认购金额</span>
+			     					<span>></span>
+			     					<span >500</span>
+			     					<span >.00</span>
+			     					<span>万元</span>
+			     				</td>
+			     				<td>
+			     					<i>
+			     						<span>1000</span>
+			     						<span>.00</span>
+			     						<span>元/笔</span>
+			     					</i>
+			     				</td>
+			     			</tr>
+			     		</tbody>
+			     	</table>
+
+			     	<table style="width: 100%;margin-top: 20px;">
+			     		<thead>
+			     			<tr>
+			     				<th width="60%">条件</th>
+			     				<th width="40%">赎回费率</th>
+			     			</tr>
+			     		</thead>
+			     		<tbody>
+			     			<tr>
+			     				<td>
+			     					<span >0</span>
+			     					<span >天</span>
+			     					<span ><</span>
+			     					<span >持有期限</span>
+			     					<span ><</span>
+			     					<span >179</span>
+			     					<span>天</span>
+			     				</td>
+			     				<td>
+			     					<i>
+			     						<span>0.30</span>
+			     						<span>%</span>
+			     					</i>
+			     				</td>
+			     			</tr>
+			     			<tr>
+			     				<td>
+			     					<span >持有期限</span>
+			     					<span >></span>
+			     					<span >179</span>
+			     					<span>天</span>
+			     				</td>
+			     				<td>
+			     					<i>
+			     						<span>0.00</span>
+			     						<span>%</span>
+			     					</i>
+			     				</td>
+			     			</tr>
+			     		</tbody>
+			     	</table>
+			     </div>
+
+			     <p class="zc-tips">
+                	提示：以上数据信息来自于盈米财富，仅供参考。基金公司保留最终修改权力，实际产生的费用以基金公司确认为准，请用户参考基金募集说明书或者致电基金公司查询。
+                </p>
+
+                <div class="yingmi-box">
+			    	<span>基金销售服务由</span>
+			    	<img src="__HOME__/imgs/yingmi-logo.png">
+			    	<span>提供 基金销售资格证号：000000378</span>
+			    </div>
+			</div>
+		</div>
+	</div>
+ 
+	<div class="foow">
+ 	   <span>粤ICP备16112898号-1</span>
+ 	   <span>&nbsp;&nbsp;版权所有 © 深圳万惠金融服务有限公司</span>
+    </div>
+<include file='include/footer'/>
+ 
+<script type="text/javascript">
+
+getClearing();
+
+function getClearing() {
+	  var myChart = echarts.init(document.getElementById('main'));
+  
+			  option = {
+			   
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer: {
+			            type: 'cross',
+			            label: {
+			                backgroundColor: '#6a7985'
+			            }
+			        }
+			    },
+			    toolbox: {
+			        feature: {
+			            saveAsImage: {}
+			        }
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            boundaryGap : false,
+			            data : ['周一','周二','周三','周四','周五','周六','周日']
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value'
+			        }
+			    ],
+			    series : [ 
+			        {
+			            name:'基金涨幅',
+			            type:'line',
+			            stack: '总量',
+			            label: {
+			                normal: {
+			                    show: true,
+			                    position: 'top'   
+			                }
+			            },
+			            areaStyle: {normal: {}},
+			            data:[820, 932, 901, 934, 1290, 1330, 1320]
+			        }
+			    ]
+			};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option); 
+}
+getCake();
+function getCake() {
+
+	var myChart = echarts.init(document.getElementById('fundcake'));
+	var cir1    = 100;
+	var cir2    = 200;
+	var cir3    = 50;
+	var cir4    = 80;
+	console.log(cir1);
+	console.log(cir2);
+		 option = {
+			    tooltip: {
+			        trigger: 'item',
+			        formatter: "{a} <br/>{b}: {c} ({d}%)"
+			    },
+			    legend: {
+			        orient: 'vertical',
+			        x: 'left' 
+			        
+			    },
+			    series: [
+			        {
+			            name:'资产分布',
+			            type:'pie',
+			            radius: ['50%', '70%'],
+			            avoidLabelOverlap: false,
+			            label: {
+			                normal: {
+			                    show: false,
+			                    position: 'center'
+			                },
+			                emphasis: {
+			                    show: true,
+			                    textStyle: {
+			                        fontSize: '20',
+			                        fontWeight: 'bold'
+			                    }
+			                }
+			            },
+			            labelLine: {
+			                normal: {
+			                    show: false
+			                }
+			            },
+			            data:[
+			                {value:cir1, name:'股票'},
+			                {value:cir2, name:'债券'},
+			                {value:cir3, name:'现金'}, 
+			                {value:cir4, name:'其他'}
+			            ]
+			        }
+			    ]
+			};
+		 myChart.setOption(option); 
+
+}
+	
+</script>
