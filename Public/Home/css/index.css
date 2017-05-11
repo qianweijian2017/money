@@ -453,6 +453,10 @@ h2 {
     height: 4px;
     background: #d81e06;
 }
+.progress-ing-lent{
+    height: 4px;
+    background: #32a9f2;
+}
 .lock-day .suodingnum{
     color: #000;
     font-size: 16px;
@@ -582,14 +586,25 @@ h2 {
     border-width: 0;
     padding: 15px 0 5px;
 }
-
+.progress-box-lent {
+    display: none;
+    position: relative;
+    float: left;
+    border-width: 0;
+    padding: 15px 0 5px;
+}
 .progress-box-c {
     float: left;
     width: 186px;
     height: 4px;
     background: #dbe1e6;
 }
-
+.progress-box-lent .progress-box-c {
+    float: left;
+    width: 186px;
+    height: 4px;
+    background: #dbe1e6;
+}
 .btn-box a {
     float: right;
     background: #ff382c;
