@@ -44,8 +44,8 @@ ul li{
 }
 .fund-deta{
 	width: 1100px;
-	margin: 0 auto;
-	margin-top: 20px;
+	padding: 60px 0 0 0;
+	margin: 0 auto; 
 	overflow: hidden;
 	background: #fff;
 }
@@ -124,6 +124,13 @@ ul li{
     font-size: 18.14px;
     font-weight: 700;
     color: #f75646;
+}
+
+/*统计图*/
+.fund-deta-center{
+	width: 600px;
+	height: 235px;
+	float: left;
 }
 .fund-deta .fund-deta-right{
 	padding: 10px 10px;
@@ -225,21 +232,17 @@ ul li{
 	color: #363636;
 }
 .fundgaikuang .fn #gk .zcfb{
-	margin-top: 20px;
-	overflow: hidden;
+	margin-top: 20px; 
 }
 .fundgaikuang .fn #gk .zcfb>div{
 	float: left;
 }
-.fundgaikuang .fn #gk .zcfb .zcfb-l{
-	overflow: hidden;
+.fundgaikuang .fn #gk .zcfb .zcfb-l{ 
+	margin-top: -30px;
+	width: 210px;
+	height: 210px;
 }
-.fundgaikuang .fn #gk .zcfb .fbt{
-	width: 120px;
-	height: 120px;
-	border-radius: 50%;
-	border: 18px solid #57B3FF;
-}
+ 
 .fundgaikuang .fn #gk .zcfb .zcfb-r{
 	margin-left: 120px;
 }
@@ -378,6 +381,16 @@ table th{
 .fundgaikuang .fn #flv .hl-table table td{
 	text-align: center;
 	padding: 10px 0;
+}
+.fundgaikuang .fn #flv .hl-table table tr td:first-child{
+	text-align: left;
+}
+.fundgaikuang .fn #flv .hl-table table tr td:last-child{
+	text-align: center;
+}
+.fundgaikuang .fn #flv .hl-table table tr td:last-child span,
+.fundgaikuang .fn #flv .hl-table table tr td:last-child i{
+	font-style: normal;
 }
 .color-up{
 	font-size: 14px;
