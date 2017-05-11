@@ -85,13 +85,13 @@
                     </div>
                     <div class="explain">
                         <div class="main-rate">
-                            <span>预期年化收益率&nbsp;<i class="fa fa-question-circle-o"></i></span>
-                            <span>{$projectitem.pro_profit}</span>
+                            <span>预期还款利率</span>
+                            <span>{$projectitem.br_profit}</span>
                             <span>%</span> 
                         </div>
 
                         <div class="mod mod-lock">
-                            <span class="hb">锁定期</span>
+                            <span class="hb">还款周期</span>
                             <span class="total">{$projectitem.proj_lock}</span>
                             <span class="num">天</span> 
                         </div>
@@ -117,19 +117,19 @@
                                 {$progress} %
                             </em>
                             <span> 
-                                投资进度
+                                所剩资金
                             </span>
                         </div>
                         <div class="pro pro2">  
                             <div class="progress progress2">
                                <php>  
-                                    $overplus=$projectitem['proj_total']-$projectitem['proj_amount']; 
+                                    $overplus=$projectitem['proj_amount']; 
                                     $overplus=sliceNumber($overplus);
                                 </php>  
                                 {$overplus} 元 
                             </div>
                             <span> 
-                                剩余金额：       
+                                可借金额：       
                             </span>
                         </div>
                         <div class="goumai">

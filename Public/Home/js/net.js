@@ -52,7 +52,7 @@ $(function () {
 
      if(!$user){
           var tiplogin=layer.confirm('要先登陆哦',{icon:5},function(){
-                    location.href= "{:U('user/login')}";
+                    location.href = loginUrl;
                     layer.close(tiplogin);
             });
           return;
