@@ -36,6 +36,10 @@ public function buy(){
 //			$this->redirect('Admin-Index/view', array('uid'=>1), 3,'页面跳转中~');
 			$this->redirect('goods/buy_money', array('fund_code'=>I('fund_code')));
 		}
+
+		//将此项目的目前投资金额加 I money 使用到mn_project表
+		$project=M('project');
+		$project->where('')->setInc('proj_amount',$data['money']);
 	}else{
 		$this->error('输入的金额不正确');
 	}

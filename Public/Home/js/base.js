@@ -5,7 +5,7 @@
 
         $val=$('.progress-val').eq(i).text();
         $('.progress-ing').eq(i).css({
-            width:$val
+            "width":$val
         });
         console.log($val);
         if($val==$tar){

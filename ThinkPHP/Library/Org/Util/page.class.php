@@ -50,8 +50,9 @@ class Page{
         C('VAR_PAGE') && $this->p = C('VAR_PAGE'); //设置分页参数名称
         /* 基础设置 */
         $this->totalRows  = $totalRows; //设置总记录数
-        $this->listRows   = $listRows;  //设置每页显示行数
+        $this->listRows   = $listRows;  //设置每页显示行数 
         $this->parameter  = empty($parameter) ? $_GET : $parameter;
+        
         $this->nowPage    = empty($_GET[$this->p]) ? 1 : intval($_GET[$this->p]);
         $this->nowPage    = $this->nowPage>0 ? $this->nowPage : 1;
         $this->firstRow   = $this->listRows * ($this->nowPage - 1);
