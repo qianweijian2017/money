@@ -25,7 +25,7 @@ a:hover{
     height: 48px;
     margin-top: 26px;
     float: left;
-	background: url(../imgs/logos_2b86f35.png) no-repeat; 
+	background: url(/public/Home/imgs/logos_2b86f35.png) no-repeat;
 }
 .tou>div:last-of-type a{
 	display: block;
@@ -49,7 +49,7 @@ a:hover{
 	clear: both;
 	width: 100%;
 	height: 382px; 
-	background: url(../imgs/fixday.jpg);
+	background: url(../imgs/hjs.jpg);
 	background-size: 100% 100%;
 }
 .fenlei{

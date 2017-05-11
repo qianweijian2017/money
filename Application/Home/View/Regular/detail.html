@@ -76,15 +76,21 @@
 				<div>剩余金额：	<span class="money">{$remain}</span>
 				&nbsp;元</div>
 
-				<div>账户余额： <a href="{:U('User/login')}" class="login">登入可见</a></div>
+				<div>账户余额：
+					<if condition="$think.session('user') eq ''">
+					<a href="{:U('User/login')}" class="login">登入可见</a>
+						<else/>
+						{$money['money']}
+					</if>
+				</div>
 			</div>
 
 			<div class="invest-box">
-				<form action="{:U('goods/buy')}" method="post">
+				<form action="{:U('regular/buy')}" method="post">
 					<p style="font-size: 10px;">购买金额：</p>
 					<div class="insert-box">
 						<input id="investNum" name="money" class="invest-num" type="text" value="100">
-						<input name="fund_code" type="hidden" value="270002">
+						<input name="proj_no" type="hidden" value="{$projitem['proj_no']}">
 						<span class="rmb">元</span>
 						<div id="btnTotal" class="invest-total">全额</div>
 					</div>
