@@ -29,54 +29,38 @@
 				</label> 
 			</th>
 			 <th>
-			 	基金编号
-			 </th> 
-			  <th>
-			 	基金别名
+			 	用户id
+			 </th>
+			 <th>
+			 	用户名
 			 </th>
 			  <th>
-			 	基金类型
-			 </th> 
-			 <th>
-			 	年收益
-			 </th> 
-			 <th>
-			 	日涨幅
+			 	用户密码
+			 </th>
+			   <th>
+			 	权限
 			 </th>
 			  <th>
-			 	创立时间
+			 	注册时间
 			 </th>    
 		</tr>
-		 <volist name="fundlist" id="funditem">
+		 <volist name="adminlist" id="adminitem">
 			 <tr>
 			 	<td>
-			 		<input type="checkbox" class="sub_check" name="sub_check" value="{$funditem.id}">
+			 		<input type="checkbox" class="sub_check" name="sub_check" value="{$adminitem.id}">
 			 	</td>
 			 	<td>
-			 		{$funditem.fund_code}
+			 		{$adminitem.id}
 			 	</td>
 			 	<td>
-			 		{$funditem.fund_name}
+			 		{$adminitem.admin_name}
 			 	</td>
 			 	<td>
-			 		{$funditem.fund_type}
+			 		{$adminitem.role_id}
 			 	</td> 
-			 	<td>
-			 		{$funditem.year_profit}
-			 	</td> 
-			 	<php>
-			 		if($day_up = $funditem['day_up'] < 0){
-							$color = 'colorRed';
-			 		 }else{
-			 		 		$color = 'colorGreen';
-			 		 }
-			 	 </php>
-			 		
-			 	<td class="{$color}">
-					{$day_up}
-			 	</td> 
+			 	 
 				<td>
-			 		{$funditem.create_time|date="Y-m-d H:i:s",###}
+			 		{$adminitem.create_time|date="Y-m-d H:i:s",###}
 			 	</td> 
 			 </tr>  
 		  </volist>
