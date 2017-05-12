@@ -2,6 +2,10 @@
 
 <link rel="stylesheet" href="__PUBLIC__/Home/css/index.css">
 <script src="__PUBLIC__/Home/js/news.js"></script>
+<span class="url" style="display: none">
+    <?php
+echo $_SERVER["REQUEST_URI"]; ?>
+</span>
 
 <div class="banner">
     <div class="banner-img carousel slide" id="slidershow" data-ride="carousel">
@@ -9,8 +13,6 @@
             <volist name="ppt_info" id="fundItem">
                 <img class="item" src="__PUBLIC__{$fundItem.pic_path}" alt="">
             </volist>
-
-
             <!--  <img class="item" src="__PUBLIC__/Home/imgs/02.jpg" alt="">
              <img class="item" src="__PUBLIC__/Home/imgs/03.jpg" alt="">
              <img class="item" src="__PUBLIC__/Home/imgs/04.jpg" alt="">
@@ -26,7 +28,7 @@
                 <script type="text/javascript">
                     var carou = "";
                     for (var i = 0; i < $(".con").val(); i++) {
-                        carou += '<li data-slide-to="' + i + '"  data-target="#slidershow"></li>'
+                        carou += '<li data-slide-to="' + i + '"  data-target="#slidershow"></li>';
                         $('.carousel-indicators').html(carou);
                     }
                 </script>
@@ -47,12 +49,8 @@
                     <p class="sum">6%~13%</p>
                 </div>
                 <div class="banner-box-bd">
-                    <if condition="$Think.session.user eq ''">
-                        <a href="{:U('User/register')}" class="btn-reg">注册领红包</a>
-                        <p class="tips">已有账号？<a href="{:U('User/login')}" class="link">立即登录</a></p>
-                        <else/>
-                        <a class="btn-reg">欢迎登录</a>
-                    </if>
+                    <a href="{:U('User/register')}" class="btn-reg">注册领红包</a>
+                    <p class="tips">已有账号？<a href="{:U('User/login')}" class="link">立即登录</a></p>
                 </div>
             </div>
         </div>
@@ -168,10 +166,10 @@
 
                                 </div>
                                 <php>
-                                    $programing__=($data['proj_lent'])/($data['proj_total'])*100;
-                                   
+                                    $programing=($data['proj_lent'])/($data['proj_total'])*100;
+                                    $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
                                 </php>
-                                <span class="progress-val-lent" style="float: right;margin-top: -8px;margin-left: 5px">{$programing__}%</span>
+                                <span class="progress-val-lent" style="float: right;margin-top: -8px;margin-left: 5px">{$programing}%</span>
                             </div>
                             <div class="invest-box cf">
                                 <div class="btn-box">
@@ -245,11 +243,11 @@
                         </div>
                         <div class="rookie-mark">新手专享</div>
                     </li>
-                    <li style="border-right: 1px solid #cccccc">
-                        <div class="t-pic">
+                    <!--<li style="border-right: 1px solid #cccccc">-->
+                        <!--<div class="t-pic">-->
 
-                        </div>
-                    </li>
+                        <!--</div>-->
+                    <!--</li>-->
                     <li data-status="{$data_thr.status}" data-id="{$data_thr.id}">
                         <div class="hd">
                             <div class="tip-title" style="float: left">
@@ -261,8 +259,8 @@
                         </div>
                         <div class="bd">
                             <div class="f1" style="float: left">
-                                <div class="yuqi"><span class="yuqitext">预期年化收益率</span>
-
+                                <div class="yuqi">
+                                    <span class="yuqitext"><span class="yuqitext">预期年化收益率</span></span>
                                     <span class="yuqinum">
                                     {$data_thr.pro_profit}%
                             </span></div>
@@ -285,7 +283,7 @@
                                     </div>
                                 </div>
                                 <php>
-                                    $programing=($data_sec['proj_amount'])/($data_sec['proj_total'])*100;
+                                    $programing=($data_thr['proj_amount'])/($data_thr['proj_total'])*100;
                                     $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
                                 </php>
                                 <span class="progress-val"
@@ -298,6 +296,68 @@
                                 </div>
                                 <php>
                                     $programing=($data_thr['proj_lent'])/($data_thr['proj_total'])*100;
+                                    $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
+                                </php>
+                                <span class="progress-val-lent" style="float: right;margin-top: -8px;margin-left: 5px">{$programing}%</span>
+                            </div>
+                            <div class="invest-box cf">
+                                <div class="btn-box">
+
+                                    <a target="_blank" class="btn btn-primary">立即投资</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rookie-mark">新手专享</div>
+                    </li>
+                    <li data-status="{$data_f.status}" data-id="{$data_f.id}">
+                        <div class="hd">
+                            <div class="tip-title" style="float: left">
+                                省心宝
+                            </div>
+                            <div class="tips">
+                                {$data_f['proj_total']/10000|round=###,0}万
+                            </div>
+                        </div>
+                        <div class="bd">
+                            <div class="f1" style="float: left">
+                                <div class="yuqi">
+                                    <span class="yuqitext"><span class="yuqitext">预期年化收益率</span></span>
+                                    <span class="yuqinum">
+                                    {$data_thr.pro_profit}%
+                            </span></div>
+
+                                <div class="qitou" style="    color: #999;">100起投</div>
+
+                            </div>
+                            <div class="lock-day" style="float: right">
+                                锁定期 <span class="suodingnum">
+                            {$data_f.proj_lock} 天
+                            </span>
+                            </div>
+
+                        </div>
+                        <div class="ft">
+                            <div class="progress-box">
+                                <div class="progress-box-c">
+                                    <div class="progress-ing" data-width="">
+
+                                    </div>
+                                </div>
+                                <php>
+                                    $programing=($data_f['proj_amount'])/($data_f['proj_total'])*100;
+                                    $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
+                                </php>
+                                <span class="progress-val"
+                                      style="float: right;margin-top: -8px;margin-left: 5px">{$programing}%</span>
+                            </div>
+                            <div class="progress-box-lent">
+                                <div class="progress-box-c">
+                                    <div class="progress-ing-lent" data-width=""></div>
+
+                                </div>
+                                <php>
+                                    $programing=($data_f['proj_lent'])/($data_f['proj_total'])*100;
                                     $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
                                 </php>
                                 <span class="progress-val-lent" style="float: right;margin-top: -8px;margin-left: 5px">{$programing}%</span>
@@ -442,11 +502,11 @@
                         </div>
                         <div class="rookie-mark">新手专享</div>
                     </li>
-                    <li style="border-right: 1px solid #cccccc">
-                        <div class="t-pic">
+                    <!--<li style="border-right: 1px solid #cccccc">-->
+                        <!--<div class="t-pic">-->
 
-                        </div>
-                    </li>
+                        <!--</div>-->
+                    <!--</li>-->
                     <li data-id="{$data_yyz_thr.id}" data-status="{$data_yyz_thr.status}">
                         <div class="hd">
                             <div class="tip-title" style="float: left">
@@ -504,6 +564,63 @@
                         </div>
                         <div class="rookie-mark">新手专享</div>
                     </li>
+                    <li data-id="{$data_yyz_f.id}" data-status="{$data_yyz_f.status}">
+                        <div class="hd">
+                            <div class="tip-title" style="float: left">
+                                月月增
+                            </div>
+                            <div class="tips">
+                                {$data_yyz_f['proj_total']/10000|round=###,0}万
+                            </div>
+                        </div>
+                        <div class="bd">
+                            <div class="f1" style="float: left">
+                                <div class="yuqi"><span class="yuqitext">预期年化收益率</span><span class="yuqinum">{$data_yyz_f.pro_profit}%</span>
+                                </div>
+                                <div class="qitou" style="    color: #999;">100起投</div>
+
+                            </div>
+                            <div class="lock-day" style="float: right">
+                                锁定期 <span class="suodingnum">
+                                 {$data_yyz_f.proj_lock}天
+                            </span>
+                            </div>
+
+                        </div>
+                        <div class="ft">
+                            <div class="progress-box-lent">
+                                <div class="progress-box-c">
+                                    <div class="progress-ing-lent" data-width=""></div>
+
+                                </div>
+                                <php>
+                                    $programing=($data_yyz_f['proj_lent'])/($data_yyz_f['proj_total'])*100;
+                                    $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
+                                </php>
+                                <span class="progress-val-lent" style="float: right;margin-top: -8px;margin-left: 5px">{$data_yyz_f['proj_lent']/ $data_yyz_f['proj_total']*100|round=###,3}%</span>
+                            </div>
+                            <div class="progress-box">
+                                <div class="progress-box-c">
+                                    <div class="progress-ing" data-width=""></div>
+
+                                </div>
+                                <php>
+                                    $programing=($data_yyz_f['proj_amount'])/($data_yyz_f['proj_total'])*100;
+                                    $programing=sprintf("%.2f",substr(sprintf("%.3f", $programing), 0, -2));
+                                </php>
+                                <span class="progress-val"
+                                      style="float: right;margin-top: -8px;margin-left: 5px">{$programing}%</span>
+                            </div>
+                            <div class="invest-box cf">
+                                <div class="btn-box">
+
+                                    <a target="_blank" class="btn btn-primary">立即投资</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rookie-mark">新手专享</div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -519,7 +636,7 @@
             </div>
             <div class="col-lg-9 col-md-8 main-con">
                 <ul class="bd-row">
-                    <li data-id="{$data_fund_sec.id}" style="border-right: 1px solid #cccccc">
+                    <li data-status="4" data-id="{$data_fund_sec.id}" style="border-right: 1px solid #cccccc">
                         <div class="hd">
                             <div class="tip-title" style="float: left">
                                 {$data_fund_sec.fund_name}
@@ -563,7 +680,7 @@
                         </div>
                         <div class="rookie-mark">火热基金</div>
                     </li>
-                    <li data-id="{$data_fund_fri.id}">
+                    <li data-status="4" data-id="{$data_fund_fri.id}">
                         <div class="hd">
                             <div class="tip-title" style="float: left">
                                 {$data_fund_fri.fund_name}
@@ -606,12 +723,12 @@
                         </div>
                         <div class="rookie-mark">火热基金</div>
                     </li>
-                    <li style="border-right: 1px solid #cccccc">
+                    <li data-status="4" style="border-right: 1px solid #cccccc">
                         <div class="t-pic">
 
                         </div>
                     </li>
-                    <li data-id="{$data_fund_thr.id}">
+                    <li data-status="4" data-id="{$data_fund_thr.id}">
                         <div class="hd">
                             <div class="tip-title" style="float: left">
                                 {$data_fund_thr.fund_name}
@@ -790,3 +907,4 @@
     </script>
     <!-- 新闻详情end -->
     <include file='include/footer'/>
+    <span class="num" style="display: none">{$all}</span>
