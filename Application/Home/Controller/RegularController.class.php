@@ -59,26 +59,29 @@ class RegularController extends Controller
         if(!session(user)){
             $this->error('请先登录',U('user/login'));exit();
         }
-        if(I('money')>0){
+        $proj_type=M('project')->field('proj_type')->where('proj_no='.I('proj_no'))->find();
+        if(I('money')>0&&$proj_type){
             $data=array();
             $data['proj_no']=I('proj_no');
             $data['in_amount']=I('money');
-            $data['user_id']=session('user')['id'];
+            $user_id=$data['user_id']=session('user')['id'];
             $data['start_time']=time();
-            $goods_info=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.$data['proj_no'].' and status=0')->find();
+            $goods_info=M('proj_moneyman')->where('user_id='.$user_id.' and proj_no='.$data['proj_no'].' and status=0')->find();
             if(!$goods_info){
                 M('proj_moneyman')->add($data);
             }else{
-                M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.$data['proj_no'].' and status=0')->save($data);
+                M('proj_moneyman')->where('user_id='.$user_id.' and proj_no='.$data['proj_no'].' and status=0')->save($data);
             }
-            $user_money=M('user_money')->where('user_id='.session('user')['id'])->find();
+            $user_money=M('user_money')->where('user_id='.$user_id)->find();
+//            用户信息不存在
             if(!$user_money){
                 $money_add=array();
-                $money_add['user_id']=session(user)['id'];
+                $money_add['user_id']=$user_id;
                 $result=M('user_money')->add($money_add);
                 if($result){
                     $this->success('请设置交易密码',U("personal/trader_pwd"));
                 }
+//                没交易密码
             }elseif(!$user_money['trader_pwd']){
                 $this->success('请设置交易密码',U("personal/trader_pwd"));
             }elseif($user_money['money']<I('money')){
@@ -86,73 +89,87 @@ class RegularController extends Controller
             }else{
                 // 跳转到 Admin分组Index模块view操作，uid参数为1，延迟3秒跳转
 //			$this->redirect('Admin-Index/view', array('uid'=>1), 3,'页面跳转中~');
-                $proj_type=M('project')->field('proj_type')->where('proj_no='.$data['proj_no'])->find();
                 $proj_lock=M('project_lock')->field('proj_lock')->where('type_id='.$proj_type['proj_type'])->find();
-                print_r($data);
                 $this->redirect('regular/buy_m', array('proj_no'=>I('proj_no'),'in_amount'=>$data['in_amount'],'proj_lock'=>$proj_lock['proj_lock']));
             }
         }else{
-            $this->error('输入的金额不正确');
+            $this->error('输入的不正确');
         }
     }
     public function doBuy(){
         if(!session(user)){
             $this->error('请先登录',U('user/login'));exit();
         }
+
         if(I('in_amount')>0){
             $trader_pwd=M('user_money')
                 ->field('trader_pwd')
                 ->where('user_id='.session('user')['id'])
                 ->find();
+
             if($trader_pwd['trader_pwd']==md5(I('trader_pwd'))){
-                $user_money=M('user_money')->where('user_id='.session('user')['id'])->find();
-                if($user_money['money']>I('money')){
-                    $pro=M('project')->field('proj_total,proj_amount')->where('proj_no='.I('proj_no'))->find();
-                    $cha=$pro['proj_total']-$pro['proj_amount'];
-                    if($cha>I('in_amount')){
-//                        保存用户交易
-                        $data['in_amount']=I('in_amount');
-                        $data['status']=1;
-                        $data['start_time']=time();
-                        $data['end_time']=$data['start_time']+I('length_day')*60*60*24;
-                        $result=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.I('proj_no').' and status=0')->save($data);
-                        //         减去用户钱
-                        $result_money=M('user_money')->where('user_id='.session('user')['id'])->setDec('money',I('in_amount'));
-                        //         增加融资
-                        $amount=M('project')->where('proj_no='.I('proj_no'))->setInc('proj_amount',$data['in_amount']);
-                        //         修改result
-                        $result_data=($pro['proj_amount']+I('in_amount'))/$pro['proj_total'];
-                        $result_p=M('project')->where('proj_no='.I('proj_no'))->setField('result',$result_data);
-                        if($result&&$result_money&&$amount){
 
-                            $this->success('交易成功',U('personal/index'));
-                        }else{
-                            $this->error('交易失败');
-                        }
-                    }else{
+                       $user_money=M('user_money')->where('user_id='.session('user')['id'])->find();
+                       if($user_money['money']>I('money')){
+                           $pro=M('project')->field('proj_total,proj_amount')->where('proj_no='.I('proj_no'))->find();
+                           $cha=$pro['proj_total']-$pro['proj_amount'];
+                           if($cha>I('in_amount')){
 //                        保存用户交易
-                        $data['in_amount']=$cha;
-                        $data['status']=1;
-                        $data['start_time']=time();
-                        $data['end_time']=$data['start_time']+I('length_day')*60*60*24;
-                        $result=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.I('proj_no').' and status=0')->save($data);
+                               $data['in_amount']=I('in_amount');
+                               $data['status']=1;
+                               $data['start_time']=time();
+                               $data['end_time']=$data['start_time']+I('length_day')*60*60*24;
+                               $result=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.I('proj_no').' and status=0')->save($data);
+
+                               if(!$result){
+                                   $this->error('输入的代号有误');
+                                   exit();
+                               }
+
+                               //         减去用户钱
+                               $result_money=M('user_money')->where('user_id='.session('user')['id'])->setDec('money',I('in_amount'));
+                               //         增加融资
+                               $amount=M('project')->where('proj_no='.I('proj_no'))->setInc('proj_amount',$data['in_amount']);
+                               //         修改result
+                               $result_data=($pro['proj_amount']+I('in_amount'))/$pro['proj_total'];
+                               $result_p=M('project')->where('proj_no='.I('proj_no'))->setField('result',$result_data);
+
+                               if($result&&$result_money&&$amount){
+
+                                   $this->success('交易成功',U('personal/index'));
+                               }else{
+                                   $this->error('交易失败');
+                               }
+
+
+                           }else{
+//                        保存用户交易
+                               $data['in_amount']=$cha;
+                               $data['status']=1;
+                               $data['start_time']=time();
+                               $data['end_time']=$data['start_time']+I('length_day')*60*60*24;
+                               $result=M('proj_moneyman')->where('user_id='.session('user')['id'].' and proj_no='.I('proj_no').' and status=0')->save($data);
+                               if(!$result){
+                                   $this->error('输入的代号有误');
+                                   exit();
+                               }
 //                        修改主表
-                        $result_p=M('project')->where('proj_no='.I('proj_no'))->setField('result',1);
-                        $status_p=M('project')->where('proj_no='.I('proj_no'))->setField('status',2);
-                        $proj_amount=M('project')->where('proj_no='.I('proj_no'))->setField('proj_amount',$pro['proj_total']);
+                               $result_p=M('project')->where('proj_no='.I('proj_no'))->setField('result',1);
+                               $status_p=M('project')->where('proj_no='.I('proj_no'))->setField('status',2);
+                               $proj_amount=M('project')->where('proj_no='.I('proj_no'))->setField('proj_amount',$pro['proj_total']);
 //                        减去用户钱
-                        $result_money=M('user_money')->where('user_id='.session('user')['id'])->setDec('money',$cha);
-                        if($result&&$status_p&&$result_money){
+                               $result_money=M('user_money')->where('user_id='.session('user')['id'])->setDec('money',$cha);
+                               if($result&&$status_p&&$result_money){
 
-                            $this->success('交易成功',U('personal/index'));
-                        }else{
-                            $this->error('交易失败',U('personal/index'));
-                        }
-                    }
+                                   $this->success('交易成功',U('personal/index'));
+                               }else{
+                                   $this->error('交易失败',U('personal/index'));
+                               }
+                           }
 
-                }else{
-                    $this->error('余额不足，请及时充值',U("personal/recharge"));
-                }
+                       }else{
+                           $this->error('余额不足，请及时充值',U("personal/recharge"));
+                       }
                }else{
                 $this->error('交易密码不正确');
             }
