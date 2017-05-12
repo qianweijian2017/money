@@ -91,10 +91,11 @@
     var nav_top = $('nav').offset().top;
     $(window).scroll(function () {
         var scroll_top = $(this).scrollTop();
+        console.log(scroll_top);
         if (nav_top < scroll_top) {
             $("nav").css({"position": "fixed", "top": 0, 'z-index': '999'});
         } else if (nav_top >= scroll_top) {
-            $("nav").removeProp("style");
+            $("nav").removeAttr('style');
         }
     });
     $(".nav_title li.active").children("a").prop("href", "javascript:;")
