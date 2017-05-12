@@ -105,7 +105,7 @@
                         <div class="pro">           
                             <php> 
                                 $progress=($projectitem['proj_amount'])/($projectitem['proj_total'])*100;
-                                $progress= sprintf("%.2f",substr(sprintf("%.3f", $progress), 0, -2));
+                                $progress=  sprintf("%.2f",substr(sprintf("%.3f", $progress), 0, -2));
                             </php>  
 
                             <div class="progress">
@@ -117,7 +117,7 @@
                                 {$progress} %
                             </em>
                             <span> 
-                                所剩资金
+                                借出进度:
                             </span>
                         </div>
                         <div class="pro pro2">  

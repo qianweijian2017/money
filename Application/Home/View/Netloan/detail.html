@@ -61,21 +61,22 @@
    
       <div class="content_right_head">
         <div>
-          <span>投资进度：</span>
-          <php>  
-                
-          </php>  
+          <span>借出进度:</span>
+            <php> 
+              $progress=(1- ($projitem['proj_amount'])/($projitem['proj_total']))*100;
+              $progress=  sprintf("%.2f",substr(sprintf("%.3f", $progress), 0, -2));
+            </php>  
           <div class="progress">
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">                      
+                      <div class="progress-bar" role="progressbar" aria-valuenow="{$progress}%" aria-valuemin="0" aria-valuemax="100" style="width: {$progress}%;">                      
                       </div>
           </div>
-           <span>100.00%</span>
+           <span>{$progress}%</span>
         </div>
           <php>   
-                $remain=intval($projitem['proj_total'])-intval($projitem['proj_amount']); 
-                $remain=sliceNumber($remain); 
+                $overplus=$projitem['proj_amount']; 
+                $overplus=sliceNumber($overplus);
           </php>  
-        <div>剩余金额:<span class="money">{$projitem['proj_amount']}</span>
+        <div>剩余金额:<span class="money">{$overplus}</span>
         &nbsp;元</div>
 
         <div>账户余额： <a href="{:U('User/login')}" class="login">登入可见</a></div>
