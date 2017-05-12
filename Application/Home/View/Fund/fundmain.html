@@ -13,14 +13,22 @@
 			 	<div class="super-bg">
 			 		
 			 	</div>
-			 	<div class="link-reg">
-			 		<a href="{:U('User/register')}" class="btn btn-danger">
-			 			注册昭昭基金账户
-			 		</a>
-			 	</div>
-			 	<div class="super-footer">
-			 		已有账户?<a href="{:U('User/login')}">立即登陆</a>
-			 	</div>
+			 	<if condition="$Think.session.user eq ''">
+					<div class="link-reg">
+						<a href="{:U('User/register')}" class="btn btn-danger">
+							注册昭昭基金账户
+						</a>
+					</div>
+					<div class="super-footer">
+						已有账户?<a href="{:U('User/login')}">立即登陆</a>
+					</div>
+					<else/>
+					<div class="link-reg">
+						<a href="{:U('User/register')}" class="btn btn-danger">
+							欢迎登陆昭昭基金账户
+						</a>
+					</div>
+				</if>
 			 </div>
 		</section>
 		<!-- 大图片end -->
