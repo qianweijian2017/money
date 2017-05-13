@@ -20,6 +20,7 @@ class FundController extends Controller
 						-> order('year_profit desc') 
 						-> limit(0,8) 
 						-> select();
+						 
    	 	$this->assign('fundmain',$fundmain);// 赋值数据集
     	$this->display(); // 输出模板 
 	}
@@ -28,9 +29,9 @@ class FundController extends Controller
 	 * @return [type] [description]
 	 */
 	public function fundlist(){  
-		$fund 	   		   =  M('fund'); // 实例化fund数据对象  fund 是你的表名   
-		$where  		   =  I("get.ftype")=="9"?"1=1":$this->getWhere(I("get.ftype"));   
-    	$count  		   =  $fund  -> alias('f')
+		$fund 	   		   =   M('fund'); // 实例化fund数据对象  fund 是你的表名   
+		$where  		   =   I("get.ftype")=="9"?"1=1":$this->getWhere(I("get.ftype"));   
+    	$count  		   =   $fund  -> alias('f')
     							   	 -> where($where) 
     				 			   	 -> join('__FUND_TYPE__ t on t.type_id =f.fund_type','left')
     				 			   	 -> count(); //where 为条件,可作分类分页   
