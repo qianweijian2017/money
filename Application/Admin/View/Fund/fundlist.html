@@ -10,12 +10,40 @@
 				</button>
 			</div> 
 			<div class="btn-group oper_bar">  
-				<a href="{$Think.ACTION_NAME}" class="btn  btn-warning btn-md" class="btn_refresh">
+				<a href="{:U($Think.ACTION_NAME)}" class="btn  btn-warning btn-md" class="btn_refresh">
 					<i class="fa fa-refresh"></i>
 					<span>显示全部</span>
 				</a> 
 			</div>
-			 <!-- 默认是用户页面的搜索 --> 
+				<!-- 搜索开始 --> 
+		<div class="search_box">
+			<form method="get" action=""> 
+				<button type="submit" class="btn btn-info btn-md pull-right" id="search_news">
+					<i class="fa fa-search"></i>
+                    <span>搜索</span>
+				</button>
+				<label class="form-group pull-right"> 
+					<input type="search" name="kw" class="form-control" placeholder="请输入搜索内容" />
+				</label> 
+				<!-- PHP --> 
+				<select class="pull-right search_select" name="col">
+
+					<option value="0" <php>search_selected(I('get.kw'),'')</php> > 
+						 搜索所有
+					</option>
+					<option value="1"  <php>search_selected(I('get.col'),1)</php> >
+						基金编号
+					</option>
+					<option value="2" <php>search_selected(I('get.col'),2)</php> > 
+						基金别名
+					</option>
+					 <option value="3" <php>search_selected(I('get.col'),3)</php> > 
+						基金类型
+					</option> 
+				</select>
+			</form>
+		</div>	
+		 <!-- 搜索end--> 
 	</div>  
  <!-- 用户页面的搜索end -->
 <!-- 用户列表显示开始 -->
@@ -59,16 +87,18 @@
 			 		{$funditem.fund_name}
 			 	</td>
 			 	<td>
-			 		{$funditem.fund_type}
+			 		{$funditem.type_name}
 			 	</td> 
 			 	<td>
 			 		{$funditem.year_profit}
 			 	</td> 
 			 	<php>
-			 		if($day_up = $funditem['day_up'] < 0){
-							$color = 'colorRed';
-			 		 }else{
+			 		$day_up = $funditem['day_up'];
+			 		if($day_up < 0){
 			 		 		$color = 'colorGreen';
+							
+			 		 }else{
+			 		 		$color = 'colorRed';
 			 		 }
 			 	 </php>
 			 		
