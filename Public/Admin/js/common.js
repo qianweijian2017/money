@@ -31,7 +31,7 @@
  	//点击编辑
  	$("table.common_table tr td p").on("click",function () {
  		$(this).attr("contenteditable",true);
- 	})
+ 	});
  	$("table.common_table tr td p").blur(function () { 
  		var key=$(this).data("key");//获取列名 
  		var value=$(this).text();//获取列值   
@@ -50,4 +50,12 @@
  		}); 
  		
  	})
+
  }())
+ function doExit() {
+ 	var xmlHttpRequest =new XMLHttpRequest();
+ 	if(xmlHttpRequest){
+ 		xmlHttpRequest.onreadystatechange = state_Change;
+ 		xmlHttpRequest.open('post',);
+ 	}
+ }

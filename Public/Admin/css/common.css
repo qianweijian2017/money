@@ -1,9 +1,20 @@
 body,html{
 	 height: 100%;
 }
+ 
+
 /*table表格点击背景*/
 .tb_bg{
 	background-color: #C9C9C9;
+}
+.colorRed{
+	color: #f00;
+}
+.colorRed i{
+	color: #f00;
+}
+.colorGreen{
+	color: #00f;
 }
 .center{
 	text-align: center!important;
@@ -15,7 +26,7 @@ body,html{
 }
 .header{
 	height: 80px;
-	line-height: 80px;   
+	line-height: 78px;   
 	background-color: #3779AD;
 }
 .pbottom_10{
@@ -52,11 +63,20 @@ body,html{
 .header .header-userbar{
 	float: right;
 	margin-right: 30px;
-	width: 25%; 
+	width: 60%; 
+}
+.header .admin-oper{
+	float: left; 
+	text-align: center;
+
+}
+.header .admin-oper h4{
+	line-height: 80px;
+	color: #fff;
 }
 .header .header-userbar ul{
-	float: right;
-	width: 100%;
+	float: right; 
+	width: 50%;
 }
 .header .header-userbar ul li{
 	float: right;
@@ -107,8 +127,7 @@ body,html{
 .left-nav .header-left-nav dl dd>a:hover{
 	color: #fff;
 }
-.left-nav .header-left-nav dl a i{
-	color: #fff; 
+.left-nav .header-left-nav dl a i{ 
 	font-size: 20px;
 	margin-top: 15px;
 	float: left;
@@ -134,8 +153,11 @@ body,html{
 	font-size: 14px;
 }
 /*主要内容开始*/
+.main .ManagerBar{
+	margin-top: 10px;
+}
 .main .ManagerBar .search_box{
-
+	float: right;
 }
 .main .ManagerBar .search_box form label{
 	display: block;
