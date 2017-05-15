@@ -10,6 +10,12 @@
 				</button>
 			</div> 
 			<div class="btn-group oper_bar">  
+			<div class="btn-group oper_bar addModel-btn">
+				 <button class="btn btn-success  btn-md " >
+				    <i class="fa fa-add"></i>
+				    <span class="">添加</span>
+				 </button>
+				</div>
 				<a href="{:U($Think.ACTION_NAME)}" class="btn  btn-warning btn-md" class="btn_refresh">
 					<i class="fa fa-refresh"></i>
 					<span>显示全部</span>
@@ -134,10 +140,32 @@
 	 <div class="b-page"> 
 		{$sPages} 
 	 </div>
-	<!-- 分页 end-->
+	<!-- 分页 end--> 
+	 
 </div>
 
-
+<!-- 添加项目box -->
+<form class="addModel" method="post" action="{:U('project/projectList')}" >
+    <div class="money">
+        <span>项目发起金额</span>
+        <input class="in-money input-group" name="in-money" autofocus="autofocus">
+    </div>
+    <div class="profit">
+        <span>年化收益</span>
+        <input class="in-profit input-group" name="in-profit">
+    </div>
+    <div class="lent-profit">
+        <span>借款利率</span>
+        <input class="in-lent-profit input-group" name="in-lent-profit">
+    </div>
+    <div class="pro-type">
+        <span>项目类型</span> 
+        <input class="in-type input-group" placeholder="1 : 月月增  2 : 省心宝" name="in-type">
+    </div>
+    <input type="submit" value="确认添加" class="btn btn-success add-btn"  >
+    <input type="button" value="取消添加" class="btn btn-danger cancel-btn "   >
+</form>
+<!-- 添加项目box end-->
 
 <!-- 用户列表显示开始end --> 
  

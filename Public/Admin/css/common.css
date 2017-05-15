@@ -268,7 +268,40 @@ table.common_table tr td.book_title{
 
 
 
-
+ .addModel{ 
+    top: -100%;
+    left: 50%;
+    background: #3779AD;
+    border: 1px solid #3779AD;
+    z-index: 99;
+    position: fixed;
+    width: 368px;
+	margin-left: -93px;
+	padding: 19px;
+	color: #fff;
+ }
+ .addModel >input{
+ 	width: 80%;
+ 	display: block;
+ 	margin: 10px auto;
+ }
+ .addModel >div {
+ 	height: 40px;
+ 	line-height: 40px;
+ 	padding: 10px 5px 0 5px;
+ }
+.addModel >div > span{
+	float: left;
+	line-height: 40px;
+	width: 30%;
+}
+.addModel >div > input{
+	float: left; 
+	height: 100%;
+	width: 60%;
+	padding-left: 1%;
+	color: #333;
+}
  
 
 

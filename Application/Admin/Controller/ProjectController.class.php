@@ -14,6 +14,23 @@ class ProjectController extends AuthController
 	public function projectList()
 	{ 
 		 $project    =  M('project'); 
+		 if (IS_POST) {
+
+		    $money=I("in-money");
+		    $profit=I("in-profit");
+		    $lent_profit=I("in-lent-profit");
+		    $type=I("in-type");
+		    $data['proj_no']=time()+1;
+		    $data['proj_total']=$money;
+		    $data['pro_profit']=$profit;
+		    $data['br_profit']=$lent_profit;
+		    $data['proj_type']=$type;
+		    $data['result']="0";
+		    $data['proj_amount']="0";
+		    $data['create_time']=time();
+		    $project->add($data);
+
+		}
 		 $kw     	 =  I('get.kw','');	//没有kw ,返回空字符串
 		 $filter_kw      =  str_replace('+','',$kw);
 		 $col     	 =  I('get.col','');	//没有kw ,返回空字符串

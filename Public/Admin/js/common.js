@@ -13,20 +13,30 @@
  	})
  	//js删除 
  	$("#deleteItem").on("click",function () {
- 		var $sCheck=$("table tr td input:checked"); 
- 		if($sCheck.length!=0){
-	 		var aIds=[];
-	 		for(var i = 0 ; i < $sCheck.length ; i++ ){
-	 			aIds.push($sCheck[i].value);
-	 		}  
-	 		$.post(postDelUrl,{"controllerName":controllerName,"aIds":aIds},function (data) {
-	 			 alert(data.info);
-	 			 location.reload();
-	 		})
- 		}else{
- 			alert("请选择要删除的选项");
- 		}
- 	}) 
+ 		 layer.confirm('确定删除吗?',{ icon : 0},function () {
+ 		 	 	var $sCheck=$("table tr td input:checked"); 
+		 		if($sCheck.length!=0){
+			 		var aIds=[];
+			 		for(var i = 0 ; i < $sCheck.length ; i++ ){
+			 			aIds.push($sCheck[i].value);
+			 		}   
+			 		 
+			 		$.post(postDelUrl,{"controllerName":controllerName,"aIds":aIds},function (data) {
+			 			 
+			 			 layer.alert(data.info,{'icon' : data.icon},function () {
+			 			 	location.reload();
+			 			 });
+			 			 
+			 		})
+		 		}else{
+		 			layer.alert("请选择要删除的选项",{icon : 0});
+		 		}
+ 
+ 		 })
+
+ 		
+
+ 	});
 
  	//点击编辑
  	$("table.common_table tr td p").on("click",function () {
@@ -43,19 +53,23 @@
  				"value":value
  		},function (data) { 
  			if(data){  
- 				alert(data.info);
+ 				layer.alert(data.info);
  				$(this).removeAttr("contenteditable");
  			}  
  			
  		}); 
  		
  	})
-
+ 	//添加
+ 	$('.addModel-btn').on('click',function () { 
+        $('.addModel').animate({
+            top:"25%"
+        }) 
+	  });
+    $('.cancel-btn').on('click',function () {
+        $('.addModel').animate({
+            top:"-100%"
+        })
+    });
  }())
- function doExit() {
- 	var xmlHttpRequest =new XMLHttpRequest();
- 	if(xmlHttpRequest){
- 		xmlHttpRequest.onreadystatechange = state_Change;
- 		xmlHttpRequest.open('post',);
- 	}
- }
+ 

@@ -14,7 +14,18 @@ class FundController extends AuthController
    */
     public function fundlist()
     {
+
         	 $fund 		  =	  M('fund'); 
+           if (IS_POST) {
+            
+                $code = I("in-code");
+                $name = I("in-name");
+                $data['create_time'] = time() + 1;
+                $data['fund_code'] = $code;
+                $data['fund_name'] = $name;
+                $data['fund_fullname'] = $name;
+                $fund->add($data);
+           }
            $kw        =   trim(I('get.kw',''));  //没有kw ,返回空字符串
            $filter_kw =   str_replace('+','',$kw);
            $col       =   I('get.col',''); //没有kw ,返回空字符串
@@ -31,7 +42,7 @@ class FundController extends AuthController
 
         	 $fundlist	=   $fund -> alias('f')
                                 -> join('__FUND_TYPE__ t on t.type_id = f.fund_type')
-                                -> field('f.*,t.*,t.fund_type as type_name') 
+                                -> field('f.*,t.*,t.fund_type as type_name ,f.id as fund_id') 
                                 -> where($where) 
                                 -> limit($page ->firstRow,8) 
                                 -> select();
