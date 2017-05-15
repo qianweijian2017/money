@@ -1,0 +1,172 @@
+<include file='include/header'/>
+<link rel="stylesheet" type="text/css" href="__ADMIN__/css/echarts.css">
+<div class="charts">
+   
+    <button id="browse_charts" class="btn_charts  insetbox">贷款统计</button>
+     <button id="browse_charts" class="btn_charts">投资统计</button>
+      <button id="buyed_charts" class="btn_charts">基金类型统计</button>
+    <div id="chartsbox"  >
+        
+    </div>
+</div> 
+<include file='include/footer'/> 
+<script type="text/javascript" src="__LIB__/echarts/echarts.min.js"></script>
+<script type="text/javascript"> 
+
+    init(); 
+    //初始化
+    function init() {
+        GetBuyedData();
+    }
+    //清除饼状图的HTML
+    function ClearChart() {	 
+    	$("#chartsbox").html();
+    }
+    //当点击数据时,清空内容
+    $(".btn_charts").on("click",function () {
+    	ClearChart(); 
+    })
+
+    // 调用购买数据的方法
+    $("#buyed_charts").on("click",function(){ 
+    	GetBuyedData();
+    });
+    // 调用浏览量统计数据的方法
+    $("#browse_charts").on("click",function(){
+        GetBorrowerData();
+    })
+    
+
+    function GetBorrowerData() {  
+         $.post("{:U('charts/borrower')}", {"1":1}, function (data) { 
+             var data=data.data;
+             var aTypeName=[];
+             var aValue=[]; 
+             var Count=0;
+             for(i in data){
+               if(!data[i].browse){ continue; }
+                    aTypeName.push(data[i].book_type);
+                    aValue.push(data[i].browse); 
+                    Count+=Number(data[i].browse);
+            }   
+
+            AppendPillarCharts(aTypeName,aValue,Count);
+         })
+    }
+     //制作柱状图
+    function AppendPillarCharts(aXTypeName,aSeriesValue,Count) {
+        var myChart = echarts.init(document.getElementById('chartsbox')); 
+            option = {
+                color: ['#3398DB'],
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis : [
+                    {
+                        type : 'category',
+                        data : aXTypeName,      //底部分类数组
+                        axisTick: {
+                            alignWithLabel: true
+                        }
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value'
+                    }
+                ],
+                series : [
+                    {
+                        name:'浏览量',
+                        type:'bar',
+                        barWidth: '60%',
+                        data:aSeriesValue           //柱状图的值
+                    }
+                ]
+            };
+
+        myChart.setOption(option); 
+         $(".charts h4").remove();
+         $("#chartsbox").before("<h4 class='pull-right'>总浏览量:"+Count+"</h4>"); 
+    }
+    // 获取购买数据
+    function GetBuyedData() {
+        var text="电子书购买统计";
+        var subtext="被购买书籍中类型的统计";
+        $.post("{:U('charts/getbuyed')}", {"1":1}, function (data) {
+             var data=data.data;
+             var aTypeName=[];
+             var aKeyValue=[]; 
+             for(i in data){
+               if(!data[i].sale){ continue; }
+                    aTypeName.push(data[i].book_type);
+                     
+                    aKeyValue.push(
+                            {
+                                value:data[i].sale,
+                                name:data[i].book_type
+                            }
+                    );
+                 
+            }   
+            AppendCircleCharts(text,subtext,aTypeName,aKeyValue); 
+        });
+        
+    } 
+
+ 
+
+    //制作饼状图
+    function AppendCircleCharts(sText,sSubText,aLegendData,aSeriesData) {
+    	var myChart = echarts.init(document.getElementById('chartsbox'));
+    	option = {
+        title : {
+            text: sText,//标题
+            subtext: sSubText,		//标题下面
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: aLegendData //左侧分类选项
+        },
+        series : [
+            {
+                name: '购书量',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:aSeriesData,//饼状图数据---左侧分类选项
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    }
+     myChart.setOption(option);
+}
+//样式  修改
+$(".btn_charts").click(function() {
+    $(this).addClass('insetbox').siblings().removeClass('insetbox');
+});
+
+</script>
+ 
+

@@ -65,3 +65,17 @@
           return true;
 
 }
+
+
+/**
+ * 搜索选项
+ */
+function  search_selected($this_col,$cur_select) {
+
+    if($this_col == $cur_select){
+        echo 'selected';
+    }else{
+        echo '';
+    }
+
+}

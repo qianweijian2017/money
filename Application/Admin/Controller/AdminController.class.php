@@ -27,14 +27,5 @@ class AdminController extends AuthController
 	
 	
 
-	/**
-	 * 登陆界面 
-	 * @return [type] [description]
-	 */
-	public function login()
-	{
-		 
-		$this -> display();
-	}
-
+	 
 }
