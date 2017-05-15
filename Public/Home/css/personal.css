@@ -215,7 +215,8 @@ width: 72px;
     float: left;
     margin-top: 20px;
     width: 710px;
-    height: 500px;
+    overflow: hidden;
+
 }
 .personal_capital{
     width: 100%;
@@ -300,10 +301,31 @@ width: 72px;
     color: #0075C1;
 }
 .xxk_title{
-    padding: 10px 20px 0px 20px;
+    margin: 30px 0px 10px 0px;
+    overflow: hidden;
+}
+.xxk_title li{
+    float: left;
+}
+.xxk_title li.title{
+    padding: 10px 15px;
+    background: #FF4F3F;
+    margin-right: 30px;
+}
+.xxk_title li h4{
+        color: #FFF;
+}
+.xxk_title li a{
+    line-height: 46px;
+    font-size:15px;
+    margin-right: 20px;
+    color: #666;
+}
+.xxk_title .active a{
+    color: #0075C1;
+    font-weight: bold;
 }
 .xxk_content{
-    padding: 10px 0px 0px 0px;
 }
 .xxk_content .pagination{
     margin: 0px;

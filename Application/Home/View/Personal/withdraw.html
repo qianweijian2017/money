@@ -15,11 +15,15 @@
         <div class="bank">
             <form action="{:U('personal/withdraw')}" method="post">
                 <div class="form_content">
+                    <label>提现额度</label>
                     <input class="input" type="text" name="money" placeholder="提现额度"><br>
+                    <label>银行卡号</label>
                     <input class="input" type="text" name="bank_card" placeholder="银行卡号"><br>
+                    <label>交易密码</label>
                     <input class="input" type="password" name="trader_pwd" placeholder="交易密码">
                 </div>
                 <div class="form_content">
+                    <label></label>
                     <input class="submit" type="submit" value="提现">
                 </div>
             </form>
