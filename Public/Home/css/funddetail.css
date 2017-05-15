@@ -20,9 +20,8 @@ ul li{
 	float: left;
 }
 .xq_hd{
-	width: 100%;
-	background: #0f91dd;
-    color: #fff;
+	width: 100%; 
+    color: #666;
 }
 .xq_hd ul{
 	font-size: 14px;
@@ -35,6 +34,9 @@ ul li{
 .xq_hd ul li a{
 	color: #9fdaff;
 	padding: 0 10px;
+}
+.xq_hd ul li a.color3{
+	color: #999;
 }
 .xq_hd ul li:nth-child(1){
 	padding-right: 10px;
@@ -242,7 +244,6 @@ ul li{
 	width: 210px;
 	height: 210px;
 }
- 
 .fundgaikuang .fn #gk .zcfb .zcfb-r{
 	margin-left: 120px;
 }
