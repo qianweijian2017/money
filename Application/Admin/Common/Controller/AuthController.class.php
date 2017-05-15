@@ -12,7 +12,7 @@ class AuthController extends Controller
 	  
 	 	$user	       		=  session('admin');
 	 	if(!$user){
-	 		$this -> error('请先登陆',U('User/login'));exit;
+	 		$this -> error('请先登陆',U('ajax/login'));exit;
 	 	}
 	 	$role_id       		=  $user['role_id'];			//获取用户权限ID
 	 	$rbac_role_auths    =  C('RBAC_ROLE_AUTHS');		//获取用户组的权限
