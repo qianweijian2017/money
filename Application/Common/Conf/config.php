@@ -8,9 +8,10 @@ return array(
     'DB_PORT'               =>  '',        // 端口
     'DB_PREFIX'             =>  'mn_',    // 数据库表前缀
     'TMPL_PARSE_STRING'		=>	array(
+                '__ROOT__'         =>   __ROOT__.'/',
     			'__ADMIN__' 		=>	 __ROOT__.'/Public/Admin',
-    			'__HOME__'			=> 	__ROOT__.'/Public/Home' ,
-    			'__LIB__'			=> 	__ROOT__.'/Public/Lib' ,
-    			'__UPLOAD_PATH__'	=> 	__ROOT__.'/Public/upload' 
+    			'__HOME__'			=> 	 __ROOT__.'/Public/Home' ,
+    			'__LIB__'			=> 	 __ROOT__.'/Public/Lib' ,
+    			'__UPLOAD_PATH__'	=> 	 __ROOT__.'/Public/upload' 
     	),	
 );
