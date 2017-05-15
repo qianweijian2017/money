@@ -37,25 +37,25 @@ class PersonalController extends AuthController
 		$user_info['user_id_card']=$result['user_id_card'];
 
 		//总资产
-		$user_fund=M('goods')
-				->field('money')
+		$user_fund=M('proj_moneyman')
+				->field('in_amount')
 				->where('user_id='.$id.' and status=1')
 				->select();
 		$val_money='';
 		foreach($user_fund as $value){
-			$val_money +=$value['money'];
+			$val_money +=$value['in_amount'];
 		}
 		$user_info['user_all_money']=$val_money+$user_info['money'];
 		//总收益
-		$user_income=M('goods_fund_income')
-				->field('income_money,money')
-				->where('user_id='.$id)
+		$user_income=M('proj_buyed')
+				->field('in_amount,interest')
+				->where('status=1 and user_id='.$id)
 				->select();
 		$val_income='';
 		$val_finish='';
 		foreach($user_income as $value){
-			$val_income +=$value['income_money'];
-			$val_finish +=$value['money'];
+			$val_income +=$value['interest'];
+			$val_finish +=$value['in_amount'];
 		}
 		$user_info['count_invest']=count($user_income)+count($user_fund);
 		$user_info['val_income']=$val_income;
@@ -69,41 +69,98 @@ class PersonalController extends AuthController
 //	ajax分页刷新进行中，个人中心首页
 	public function ajax_run(){
 		$page_num=$this->psn_page_num;//每页显示的数量
-		$count = M('goods')->where('status=1 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
+		$count = M('proj_moneyman')->where('status=1 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
 		$Page = new \Think\Pagea($count, $page_num, 'run');// 实例化分页类 传入总记录数和每页显示的记录数
 		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
-		$cate_list=M('goods')
+		$cate_list=M('proj_moneyman')
 				->where('status=1 and user_id='.session(user)['id'])
 				->limit($Page->firstRow.','.$Page->listRows)
 				->order('id desc')->select();
 		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
 	}
 
-//	ajax分页刷新进行中，个人中心首页
+
+	//	ajax分页刷新已完成，个人中心首页
+	public function ajax_finish(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('proj_buyed')
+				->where('status=1 and user_id='.session(user)['id'])
+				->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'finish');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('proj_buyed')
+				->where('status=1 and user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+	//	ajax分页刷新未完成，个人中心首页
 	public function ajax_not(){
 		$page_num=$this->psn_page_num;//每页显示的数量
-		$count = M('goods')->where('status=0 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
+		$count = M('proj_moneyman')->where('status=0 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
 		$Page = new \Think\Pagea($count, $page_num, 'not');// 实例化分页类 传入总记录数和每页显示的记录数
 		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
-		$cate_list=M('goods')
+		$cate_list=M('proj_moneyman')
 				->where('status=0 and user_id='.session(user)['id'])
 				->limit($Page->firstRow.','.$Page->listRows)
 				->order('id desc')->select();
 		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
 	}
 
-	//	ajax分页刷新已完成，个人中心首页
-	public function ajax_finish(){
+	//	ajax分页刷新进行中，个人中心首页
+	public function ajax_run_loan(){
 		$page_num=$this->psn_page_num;//每页显示的数量
-		$count = M('goods_fund_income')
-				->where('user_id='.session(user)['id'])
-				->count();// 查询商品列表总数量
-		$Page = new \Think\Pagea($count, $page_num, 'finish');// 实例化分页类 传入总记录数和每页显示的记录数
+		$count = M('proj_borrower')->where('status=1 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'run_loan');// 实例化分页类 传入总记录数和每页显示的记录数
 		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
-		$cate_list=M('goods_fund_income')
-				->where('user_id='.session(user)['id'])
+		$cate_list=M('proj_borrower')
+				->where('status=1 and user_id='.session(user)['id'])
 				->limit($Page->firstRow.','.$Page->listRows)
-				->order('goods_id desc')->select();
+				->order('id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+	//	ajax分页刷新已完成，个人中心首页
+	public function ajax_loan(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('proj_buyed')
+				->where('status=2 and user_id='.session(user)['id'])
+				->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'loan');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('proj_buyed')
+				->where('status=2 and user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+	//	ajax分页刷新已完成，个人中心首页
+	public function ajax_finish_loan(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('proj_buyed')
+				->where('status=3 and user_id='.session(user)['id'])
+				->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'finish_loan');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('proj_buyed')
+				->where('status=3 and user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('id desc')->select();
+		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
+	}
+
+	//	ajax分页刷新未完成，个人中心首页
+	public function ajax_not_loan(){
+		$page_num=$this->psn_page_num;//每页显示的数量
+		$count = M('proj_borrower')->where('status=0 and user_id='.session(user)['id'])->count();// 查询商品列表总数量
+		$Page = new \Think\Pagea($count, $page_num, 'not_loan');// 实例化分页类 传入总记录数和每页显示的记录数
+		$show = $Page->show();// 生成分页盒子的结构 例如:1 2 3 4 ...
+		$cate_list=M('proj_borrower')
+				->where('status=0 and user_id='.session(user)['id'])
+				->limit($Page->firstRow.','.$Page->listRows)
+				->order('id desc')->select();
 		$this->ajaxReturn(array('show'=>$show,'cate_list'=>$cate_list));
 	}
 
@@ -161,6 +218,7 @@ class PersonalController extends AuthController
 
 
 	}
+//	安全
 	public function personal_safe(){
 		$result= M('user')->alias('u')
 				->field('u.user_phone,u.user_email,u.user_pwd,uc.user_real_name,uc.user_id_card')
@@ -333,19 +391,20 @@ class PersonalController extends AuthController
 	}
 //	充值
 	public function recharge(){
+		$user_id=session(user)['id'];
 		if(IS_POST){
 			if(I("money")>0){
 				$user_money=M('user_money');
-				$result_money=$user_money->where('user_id='.session(user)['id'])->find();
+				$result_money=$user_money->where('user_id='.$user_id)->find();
 				if(!$result_money['trader_pwd']){
 					$this->error('请先设置您的交易密码',U("personal/trader_pwd"));
 				}else{
-					$card_list=M('user_bankcard')->where('user_id='.session(user)['id'])->select();
+					$card_list=M('user_bankcard')->where('user_id='.$user_id)->select();
 					foreach($card_list as $value){
 						if($value['bank_card']==I('bank_card')){
 							if($result_money['trader_pwd']==md5(I('trader_pwd'))){
 								$data['money']=I('money')+$result_money['money'];
-								$result=$user_money->where('user_id='.session(user)['id'])->save($data);
+								$result=$user_money->where('user_id='.$user_id)->save($data);
 								if($result){
 									$this->success('充值成功',U("personal/index"));
 								}else{

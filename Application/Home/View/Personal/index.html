@@ -87,21 +87,10 @@
                     投资管理
                 </div>
                 <div class="invest_content">
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_03.png"></div><span>月月增</span></a>
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_05.png"></div><span>季季增</span></a>
+                    <a href="{:U('regular/regular')}"><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_03.png"></div><span>我要投资</span></a>
+                    <a  href="{:U('Netloan/net')}"><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_05.png"></div><span>我要贷款</span></a>
                     <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_08.png"></div><span>省心宝</span></a>
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_14.png"></div><span>定期理财</span></a>
-                </div>
-            </div>
-            <div class="invest_manage">
-                <div class="account_title  invest_manage_title">
-                    投资管理
-                </div>
-                <div class="invest_content">
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_18.png"></div><span>月月增</span></a>
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_20.png"></div><span>季季增</span></a>
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_22.png"></div><span>省心宝</span></a>
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_28.png"></div><span>定期理财</span></a>
+                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_14.png"></div><span>理财</span></a>
                 </div>
             </div>
             <div class="invest_manage">
@@ -123,7 +112,7 @@
                     <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_31.png"></div><span>会员资料</span></a>
                     <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_32.png"></div><span>安全认证</span></a>
                     <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_34.png"></div><span>密码管理</span></a>
-                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_39.png"></div><span>pp合伙人</span></a>
+                    <a><div class="img"><img src="__PUBLIC__/Home/imgs/user/account_39.png"></div><span>昭昭合伙人</span></a>
                 </div>
             </div>
 
@@ -160,10 +149,11 @@
                 <p class="all_profit">累计投资：<span>{$user_info['count_invest']}</span>笔， 共计：<span>{$user_info['invest_money']}</span>元</p>
             </div>
 
-            <ul id="myTab" class="nav nav-tabs xxk_title">
+            <ul id="myTab" class="xxk_title">
+                <li class="title"><h4>个人投资</h4></li>
                 <li class="active"><a href="#run" data-toggle="tab">进行中</a></li>
                 <li><a href="#finish" data-toggle="tab">已完成</a></li>
-                <li><a href="#not" data-toggle="tab">未完成</a></li>
+                <li><a href="#not" data-toggle="tab">未付款</a></li>
             </ul>
             <div class="tab-content xxk_content">
                 <div class="tab-pane fade in active" id="run">
@@ -171,10 +161,10 @@
                         <thead>
                         <tr>
                             <th>id</th>
-                            <th>资金</th>
-                            <th>代号</th>
-                            <th>期限</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
                             <th>剩余天数</th>
+                            <th>开始时间</th>
                         </tr>
                         </thead>
                         <tbody class="tbody_ajax"></tbody>
@@ -186,11 +176,10 @@
                         <thead>
                         <tr>
                             <th>产品id</th>
-                            <th>资金</th>
-                            <th>代号</th>
-                            <th>期限</th>
-                            <th>利率（%）</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
                             <th>收益（元）</th>
+                            <th>创建时间</th>
                         </tr>
                         </thead>
                         <tbody class="finish_tbody"></tbody>
@@ -202,13 +191,82 @@
                         <thead>
                         <tr>
                             <th>id</th>
-                            <th>资金</th>
-                            <th>代号</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
+                            <th>创建时间</th>
                         </tr>
                         </thead>
                         <tbody class="not_tbody"></tbody>
                     </table>
                     <div class="pagination not_page"></div>
+                </div>
+            </div>
+            <ul id="myTab2" class="xxk_title">
+                <li class="title"><h4>个人贷款</h4></li>
+                <li class="active"><a href="#run_loan" data-toggle="tab">进行中</a></li>
+                <li><a href="#loan" data-toggle="tab">还款中</a></li>
+                <li><a href="#finish_loan" data-toggle="tab">已完成</a></li>
+                <li><a href="#not_loan" data-toggle="tab">未付款</a></li>
+            </ul>
+            <div class="tab-content xxk_content">
+                <div class="tab-pane fade in active" id="run_loan">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
+                            <th>剩余天数</th>
+                            <th>开始时间</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody_loan_ajax"></tbody>
+                    </table>
+                    <div class="pagination page_loan_ajax"></div>
+                </div>
+                <div class="tab-pane fade" id="loan">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>产品id</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
+                            <th>贷款利息（元）</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody class="loan_tbody"></tbody>
+                    </table>
+                    <div class="pagination loan_page"></div>
+                </div>
+                <div class="tab-pane fade" id="finish_loan">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>产品id</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
+                            <th>贷款利息（元）</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody class="finish_loan_tbody"></tbody>
+                    </table>
+                    <div class="pagination finish_loan_page"></div>
+                </div>
+                <div class="tab-pane fade" id="not_loan">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>项目编号</th>
+                            <th>本金</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody class="not_loan_tbody"></tbody>
+                    </table>
+                    <div class="pagination not_loan_page"></div>
                 </div>
             </div>
 
