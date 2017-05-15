@@ -8,8 +8,8 @@ return array(
 		),
 	'RBAC_ROLE_AUTHS'  	=> array(
 								1  =>  '*/*',
-								2  =>  array('nav/*','news/*'),
-								3  =>  array('fund/*','project/*','user/*') 
+								2  =>  array('nav/*','news/*','index/index'),
+								3  =>  array('fund/*','project/*','user/*','charts/*','projbuyed/*','index/index') 
 		),
 	'SHOW_PAGE_TRACE'	=> true,
 );
