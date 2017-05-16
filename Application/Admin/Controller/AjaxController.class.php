@@ -11,12 +11,12 @@ class AjaxController extends Controller
 	{
 		 if(IS_POST){ 
 		 	$admin_name =	I('abc');
-		 	$admin_pwd	=	I('efg');
-		 	$admin_pwd	=	md5($admin_pwd);
+		 	$admin_pwd	=	I('efg'); 
 		 	$admin 		=   D('admin'); 
-		 	
+		 	$admin_pwd	=	md5($admin_pwd);
 	 		$result	= $admin -> where("admin_name = '{$admin_name}' and admin_pwd = '{$admin_pwd}'")
 	 						 -> find();  
+	 						 
 	 		if($result){  
  				session("admin",$result);
  				$this -> success('登陆成功!',U('index/index')); 
