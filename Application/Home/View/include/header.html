@@ -26,7 +26,7 @@
     </div>
     <div class="header_top_right">
         <if condition="$Think.session.user neq ''">
-            <a class="portrait"><img src="__PUBLIC__{$Think.session.user.user_portrait}"></a>
+            <a  href="{:U('personal/index')}" class="portrait"><img src="__PUBLIC__{$Think.session.user.user_portrait}"></a>
             <if condition="$Think.session.user.user_name neq '' ">
                 <a>欢迎，{$Think.session.user.user_name}</a>
                 <elseif condition="$Think.session.user.user_email neq '' " />

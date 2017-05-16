@@ -145,7 +145,8 @@ a:hover{
 }
 .fenlei .prlist .explain .goumai{
     margin-top: 20px;
-	margin-left: 30px;
+    margin-right: 10px;
+	float: right;
 }
 .fenlei .prlist .explain .goumai:hover .goumai_btn{
     background: #ff4f3f;
@@ -158,6 +159,7 @@ a:hover{
     background: #ea4343;
     color: #fff;
     display: block;
+    float: right;
     border-radius: 4px;
     text-align: center;
 }
